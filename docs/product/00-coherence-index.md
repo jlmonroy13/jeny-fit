@@ -12,8 +12,8 @@
 
 | Doc | Rol | IDs | Estado fill |
 |-----|-----|-----|-------------|
-| **01** | Por qué | VISION-* | v0.3 borrador (revisar North Star) |
-| **02** | Qué entra MVP | MVP-* | Pendiente |
+| **01** | Por qué | VISION-* | v1.0 cerrado |
+| **02** | Qué entra MVP | MVP-* | v0.2 borrador (revisar) |
 | **03** | Quién | ROLE-*, F-* | Pendiente |
 | **04** | Cómo (journeys) | FLOW-* | Pendiente |
 | **05** | Qué persiste | DOMAIN-* | Pendiente |
@@ -93,18 +93,20 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 | Nav cliente | Bottom nav: Inicio, Entreno, Nutrición, Historial, Perfil. |
 | Idioma UI | Español (es) — convención repo / AGENTS; **sin** i18n multi-idioma en MVP. |
 | Moneda / mercado | Cobros en **USD**; clientes pueden estar fuera de Colombia. |
+| North Star | % días de entreno cerrados por cliente activo / semana (`VISION-008`). |
 
 ## 4. Preguntas abiertas activas
 
 | ID | Doc | Tema |
 |----|-----|------|
-| VISION-OPEN-01 | 01 | North Star Metric concreta (qué medimos para éxito del MVP). |
 | MVP-OPEN-01 | 02 | Umbral exacto de estado pago **“próximo a vencer”** (¿N días antes de la fecha de cobro?). |
 | MVP-OPEN-02 | 02 / 06 | Contenido canónico de la encuesta diagnóstica (preguntas cerradas/abiertas) y lista de medidas corporales. |
 | DOMAIN-OPEN-01 | 05 | ¿Producto **single-coach** (solo Jeny) en MVP, o multi-tenant genérico desde el inicio? |
 | DOMAIN-OPEN-02 | 05 | Campos exactos del snapshot de ejercicio en un día (nombre, músculo, media, …). |
 | AUTH-OPEN-01 | 03 / 09 | Cómo se provisiona la cuenta inicial de Jeny (seed/script, env, invite) y recuperación de contraseña. |
 | TS-OPEN-* | 10 | Proveedor auth (password coach + magic link clientes), DB/ORM, hosting — cerrar en M1-04 (no en este fill de producto). |
+
+~~VISION-OPEN-01~~ cerrado → `VISION-008` (doc 01).
 
 ## 5. Checklist coherencia (PR doc)
 

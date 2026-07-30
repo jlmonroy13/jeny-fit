@@ -1,6 +1,6 @@
 # 01 · Product vision
 
-> **Estado:** v0.3 — vision + mercado internacional / USD / UI es sin i18n MVP.
+> **Estado:** v1.0 — cerrado (VISION-001…008). OPENs de producto posteriores viven en `00` §4.
 
 ## 1. Objetivo y audiencia
 
@@ -31,15 +31,20 @@ Eso genera fricción operativa para Jeny y una experiencia incompleta / inconsis
 
 ## 5. North Star Metric
 
-> **Abierta — `VISION-OPEN-01`.** Candidatas (elegir una al cerrar este OPEN):
+**% de días de entreno cerrados** (todas las series con RIR) **por cliente activo / semana**.
 
-| Candidata | Por qué podría servir |
-|-----------|------------------------|
-| % de días de entreno **cerrados** (RIR completo) por cliente activo / semana | Mide adopción real del registro en app. |
-| Clientes con **bloque vigente planeado** (sin estado “esperando próximo bloque”) | Mide que Jeny mantiene el ciclo de planeación. |
-| Clientes **al día de pago** entre activos | Mide salud operativa del negocio de Jeny. |
+Mide adopción del gesto central del producto (reemplazo de Excel/WhatsApp para el registro del día).
 
-Hasta cerrar el OPEN, no usar ninguna métrica como gate de milestone.
+**KPIs secundarios** (no son North Star; útiles para operación):
+
+| KPI | Para qué |
+|-----|----------|
+| Clientes con bloque vigente planeado (sin “esperando próximo bloque”) | Ritmo de planeación de Jeny |
+| Clientes al día de pago (entre activos) | Salud de cobro (USD) |
+
+| ID | Decisión |
+|----|----------|
+| VISION-008 | North Star = % días de entreno cerrados por cliente activo / semana |
 
 ## 6. Usuario objetivo (primario)
 
@@ -72,6 +77,7 @@ Hasta cerrar el OPEN, no usar ninguna métrica como gate de milestone.
 | VISION-005 | Alta de clientes | Solo Jeny invita/agrega por correo; sin auto-registro. |
 | VISION-006 | Job-to-be-done coach | Reemplazar Excel + operación suelta en WhatsApp por una plataforma de planeación, seguimiento y cobro. |
 | VISION-007 | Job-to-be-done cliente | Ejecutar el día de entreno (RIR + timer), ver nutrición/historial/feedback, sin gestionar la planeación. |
+| VISION-008 | North Star Metric | % de días de entreno **cerrados** (RIR completo) por cliente activo / semana. |
 
 ## 9. Referencias
 
