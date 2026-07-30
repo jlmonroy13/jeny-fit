@@ -31,7 +31,7 @@ Full rules live in **`docs/product/`** — do not duplicate or contradict them i
 - Pagos: “próximo a vencer” = **7 días** antes del cobro (`MVP-008`)
 - Medidas: 12 circunferencias + instructivo in-app (`MVP-014`)
 - Resultado diagnóstico: **fuera de la app** en MVP; app solo inputs + evolución (`MVP-015`)
-- Snapshot ejercicio: nombre, carga, series, reps objetivo (+ id biblioteca) — formalizar en doc 05
+- Snapshot ejercicio: `DOMAIN-021` + día status derivado / `birthDate` / meal macros (`DOMAIN-025`, `DOMAIN-026`)
 
 Full tables: [`01-product-vision.md`](../../docs/product/01-product-vision.md), [`02-scope-mvp.md`](../../docs/product/02-scope-mvp.md), [`00-coherence-index.md`](../../docs/product/00-coherence-index.md) §3.
 

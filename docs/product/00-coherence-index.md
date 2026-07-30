@@ -16,7 +16,7 @@
 | **02** | Qué entra MVP | MVP-* | v0.5 — estable; solo `MVP-OPEN-02` (encuesta) |
 | **03** | Quién | ROLE-*, F-* | v1.0 cerrado |
 | **04** | Cómo (journeys) | FLOW-* | v1.0 cerrado |
-| **05** | Qué persiste | DOMAIN-* | Pendiente |
+| **05** | Qué persiste | DOMAIN-* | v1.0 cerrado |
 | **06** | Reglas testeables | BR-* | Pendiente |
 | **07-prototype-screens** | UI MVP vs prototipo | Tabla Sí/No | Pendiente |
 | **07-design-system** | Tokens/componentes/copy UI | — | Pendiente |
@@ -85,7 +85,7 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 | Edición Jeny | Cualquier campo, cualquier día (pasado / actual / futuro), **incluido RIR del cliente** (`ROLE-001`). |
 | Valoración seguimiento | Coach **abre** el seguimiento mensual; cliente **completa** inputs; coach puede editar (`ROLE-002`). |
 | Biblioteca | Una biblioteca **global** de ejercicios; solo Jeny la modifica. |
-| Snapshot | En días ya usados: copiar al menos **nombre, carga, series, reps objetivo** (+ id de biblioteca si existe); cambios posteriores en biblioteca no los alteran (`DOMAIN-OPEN-02` cerrado). |
+| Snapshot | `DayExercise` copia name/load/sets/reps (+ library id); status de día **derivado** + `closedAt` (`DOMAIN-021`, `DOMAIN-026`). |
 | Videos en app | **Fuera de MVP** — placeholder “Próximamente”; video sigue por WhatsApp. |
 | Bloque agotado | Estado claro “esperando el próximo bloque” (no error / vacío). |
 | Nutrición | Hasta 6 comidas (Comida 1…6), no desayuno/almuerzo; solo lectura para cliente; independiente del ciclo de bloques. |
@@ -113,7 +113,7 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 ~~MVP-OPEN-03~~ → `MVP-015` (resultado fuera de app).  
 ~~DOMAIN-OPEN-01~~ → `MVP-016` (single-coach).  
 ~~AUTH-OPEN-01~~ → `MVP-017` (seed + reset email).  
-~~DOMAIN-OPEN-02~~ → snapshot mínimo (nombre, carga, series, reps, id biblioteca); formalizar IDs en doc 05.  
+~~DOMAIN-OPEN-02~~ → `DOMAIN-021` / `DayExercise` snapshot (doc 05).  
 `MVP-014` medidas + instructivo.
 
 ## 5. Checklist coherencia (PR doc)
