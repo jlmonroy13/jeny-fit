@@ -14,8 +14,8 @@
 |-----|-----|-----|-------------|
 | **01** | Por qué | VISION-* | v1.0 cerrado |
 | **02** | Qué entra MVP | MVP-* | v0.5 — estable; solo `MVP-OPEN-02` (encuesta) |
-| **03** | Quién | ROLE-*, F-* | Pendiente |
-| **04** | Cómo (journeys) | FLOW-* | Pendiente |
+| **03** | Quién | ROLE-*, F-* | v1.0 cerrado |
+| **04** | Cómo (journeys) | FLOW-* | v1.0 cerrado |
 | **05** | Qué persiste | DOMAIN-* | Pendiente |
 | **06** | Reglas testeables | BR-* | Pendiente |
 | **07-prototype-screens** | UI MVP vs prototipo | Tabla Sí/No | Pendiente |
@@ -48,17 +48,19 @@
 
 | Tema | Flow | Reglas | Feature | Stack |
 |------|------|--------|---------|-------|
-| Auth Jeny (usuario/contraseña) | _(04)_ | _(06)_ | _(03)_ | _(10 — password)_ |
-| Auth cliente (magic link) / alta por coach | _(04)_ | _(06)_ | _(03)_ | _(10 — magic link)_ |
-| Plan entrenamiento (bloque→serie) | _(04)_ | _(06)_ | _(03)_ | — |
-| Registro RIR + cierre de día | _(04)_ | _(06)_ | _(03)_ | — |
-| Navegación secuencial / historial | _(04)_ | _(06)_ | _(03)_ | — |
-| Biblioteca ejercicios + snapshot | _(04)_ | _(06)_ | _(03)_ | — |
-| Plan nutricional (≤6 comidas) | _(04)_ | _(06)_ | _(03)_ | — |
-| Feedback coach al cierre de bloque | _(04)_ | _(06)_ | _(03)_ | — |
-| Pagos manuales + avisos | _(04)_ | _(06)_ | _(03)_ | — |
-| Valoración inicial + seguimiento | _(04)_ | _(06)_ | _(03)_ | — |
-| Timer descanso (cliente) | _(04)_ | — | _(03)_ | — |
+| Auth Jeny (usuario/contraseña) | FLOW-001, FLOW-002 | _(06)_ | F-001 | _(10 — password)_ |
+| Auth cliente (magic link) / alta por coach | FLOW-003, FLOW-004 | _(06)_ | F-002, F-003 | _(10 — magic link)_ |
+| Plan entrenamiento (bloque→serie) | FLOW-006 | _(06)_ | F-006 | — |
+| Registro RIR + cierre de día | FLOW-008 | _(06)_ | F-015 | — |
+| Navegación secuencial / historial | FLOW-008, FLOW-009, FLOW-011, FLOW-018 | _(06)_ | F-014, F-017 | — |
+| Biblioteca ejercicios + snapshot | FLOW-005 | _(06)_ | F-005 | — |
+| Plan nutricional (≤6 comidas) | FLOW-007 | _(06)_ | F-009, F-016 | — |
+| Feedback coach al cierre de bloque | FLOW-012, FLOW-011 | _(06)_ | F-010 | — |
+| Pagos manuales + avisos | FLOW-014, FLOW-015 | _(06)_ | F-011 | — |
+| Valoración inicial + seguimiento | FLOW-016, FLOW-017 | _(06)_ | F-012, F-013 | — |
+| Timer descanso (cliente) | FLOW-008 | — | F-015 | — |
+| Coach corrige RIR | FLOW-010 | _(06)_ | F-006 | — |
+| Plan Completo / Comparación | FLOW-013 | — | F-007, F-008 | — |
 
 ## 3. Decisiones alineadas (no reabrir sin PR)
 
@@ -80,7 +82,8 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 | Avance cliente | **Secuencial** por días completados — no por fecha calendario. |
 | Cierre de día | Requiere RIR en **todas** las series del día. |
 | Edición Cliente | Solo RIR (+ observación opcional); día actual o pasados; **nunca** futuros. |
-| Edición Jeny | Cualquier campo, cualquier día (pasado / actual / futuro). |
+| Edición Jeny | Cualquier campo, cualquier día (pasado / actual / futuro), **incluido RIR del cliente** (`ROLE-001`). |
+| Valoración seguimiento | Coach **abre** el seguimiento mensual; cliente **completa** inputs; coach puede editar (`ROLE-002`). |
 | Biblioteca | Una biblioteca **global** de ejercicios; solo Jeny la modifica. |
 | Snapshot | En días ya usados: copiar al menos **nombre, carga, series, reps objetivo** (+ id de biblioteca si existe); cambios posteriores en biblioteca no los alteran (`DOMAIN-OPEN-02` cerrado). |
 | Videos en app | **Fuera de MVP** — placeholder “Próximamente”; video sigue por WhatsApp. |

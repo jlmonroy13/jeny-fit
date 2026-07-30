@@ -27,6 +27,7 @@ Full rules live in **`docs/product/`** — do not duplicate or contradict them i
 - Alta: solo Jeny por correo; sin auto-registro (`VISION-005`)
 - North Star: % días de entreno cerrados / cliente activo / semana (`VISION-008`)
 - Tenancy: **single-coach** (solo Jeny) en MVP (`MVP-016`)
+- Roles: `ROLE-coach` / `ROLE-client`; Jeny puede editar RIR del cliente (`ROLE-001`); seguimiento mensual lo abre el coach (`ROLE-002`)
 - Pagos: “próximo a vencer” = **7 días** antes del cobro (`MVP-008`)
 - Medidas: 12 circunferencias + instructivo in-app (`MVP-014`)
 - Resultado diagnóstico: **fuera de la app** en MVP; app solo inputs + evolución (`MVP-015`)
