@@ -100,6 +100,8 @@ Estado de pago (**al día / próximo a vencer / vencido**) es **derivado** (no c
 
 ### ExerciseLibraryItem (`DOMAIN-003`)
 
+Catálogo global: **qué** ejercicio es (nombre, notas/media). **No** incluye carga, series ni reps de plan — eso se prescribe al meter el ejercicio en un día del cliente.
+
 | Campo | Tipo | Notas |
 |-------|------|-------|
 | id | uuid | PK |
@@ -140,21 +142,23 @@ Estado de pago (**al día / próximo a vencer / vencido**) es **derivado** (no c
 | calendarLabel | string | Ej. "Lunes" (etiqueta acordada; no gobierna navegación) |
 | closedAt | datetime? | Set al cerrar el día; status UI **derivado** (no columna `status`) |
 
-### DayExercise (`DOMAIN-007`) — snapshot
+### DayExercise (`DOMAIN-007`) — snapshot del día
+
+Fila creada cuando el coach **asigna** un ejercicio de la biblioteca a un día y **define la prescripción** (carga, series, reps) para ese cliente/día. El snapshot guarda esa prescripción + nombre, para que cambios posteriores en la biblioteca no reescriban el historial.
 
 | Campo | Tipo | Notas |
 |-------|------|-------|
 | id | uuid | PK |
 | dayId | uuid | FK |
 | sortOrder | int | |
-| libraryItemId | uuid? | Ref opcional a biblioteca |
-| nameSnapshot | string | **Obligatorio** (copia) |
-| load | decimal | Carga / peso prescrito |
-| targetSets | int | Nº series planificadas |
-| targetReps | int o string | Reps objetivo |
-| notes | string? | Indicaciones coach |
+| libraryItemId | uuid? | Ref al catálogo (origen) |
+| nameSnapshot | string | Copiado del nombre de biblioteca al asignar |
+| load | decimal | **Prescrito en el día** (no viene de biblioteca) |
+| targetSets | int | **Prescrito en el día** |
+| targetReps | int o string | **Prescrito en el día** |
+| notes | string? | Indicaciones coach para ese día |
 
-Campos mínimos cerrados (ex-`DOMAIN-OPEN-02`): **nombre, carga, series, reps, id biblioteca**.
+Campos mínimos del snapshot (`DOMAIN-021`): **nombre, carga, series, reps, id biblioteca**.
 
 ### ExerciseSet (`DOMAIN-008`)
 
@@ -295,7 +299,7 @@ No hay entidad “cursor” obligatoria: el **día actual** = primer `TrainingDa
 | ID | Decisión |
 |----|----------|
 | DOMAIN-020 | Single-coach; sin entity Org multi-tenant en MVP (`MVP-016`) |
-| DOMAIN-021 | Snapshot mínimo en `DayExercise`: name, load, targetSets, targetReps, libraryItemId? |
+| DOMAIN-021 | Snapshot en `DayExercise`: al asignar, nombre (+ libraryId) desde catálogo; **load/targetSets/targetReps los prescribe el coach en el día** (biblioteca no guarda series/reps) |
 | DOMAIN-022 | Estados de pago **derivados**; historial en `PaymentRecord` |
 | DOMAIN-023 | Assessment `initial` único; follow-up sin `SurveyAnswer` |
 | DOMAIN-024 | Resultado diagnóstico **no** es entidad persistida en MVP (`MVP-015`) |

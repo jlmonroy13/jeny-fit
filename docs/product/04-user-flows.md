@@ -112,7 +112,7 @@ Journeys end-to-end (`FLOW-*`) para agents y revisión humana. Binding de secuen
 
 1. Abre perfil del cliente → Entrenamiento.
 2. Crea/edita Bloque → Semana → Día → Ejercicio → Series (carga, reps).
-3. Elige ejercicios **solo** desde biblioteca (no texto libre).
+3. Elige ejercicios **solo** desde biblioteca (no texto libre) y **prescribe** carga, series y reps **para ese día** (la biblioteca no trae series/reps).
 4. Puede **duplicar** semana/día como base.
 5. Puede editar cualquier día (pasado/actual/futuro).
 

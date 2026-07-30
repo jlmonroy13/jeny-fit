@@ -17,7 +17,7 @@
 | **03** | Quién | ROLE-*, F-* | v1.0 cerrado |
 | **04** | Cómo (journeys) | FLOW-* | v1.0 cerrado |
 | **05** | Qué persiste | DOMAIN-* | v1.0 cerrado |
-| **06** | Reglas testeables | BR-* | Pendiente |
+| **06** | Reglas testeables | BR-* | v1.0 cerrado |
 | **07-prototype-screens** | UI MVP vs prototipo | Tabla Sí/No | Pendiente |
 | **07-design-system** | Tokens/componentes/copy UI | — | Pendiente |
 | **08** | Frontend | FE-* | Pendiente (M1) |
@@ -48,19 +48,21 @@
 
 | Tema | Flow | Reglas | Feature | Stack |
 |------|------|--------|---------|-------|
-| Auth Jeny (usuario/contraseña) | FLOW-001, FLOW-002 | _(06)_ | F-001 | _(10 — password)_ |
-| Auth cliente (magic link) / alta por coach | FLOW-003, FLOW-004 | _(06)_ | F-002, F-003 | _(10 — magic link)_ |
-| Plan entrenamiento (bloque→serie) | FLOW-006 | _(06)_ | F-006 | — |
-| Registro RIR + cierre de día | FLOW-008 | _(06)_ | F-015 | — |
-| Navegación secuencial / historial | FLOW-008, FLOW-009, FLOW-011, FLOW-018 | _(06)_ | F-014, F-017 | — |
-| Biblioteca ejercicios + snapshot | FLOW-005 | _(06)_ | F-005 | — |
-| Plan nutricional (≤6 comidas) | FLOW-007 | _(06)_ | F-009, F-016 | — |
-| Feedback coach al cierre de bloque | FLOW-012, FLOW-011 | _(06)_ | F-010 | — |
-| Pagos manuales + avisos | FLOW-014, FLOW-015 | _(06)_ | F-011 | — |
-| Valoración inicial + seguimiento | FLOW-016, FLOW-017 | _(06)_ | F-012, F-013 | — |
-| Timer descanso (cliente) | FLOW-008 | — | F-015 | — |
-| Coach corrige RIR | FLOW-010 | _(06)_ | F-006 | — |
+| Auth Jeny (usuario/contraseña) | FLOW-001, FLOW-002 | BR-071 | F-001 | _(10 — password)_ |
+| Auth cliente (magic link) / alta por coach | FLOW-003, FLOW-004 | BR-070, BR-071 | F-002, F-003 | _(10 — magic link)_ |
+| Plan entrenamiento (bloque→serie) | FLOW-006 | BR-001…004, BR-015 | F-006 | — |
+| Registro RIR + cierre de día | FLOW-008 | BR-010…012 | F-015 | — |
+| Navegación secuencial / historial | FLOW-008, FLOW-009, FLOW-011, FLOW-018 | BR-010, BR-013, BR-016 | F-014, F-017 | — |
+| Biblioteca ejercicios + snapshot | FLOW-005 | BR-020…022 | F-005 | — |
+| Plan nutricional (≤6 comidas) | FLOW-007 | BR-030…032 | F-009, F-016 | — |
+| Feedback coach al cierre de bloque | FLOW-012, FLOW-011 | BR-040, BR-041 | F-010 | — |
+| Pagos manuales + avisos | FLOW-014, FLOW-015 | BR-050…053 | F-011 | — |
+| Valoración inicial + seguimiento | FLOW-016, FLOW-017 | BR-060…064 | F-012, F-013 | — |
+| Timer descanso (cliente) | FLOW-008 | — (UI 07) | F-015 | — |
+| Coach corrige RIR | FLOW-010 | BR-015 | F-006 | — |
 | Plan Completo / Comparación | FLOW-013 | — | F-007, F-008 | — |
+| Aislamiento cliente | — | BR-072 | — | — |
+| Fuera MVP video/pasarela | — | BR-080, BR-081 | — | — |
 
 ## 3. Decisiones alineadas (no reabrir sin PR)
 
@@ -85,7 +87,7 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 | Edición Jeny | Cualquier campo, cualquier día (pasado / actual / futuro), **incluido RIR del cliente** (`ROLE-001`). |
 | Valoración seguimiento | Coach **abre** el seguimiento mensual; cliente **completa** inputs; coach puede editar (`ROLE-002`). |
 | Biblioteca | Una biblioteca **global** de ejercicios; solo Jeny la modifica. |
-| Snapshot | `DayExercise` copia name/load/sets/reps (+ library id); status de día **derivado** + `closedAt` (`DOMAIN-021`, `DOMAIN-026`). |
+| Snapshot | Al asignar: nombre desde biblioteca; **carga/series/reps prescritos en el día** y guardados en `DayExercise` (biblioteca ≠ plan). Status de día **derivado** + `closedAt` (`DOMAIN-021`, `DOMAIN-026`). |
 | Videos en app | **Fuera de MVP** — placeholder “Próximamente”; video sigue por WhatsApp. |
 | Bloque agotado | Estado claro “esperando el próximo bloque” (no error / vacío). |
 | Nutrición | Hasta 6 comidas (Comida 1…6), no desayuno/almuerzo; solo lectura para cliente; independiente del ciclo de bloques. |
