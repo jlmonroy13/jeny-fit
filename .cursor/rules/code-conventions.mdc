@@ -1,0 +1,36 @@
+---
+description: TypeScript/React conventions — EN code, es-CO UI, imports, tooling.
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Code conventions (Jeny Fit)
+
+Binding: doc [`10-tech-stack.md`](../../docs/product/10-tech-stack.md) and [`08-frontend-architecture.md`](../../docs/product/08-frontend-architecture.md).
+
+## Languages
+
+- **Code:** filenames, symbols, comments, tests → **English**.
+- **UI:** user-visible strings → **Spanish (es-CO)**.
+
+```tsx
+// ❌ UI label in English
+<button>Save</button>
+
+// ✅
+<button>Guardar</button>
+```
+
+## Imports & paths
+
+- Prefer alias `@/*` when configured in `tsconfig` (**TS-023**).
+
+## React / Next
+
+- **Server Components by default**; `'use client'` only at interactive boundaries.
+- Prefer **Server Actions** for mutations unless doc 08/09 decides otherwise.
+
+## Style tooling
+
+- Run **`pnpm lint`** and **`pnpm exec prettier --check <touched>`** before finishing a PR (**TS-010**, once Prettier is in the repo).
+- See always-apply rule `ci-quality-gate.mdc`.

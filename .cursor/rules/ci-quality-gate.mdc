@@ -1,0 +1,28 @@
+---
+description: CI quality gate — lint + Prettier before marking a PR ready (TS-010).
+alwaysApply: true
+---
+
+# CI quality gate (Jeny Fit)
+
+Target CI: **`pnpm lint` → `pnpm typecheck` → `pnpm format:check` → `pnpm test`** (wire in M1). Agents often run ESLint and skip Prettier — that fails PRs.
+
+## Binding before READY_FOR_PUBLISH / push / PR
+
+On **every** changed file in the PR scope (not only open tabs):
+
+1. **`pnpm exec eslint <touched paths>`** (or `pnpm lint` if whole-repo is intended)
+2. **`pnpm exec prettier --check <touched paths>`** — if it fails, run **`pnpm exec prettier --write <touched paths>`**, re-stage, and re-check
+3. Do **not** claim ready for publish until both pass (once Prettier is installed — see doc 10 / M1 tooling)
+
+`pnpm format:check` is binding (**TS-010**) once added. ESLint alone is **not** enough.
+
+## Roadmap skills
+
+- `roadmap-pr-review` must run Prettier check (and auto-write fixes) on staged paths when Prettier exists.
+- `roadmap-pr-publish` must refuse to push if format check was skipped or still failing.
+
+## Out of scope here
+
+- Do not run full test suites unless the user asks (see `roadmap-pr-review` test policy).
+- Format only issue-scoped paths when possible.

@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "roadmap:extract": "node scripts/roadmap-extract-issues.mjs",
+    "roadmap:sync": "node scripts/roadmap-sync-github.mjs",
+    "roadmap:project-ready": "node scripts/roadmap-project-ready.mjs"
   },
   "dependencies": {
     "next": "16.2.12",

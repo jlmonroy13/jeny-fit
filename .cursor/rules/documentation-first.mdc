@@ -1,0 +1,18 @@
+---
+description: Documentation-first development for Jeny Fit — read AGENTS.md and docs/product before implementing.
+alwaysApply: true
+---
+
+# Documentation-first (Jeny Fit)
+
+Before implementing **any product or infrastructure feature**:
+
+1. Read [`AGENTS.md`](../../AGENTS.md) and the relevant files under [`docs/product/`](../../docs/product/).
+2. Confirm the active milestone and issue in [`docs/product/12-roadmap-milestones.md`](../../docs/product/12-roadmap-milestones.md) (see also `.cursor/rules/milestone-active.mdc`).
+3. Do not invent entities, rules, or stack choices that contradict **`TS-*` / `FE-*` / `BE-*`** in [`10-tech-stack.md`](../../docs/product/10-tech-stack.md) and architecture docs.
+4. Respect **RM-001** (1 issue = 1 PR), **RM-002** (linear milestones), **RM-010** branch `Mx-NN-slug`.
+5. Code and comments in **English**; UI strings in **Spanish (es-CO)**.
+
+If canonical docs or the issue are missing, stop and ask — do not improvise product behavior.
+
+**Other rules:** `business-binding.mdc`, `code-conventions.mdc`, `nextjs-app.mdc`.

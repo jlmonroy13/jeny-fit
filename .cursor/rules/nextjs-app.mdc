@@ -1,0 +1,21 @@
+---
+description: Next.js 16 App Router conventions for Jeny Fit.
+globs: "app/**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Next.js App Router (Jeny Fit)
+
+Read **`node_modules/next/dist/docs/`** before assuming Next ≤15 APIs (**TS-001**).
+
+Binding: [`08-frontend-architecture.md`](../../docs/product/08-frontend-architecture.md).
+
+## Routes
+
+- Define route map in doc 08 before inventing paths.
+- Prefer URL search params for business modals when that pattern is chosen in FE-* decisions.
+
+## UI source
+
+- Recreate from design handoff + [`07-design-system.md`](../../docs/product/07-design-system.md) when they exist.
+- **RM-011:** add design-system components only when the first real caller exists in the **same PR**.
