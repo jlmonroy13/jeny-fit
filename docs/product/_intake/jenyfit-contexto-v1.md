@@ -31,6 +31,7 @@ Hay dos tipos de usuarios en el sistema:
 - Las vistas de **Jeny son responsive**: deben funcionar tanto en **desktop** como en **mobile**.
 - Las vistas del **cliente están diseñadas solo para mobile** (uso típico: en el gimnasio, con el teléfono).
 - **Alta de clientes:** Jeny agrega el correo del cliente nuevo desde su panel. Una vez agregado, ese cliente ya puede iniciar sesión por su cuenta vía magic link. No hay auto-registro por parte del cliente.
+- **Cuenta de Jeny:** se provisiona por seed/script (no hay registro público de admin). Recuperación de contraseña por reset vía email.
 
 ---
 
@@ -98,7 +99,7 @@ El cliente:
 - **Día de entreno:** cada cliente puede tener un número distinto de días de entreno por semana (ej. un cliente puede entrenar 4 días/semana, otro puede entrenar diferente). Cada día tiene un nombre asociado al día calendario acordado con Jeny (ej. "Lunes"), aunque la navegación en la app es secuencial y no depende de la fecha real.
 - **Ejercicio (dentro de un día):** viene de la biblioteca global de ejercicios. Tiene carga (peso), número de series y repeticiones objetivo, definidos por Jeny.
 - **Serie (dentro de un ejercicio):** unidad mínima de registro. El cliente anota el RIR real logrado en esa serie, y opcionalmente una observación.
-- **Snapshot / inmutabilidad:** si Jeny edita o elimina un ejercicio de la biblioteca, los días pasados que ya usaron ese ejercicio **no se ven afectados** — deben conservar la información tal como se registró en su momento (esto implica que el registro de un ejercicio dentro de un día debe guardar una copia de los datos relevantes, no solo una referencia viva a la biblioteca).
+- **Snapshot / inmutabilidad:** si Jeny edita o elimina un ejercicio de la biblioteca, los días pasados que ya usaron ese ejercicio **no se ven afectados**. El registro en el día guarda al menos: **nombre, carga, series, repeticiones objetivo** y, si aplica, **id de la biblioteca** (copia histórica, no solo referencia viva).
 
 ### Ciclo de evaluación (sobrecarga progresiva)
 Al cierre de cada bloque (4 semanas, última de descarga), Jeny revisa:
@@ -126,6 +127,8 @@ Con esa información, Jeny diseña el siguiente bloque aplicando el principio de
 
 Esta información se gestiona dentro del **Perfil del cliente**, en el panel de Jeny, permitiéndole ver la evolución del cliente en el tiempo (comparar fotos, medidas y peso mes a mes).
 
+**Resultado diagnóstico (informe):** después de la valoración inicial, Jeny elabora y entrega un documento de resultado (estado inicial, recomendaciones, macros, conclusión) **fuera de la app** en el MVP. La app no genera ese PDF; solo centraliza los inputs. (Ver `_intake/resultado-diagnostico/` y `MVP-015`.)
+
 ---
 
 ## 7. Plan Nutricional (detalle)
@@ -144,7 +147,7 @@ Esta información se gestiona dentro del **Perfil del cliente**, en el panel de 
 - **No hay pasarela de pago integrada** — Jeny marca manualmente cuándo un cliente pagó (ej. transferencia, efectivo).
 - Estados de un cliente respecto al pago:
   - **Al día:** pagó el ciclo actual.
-  - **Próximo a vencer:** se acerca la fecha de cobro.
+  - **Próximo a vencer:** faltan **7 días o menos** para la fecha de cobro y aún no se ha marcado el pago del ciclo.
   - **Vencido:** pasó la fecha y no se ha marcado como pagado.
 - El **acceso del cliente a la app no se restringe** por estar vencido — solo se le muestra un aviso de que está atrasado.
 - Se lleva un historial de pagos por cliente (fecha en que se marcó como pagado, período que cubre).

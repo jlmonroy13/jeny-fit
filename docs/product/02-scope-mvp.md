@@ -1,6 +1,6 @@
 # 02 · Scope MVP
 
-> **Estado:** v0.2 — borrador desde intake + `01`. Revisar OPENs §8 y nombres tentativos de M2+.
+> **Estado:** v0.5 — scope estable salvo encuesta diagnóstica (`MVP-OPEN-02`). Snapshot mínimo y auth Jeny cerrados.
 
 ## 1. Objetivo y audiencia
 
@@ -32,17 +32,21 @@ Web donde **Jeny** gestiona clientes, planes (entrenamiento + nutrición), bibli
 | MVP-005 | **Biblioteca global** de ejercicios (solo Jeny); snapshot histórico en días ya usados. |
 | MVP-006 | **Plan nutricional** ≤6 comidas (Comida 1…6), cantidades sugeridas; solo lectura para cliente; independiente del ciclo de bloques. |
 | MVP-007 | **Plan Completo** + **Comparación/progreso** en panel Jeny; feedback in-app al cierre de bloque (visible en historial del cliente). |
-| MVP-008 | **Pagos** mensuales USD, fecha fija por cliente, marcado manual; estados al día / próximo a vencer / vencido; vencido **no** bloquea acceso (solo aviso). |
+| MVP-008 | **Pagos** mensuales USD, fecha fija por cliente, marcado manual; estados: **al día** / **próximo a vencer** (≤ **7 días** antes de la fecha de cobro) / **vencido**; vencido **no** bloquea acceso (solo aviso). |
 | MVP-009 | **Valoración:** diagnóstico inicial una vez (preguntas + fotos + medidas + peso); seguimientos mensuales sin cuestionario (fotos + medidas + peso). |
 | MVP-010 | **Timer de descanso** en día de entreno (2–6 min; pausar / saltar / extender; sonido + vibración al terminar). |
 | MVP-011 | Video por serie: **placeholder “Próximamente”** (WhatsApp fuera de app). |
 | MVP-012 | UX: Jeny responsive; cliente **mobile-only** con bottom nav (Inicio, Entreno, Nutrición, Historial, Perfil). |
 | MVP-013 | Estado “**esperando el próximo bloque**” cuando el bloque actual terminó y no hay siguiente planeado. |
+| MVP-014 | **Medidas corporales canónicas** (12 circunferencias, ver §3.1) + **instructivo in-app** de cómo tomarse cada una (referencia visual). |
+| MVP-015 | Tras la valoración inicial, Jeny elabora un **Resultado diagnóstico** **fuera de la app** (PDF/canal actual). La app **solo** captura y muestra inputs de valoración (evolución fotos/medidas/peso). Generación/lectura in-app del informe → **post-MVP**. |
+| MVP-016 | Producto **single-coach** en MVP: solo Jeny como admin; sin multi-tenant / multi-coach genérico. |
+| MVP-017 | Cuenta inicial de Jeny: **seed/script** (credenciales en secrets/env). Recuperación de contraseña: **reset por email**. |
 
 ## 3. Dentro del MVP (In scope)
 
 ### Auth y cuentas
-- [ ] Login Jeny (usuario + contraseña)
+- [ ] Login Jeny (usuario + contraseña); provisioning inicial vía seed (`MVP-017`); reset por email
 - [ ] Login cliente (magic link)
 - [ ] Alta de cliente por correo desde panel Jeny (sin auto-registro)
 
@@ -54,7 +58,9 @@ Web donde **Jeny** gestiona clientes, planes (entrenamiento + nutrición), bibli
 - [ ] Biblioteca global de ejercicios (CRUD Jeny)
 - [ ] Feedback in-app al cliente (por bloque)
 - [ ] Pagos: marcar pagado, historial, ajustar fecha de cobro (USD)
-- [ ] Valoración: diagnóstico + seguimientos mensuales (ver MVP-OPEN-02 para campos exactos)
+- [ ] Valoración: diagnóstico + seguimientos mensuales; captura de las **12 medidas** + peso + talla + fotos (+ cuestionario inicial); **evolución** visible para Jeny
+- [ ] **Instructivo de medidas** in-app (cómo colocarse la cinta en cada circunferencia)
+- [ ] ~~Editor / visor del Resultado diagnóstico PDF in-app~~ → fuera de MVP (`MVP-015`)
 
 ### App cliente (mobile)
 - [ ] Inicio (día pendiente + avisos)
@@ -62,6 +68,54 @@ Web donde **Jeny** gestiona clientes, planes (entrenamiento + nutrición), bibli
 - [ ] Nutrición (solo lectura)
 - [ ] Historial (pasados editables en RIR; futuros solo vista; feedback al fin de bloque)
 - [ ] Perfil (cuenta, estado de pago, cerrar sesión)
+- [ ] Valoración / seguimiento: ingreso de medidas con acceso al **instructivo** (cuando el flujo lo requiera)
+
+### 3.1 Medidas corporales canónicas (`MVP-014`)
+
+Unidad: circunferencia (cm). Lista fija del MVP:
+
+| # | Medida |
+|---|--------|
+| 1 | Circunferencia cuello |
+| 2 | Circunferencia hombros |
+| 3 | Circunferencia del pecho |
+| 4 | Circunferencia cintura |
+| 5 | Circunferencia brazo relajado |
+| 6 | Circunferencia brazo contraído |
+| 7 | Circunferencia de la muñeca |
+| 8 | Circunferencia de la cadera |
+| 9 | Circunferencia del muslo medio |
+| 10 | Circunferencia del muslo alto |
+| 11 | Circunferencia de la rodilla |
+| 12 | Circunferencia de la pantorrilla |
+
+**Instructivo:** la app debe mostrar, por cada medida, guía visual de cómo tomarla. Insumo de referencia:
+
+- [`_intake/medidas-instructivo/01-cuello-hombros-pecho-cintura-brazo.png`](_intake/medidas-instructivo/01-cuello-hombros-pecho-cintura-brazo.png)
+- [`_intake/medidas-instructivo/02-muneca-cadera-muslo-rodilla-pantorrilla.png`](_intake/medidas-instructivo/02-muneca-cadera-muslo-rodilla-pantorrilla.png)
+
+Detalle de pantallas/flujo → docs 04 / 07-prototype.
+
+### 3.2 Resultado diagnóstico (`MVP-015`) — entrega fuera de la app en MVP
+
+Después de recibir valoración inicial (cuestionario + fotos + medidas + peso/talla), Jeny elabora un **Resultado diagnóstico** y lo entrega al cliente **por fuera de la app** (p. ej. PDF / canal actual).
+
+**En el MVP la app no genera ni aloja ese informe.** Sí debe persistir los **inputs** que lo alimentan y permitir a Jeny ver la **evolución** (fotos, medidas, peso) en el perfil del cliente.
+
+Insumo de ejemplo (contenido de negocio de referencia, no UI):
+
+- [`_intake/resultado-diagnostico/`](_intake/resultado-diagnostico/)
+
+Estructura del documento que Jeny produce hoy (referencia para post-MVP in-app):
+
+| Bloque | Contenido |
+|--------|-----------|
+| Estado inicial | Nombre, fecha, edad, peso, talla, IMC, % grasa estimado, masa magra estimada, TMB, calorías mantenimiento, observaciones |
+| Recomendaciones | Composición corporal, nutrición, entrenamiento (RIR / sobrecarga), consideraciones por antecedentes (lesiones / salud) |
+| Macros estimados | Proteína / grasa / carbohidrato (g, kcal, %) coherentes con kcal de mantenimiento |
+| Conclusión | Texto narrativo de Jeny |
+
+**Datos base que la valoración in-app debe poder alimentar** (además de las 12 medidas): peso, talla, edad, sexo, fotos, respuestas del cuestionario (hábitos, lesiones, condiciones de salud — texto exacto en `MVP-OPEN-02`).
 
 ## 4. Fuera del MVP (Out of scope)
 
@@ -70,10 +124,11 @@ Web donde **Jeny** gestiona clientes, planes (entrenamiento + nutrición), bibli
 - **Auto-registro** de clientes
 - Apps **nativas** (iOS/Android)
 - **i18n** multi-idioma (UI solo español)
-- Multi-coach / marketplace / white-label genérico (salvo que se cierre `DOMAIN-OPEN-01` en contra)
+- Multi-coach / marketplace / white-label / **multi-tenant genérico** (`MVP-016` — single-coach en MVP)
 - Chat in-app / reemplazo total de WhatsApp
 - Recetas nutricionales estrictas o scheduling por horario de comida
 - Automatización de sobrecarga progresiva (Jeny diseña el siguiente bloque manualmente)
+- **Resultado diagnóstico in-app** (editor Jeny + vista cliente / PDF generado por la app) — `MVP-015`
 
 ## 5. Criterios de “MVP listo” (Definition of Done)
 
@@ -81,7 +136,8 @@ Web donde **Jeny** gestiona clientes, planes (entrenamiento + nutrición), bibli
 - [ ] Cliente cierra al menos un día completo (RIR en todas las series) y ve historial/estados
 - [ ] Jeny ve Plan Completo y Comparación/progreso con datos reales del cliente
 - [ ] Jeny marca un pago y el cliente ve aviso si está vencido (sin perder acceso)
-- [ ] Valoración inicial + al menos un seguimiento mensual registrables y visibles para Jeny
+- [ ] Valoración inicial + al menos un seguimiento mensual (12 medidas + peso + fotos) registrables y visibles para Jeny (**sin** exigir informe diagnóstico in-app)
+- [ ] Instructivo de medidas accesible al capturar circunferencias
 - [ ] Placeholder de video y estado “esperando próximo bloque” verificados manualmente
 - [ ] Docs 03–07 coherentes con este scope; sin features out-of-scope implementadas
 
@@ -89,6 +145,7 @@ Web donde **Jeny** gestiona clientes, planes (entrenamiento + nutrición), bibli
 
 | Fase | Qué |
 |------|-----|
+| Post-MVP | **Resultado diagnóstico in-app** (Jeny edita / cliente lee; posible exportación PDF) |
 | Post-MVP | Video por serie in-app |
 | Post-MVP | Pasarela / cobro integrado (USD) |
 | Post-MVP | i18n (p. ej. EN) si la demanda de clientes lo justifica |
@@ -108,18 +165,20 @@ Nombres M2+ **tentativos** hasta retrospectiva M1 / `roadmap-detail` (RM-003). N
 | M5 | Historial, Plan Completo, comparación/progreso, feedback |
 | M6 | Nutrición |
 | M7 | Pagos (manual, USD) + avisos |
-| M8 | Valoración (diagnóstico + seguimientos) |
+| M8 | Valoración (inputs + evolución; **sin** informe diagnóstico in-app) |
 | M9 | Hardening / DoD MVP / pulido UX |
 
 ## 8. Historial / `MVP-OPEN-*`
 
 | ID | Tema | Estado |
 |----|------|--------|
-| MVP-OPEN-01 | Umbral exacto de “próximo a vencer” (¿N días antes de la fecha de cobro?) | abierta |
-| MVP-OPEN-02 | Contenido canónico de encuesta diagnóstica + lista de medidas corporales | abierta |
+| MVP-OPEN-01 | Umbral “próximo a vencer” | **cerrada** → **7 días** antes de la fecha de cobro (`MVP-008`) |
+| MVP-OPEN-02 | Contenido canónico de **preguntas** de la encuesta diagnóstica (cerradas / abiertas). Medidas → `MVP-014`. Pistas del resultado: lesiones, condiciones de salud, hábitos previos. | abierta |
+| MVP-OPEN-03 | Canal del Resultado diagnóstico | **cerrada** → fuera de la app en MVP (`MVP-015`); in-app = post-MVP |
 | VISION-OPEN-01 | North Star Metric (doc 01) | **cerrada** → VISION-008 |
-| DOMAIN-OPEN-01 | Single-coach vs multi-tenant desde el inicio | abierta |
-| AUTH-OPEN-01 | Provisioning cuenta Jeny + recuperación de contraseña | abierta |
+| DOMAIN-OPEN-01 | Single-coach vs multi-tenant | **cerrada** → single-coach (`MVP-016`) |
+| AUTH-OPEN-01 | Provisioning cuenta Jeny + recuperación de contraseña | **cerrada** → seed/script + reset por email (`MVP-017`) |
+| DOMAIN-OPEN-02 | Snapshot de ejercicio en un día | **cerrada (mínimo)** → nombre, carga, series, reps objetivo, id biblioteca si existe (detalle en doc 05) |
 
 ## 9. Referencias
 
@@ -127,3 +186,5 @@ Nombres M2+ **tentativos** hasta retrospectiva M1 / `roadmap-detail` (RM-003). N
 - [`01-product-vision.md`](01-product-vision.md)
 - [`12-roadmap-milestones.md`](12-roadmap-milestones.md)
 - [`_intake/jenyfit-contexto-v1.md`](_intake/jenyfit-contexto-v1.md)
+- [`_intake/medidas-instructivo/`](_intake/medidas-instructivo/) (guía visual de circunferencias)
+- [`_intake/resultado-diagnostico/`](_intake/resultado-diagnostico/) (ejemplo de informe; entrega fuera de app en MVP)

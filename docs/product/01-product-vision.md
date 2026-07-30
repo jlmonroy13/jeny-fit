@@ -26,7 +26,7 @@ Eso genera fricción operativa para Jeny y una experiencia incompleta / inconsis
 
 | Para quién | Valor |
 |------------|--------|
-| **Jeny (coach / admin)** | Centralizar clientes, planes (entrenamiento + nutrición), biblioteca de ejercicios, comparación/progreso, feedback in-app, valoración y pagos en un solo panel. |
+| **Jeny (coach / admin)** | Centralizar clientes, planes (entrenamiento + nutrición), biblioteca de ejercicios, comparación/progreso, feedback in-app, captura/evolución de valoración y pagos en un solo panel. |
 | **Cliente** | Ver su plan vigente, registrar RIR en el gym (mobile), consultar historial/feedback/nutrición, y recibir avisos claros (pago, próximo bloque) sin fricción. |
 
 ## 5. North Star Metric
@@ -54,7 +54,7 @@ Mide adopción del gesto central del producto (reemplazo de Excel/WhatsApp para 
 
 | Dimensión | Límite orientativo | Implicación producto |
 |-----------|-------------------|----------------------|
-| Coaches | 1 (Jeny) en MVP — ver `DOMAIN-OPEN-01` | No diseñar multi-tenant genérico hasta decidir. |
+| Coaches | **1 (Jeny)** en MVP — `MVP-016` / ex-`DOMAIN-OPEN-01` | Sin multi-tenant genérico en MVP. |
 | Clientes | Decenas (no miles) | UX de lista/dashboard simple; sin complejidad enterprise. |
 | Plataforma | Web only | Sin apps nativas. |
 | Idioma / mercado | Clientes internacionales · UI en español · cobros USD | Sin i18n multi-idioma en MVP (`VISION-001`). |
@@ -62,7 +62,7 @@ Mide adopción del gesto central del producto (reemplazo de Excel/WhatsApp para 
 ## 7. Concepto clave del producto
 
 - **B2B2C / coach-led:** Jeny es el operador; los clientes no se auto-registran.
-- **Single-coach MVP** (pendiente confirmar en `DOMAIN-OPEN-01`): un admin, muchos clientes.
+- **Single-coach MVP** (`MVP-016`): un admin (Jeny), muchos clientes; multi-tenant genérico = post-MVP.
 - **Ciclo de entrenamiento por bloques** (4 semanas, última de descarga) + nutrición y pagos en ciclos **independientes**.
 - **Avance secuencial** del cliente (por días completados), no por calendario.
 

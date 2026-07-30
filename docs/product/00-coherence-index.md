@@ -13,7 +13,7 @@
 | Doc | Rol | IDs | Estado fill |
 |-----|-----|-----|-------------|
 | **01** | Por qué | VISION-* | v1.0 cerrado |
-| **02** | Qué entra MVP | MVP-* | v0.2 borrador (revisar) |
+| **02** | Qué entra MVP | MVP-* | v0.5 — estable; solo `MVP-OPEN-02` (encuesta) |
 | **03** | Quién | ROLE-*, F-* | Pendiente |
 | **04** | Cómo (journeys) | FLOW-* | Pendiente |
 | **05** | Qué persiste | DOMAIN-* | Pendiente |
@@ -69,7 +69,7 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 | Producto | App web que centraliza coach–cliente: entrenamiento, nutrición, progreso, feedback y pagos (reemplaza Excel + WhatsApp operativo). |
 | Actores MVP | Solo **dos roles**: Jeny (coach/admin) y Cliente. Jeny es la única con permisos administrativos. |
 | Plataforma | 100% web; sin apps nativas en MVP. |
-| Auth Jeny | Usuario y **contraseña** (único rol con este método en MVP). |
+| Auth Jeny | Usuario y **contraseña**; cuenta inicial por **seed/script**; **reset por email** (`MVP-017`). |
 | Auth Cliente | **Magic link** (sin contraseña); el correo identifica la cuenta del cliente. |
 | Alta de clientes | Solo Jeny agrega por correo; **sin** auto-registro del cliente. |
 | UX Jeny | Responsive (desktop + mobile). |
@@ -82,13 +82,16 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 | Edición Cliente | Solo RIR (+ observación opcional); día actual o pasados; **nunca** futuros. |
 | Edición Jeny | Cualquier campo, cualquier día (pasado / actual / futuro). |
 | Biblioteca | Una biblioteca **global** de ejercicios; solo Jeny la modifica. |
-| Snapshot | Cambios en biblioteca **no** alteran días ya registrados (copia histórica). |
+| Snapshot | En días ya usados: copiar al menos **nombre, carga, series, reps objetivo** (+ id de biblioteca si existe); cambios posteriores en biblioteca no los alteran (`DOMAIN-OPEN-02` cerrado). |
 | Videos en app | **Fuera de MVP** — placeholder “Próximamente”; video sigue por WhatsApp. |
 | Bloque agotado | Estado claro “esperando el próximo bloque” (no error / vacío). |
 | Nutrición | Hasta 6 comidas (Comida 1…6), no desayuno/almuerzo; solo lectura para cliente; independiente del ciclo de bloques. |
-| Pagos | Mensuales, fecha fija por cliente; marcado **manual** (sin pasarela); vencido **no** bloquea acceso (solo aviso). |
+| Pagos | Mensuales USD, fecha fija por cliente; marcado **manual**; **próximo a vencer** = ≤ **7 días** antes del cobro; vencido **no** bloquea acceso (solo aviso). |
 | Fecha cobro default | Día en que Jeny agregó al cliente; Jeny puede ajustar. |
+| Tenancy MVP | **Single-coach** (solo Jeny); sin multi-tenant genérico (`MVP-016`). |
 | Valoración | Diagnóstico **una vez** (preguntas + fotos + medidas + peso); seguimientos mensuales **sin** cuestionario (fotos + medidas + peso). |
+| Medidas corporales | 12 circunferencias canónicas (`MVP-014`) + **instructivo in-app** de cómo tomarlas. |
+| Resultado diagnóstico | Jeny lo elabora y entrega **fuera de la app** en MVP; la app solo guarda inputs y evolución (`MVP-015`). |
 | Feedback in-app | Jeny deja notas al cliente; visibles en historial al final de cada bloque. |
 | Nav cliente | Bottom nav: Inicio, Entreno, Nutrición, Historial, Perfil. |
 | Idioma UI | Español (es) — convención repo / AGENTS; **sin** i18n multi-idioma en MVP. |
@@ -99,14 +102,16 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 
 | ID | Doc | Tema |
 |----|-----|------|
-| MVP-OPEN-01 | 02 | Umbral exacto de estado pago **“próximo a vencer”** (¿N días antes de la fecha de cobro?). |
-| MVP-OPEN-02 | 02 / 06 | Contenido canónico de la encuesta diagnóstica (preguntas cerradas/abiertas) y lista de medidas corporales. |
-| DOMAIN-OPEN-01 | 05 | ¿Producto **single-coach** (solo Jeny) en MVP, o multi-tenant genérico desde el inicio? |
-| DOMAIN-OPEN-02 | 05 | Campos exactos del snapshot de ejercicio en un día (nombre, músculo, media, …). |
-| AUTH-OPEN-01 | 03 / 09 | Cómo se provisiona la cuenta inicial de Jeny (seed/script, env, invite) y recuperación de contraseña. |
+| MVP-OPEN-02 | 02 / 06 | Contenido canónico de **preguntas** de la encuesta diagnóstica (cerradas / abiertas). Medidas → `MVP-014`. |
 | TS-OPEN-* | 10 | Proveedor auth (password coach + magic link clientes), DB/ORM, hosting — cerrar en M1-04 (no en este fill de producto). |
 
-~~VISION-OPEN-01~~ cerrado → `VISION-008` (doc 01).
+~~VISION-OPEN-01~~ → `VISION-008`.  
+~~MVP-OPEN-01~~ → `MVP-008` (7 días).  
+~~MVP-OPEN-03~~ → `MVP-015` (resultado fuera de app).  
+~~DOMAIN-OPEN-01~~ → `MVP-016` (single-coach).  
+~~AUTH-OPEN-01~~ → `MVP-017` (seed + reset email).  
+~~DOMAIN-OPEN-02~~ → snapshot mínimo (nombre, carga, series, reps, id biblioteca); formalizar IDs en doc 05.  
+`MVP-014` medidas + instructivo.
 
 ## 5. Checklist coherencia (PR doc)
 
