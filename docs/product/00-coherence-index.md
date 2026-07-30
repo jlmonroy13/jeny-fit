@@ -12,7 +12,7 @@
 
 | Doc | Rol | IDs | Estado fill |
 |-----|-----|-----|-------------|
-| **01** | Por qué | VISION-* | Pendiente |
+| **01** | Por qué | VISION-* | v0.3 borrador (revisar North Star) |
 | **02** | Qué entra MVP | MVP-* | Pendiente |
 | **03** | Quién | ROLE-*, F-* | Pendiente |
 | **04** | Cómo (journeys) | FLOW-* | Pendiente |
@@ -91,7 +91,8 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 | Valoración | Diagnóstico **una vez** (preguntas + fotos + medidas + peso); seguimientos mensuales **sin** cuestionario (fotos + medidas + peso). |
 | Feedback in-app | Jeny deja notas al cliente; visibles en historial al final de cada bloque. |
 | Nav cliente | Bottom nav: Inicio, Entreno, Nutrición, Historial, Perfil. |
-| Idioma UI | Español (es-CO) — convención repo / AGENTS. |
+| Idioma UI | Español (es) — convención repo / AGENTS; **sin** i18n multi-idioma en MVP. |
+| Moneda / mercado | Cobros en **USD**; clientes pueden estar fuera de Colombia. |
 
 ## 4. Preguntas abiertas activas
 
