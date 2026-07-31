@@ -103,7 +103,7 @@ Overlays full-screen cliente: instructivo medidas, valoración, progresión ejer
 | Video | Video de la serie: Próximamente |
 | Cerrar día | Registra el RIR de todas las series para cerrar el día. |
 | Nutrición | Cantidades sugeridas por Jeny — solo lectura |
-| Auth cliente | Acceso con enlace mágico (sin contraseñas) |
+| Auth cliente | Acceso con enlace mágico (sin contraseñas). Pantallas: pedir enlace / enviado / expirado. |
 | Diagnóstico | Tu diagnóstico en PDF te lo comparte Jeny directamente — no se genera en la app. |
 | Coach pagos | Marcar como pagado / Historial de pagos |
 | Coach login | Panel de coach / Ingresa para gestionar tus clientas |

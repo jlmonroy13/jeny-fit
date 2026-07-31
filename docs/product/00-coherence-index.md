@@ -18,7 +18,7 @@
 | **04** | Cómo (journeys) | FLOW-* | v1.0 cerrado |
 | **05** | Qué persiste | DOMAIN-* | v1.0 cerrado |
 | **06** | Reglas testeables | BR-* | v1.0 cerrado |
-| **07-prototype-screens** | UI MVP vs prototipo | Tabla Sí/No | v1.0 cerrado (gaps: login magic link, alta clienta) |
+| **07-prototype-screens** | UI MVP vs prototipo | Tabla Sí/No | v1.1 cerrado (auth + alta incluidos) |
 | **07-design-system** | Tokens/componentes/copy UI | — | v1.0 cerrado |
 | **08** | Frontend | FE-* | Pendiente (M1) |
 | **09** | Backend | BE-* | Pendiente (M1) |

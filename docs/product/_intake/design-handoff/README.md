@@ -6,17 +6,20 @@
 
 | Carpeta | Origen |
 |---------|--------|
-| [`client/`](client/) | Export HTML estático rol cliente (~390px) |
-| [`coach/`](coach/) | Export HTML estático rol coach (~1280px sidebar) |
-| [`HANDOFF-client.md`](HANDOFF-client.md) | Inventario / binding cliente (texto Claude Design) |
-| [`HANDOFF-coach.md`](HANDOFF-coach.md) | Inventario / binding coach (texto Claude Design) |
+| [`client/`](client/) | Export HTML cliente (~390px), incl. magic link |
+| [`coach/`](coach/) | Export HTML coach (~1280px), incl. agregar clienta |
+| [`HANDOFF-client.md`](HANDOFF-client.md) | Resumen inventario cliente |
+| [`HANDOFF-coach.md`](HANDOFF-coach.md) | Resumen inventario coach |
 
 ## Cómo abrir
 
 Abrir `client/index.html` o `coach/index.html` en el navegador (tokens relativos).
 
-## Gaps conocidos vs docs 01–06
+## Gaps cerrados (v1.1)
 
-- Cliente: **no hay pantalla de login magic link** (solo copy en Perfil).
-- Coach: **alta de clienta por correo** no está en el export (sí en FLOW-004 / F-003).
-- Toggle Escritorio/Compacta del prototipo coach = **no producto**.
+- Cliente: login magic link + sent + expired (`client-login.html`, `client-magic-link-sent.html`, `client-magic-link-expired.html`).
+- Coach: agregar clienta (`coach-add-client.html`) — FLOW-004.
+
+## No producto
+
+- Toggle Escritorio/Compacta del prototipo coach.

@@ -16,6 +16,7 @@ No React/build step — plain HTML + CSS, using JenyFit Design System tokens.
 - `coach-pagos.html` — Pagos (USD, mark paid manually, history, edit billing date — no payment gateway)
 - `coach-valoracion.html` — Valoración (photos, 12 measures, weight evolution; monthly follow-up entry point; no in-app diagnostic PDF)
 - `coach-feedback.html` — Block feedback note editor
+- `coach-add-client.html` — Agregar clienta: dashboard with "Agregar clienta" side panel open (email, optional name, adaptation-block toggle, billing anchor day), plus a duplicate-email error state shown below for reference
 
 ## Assets
 - `styles.css` + `tokens/` — JenyFit Design System tokens, copied from the design system

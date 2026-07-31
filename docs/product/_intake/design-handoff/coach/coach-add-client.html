@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>JenyFit Coach — Dashboard clientes</title>
+<title>JenyFit Coach — Agregar clienta</title>
 <link rel="stylesheet" href="styles.css">
 <style>
 *{box-sizing:border-box}
@@ -101,6 +101,45 @@ td{padding:14px 20px;border-bottom:1px solid var(--border-subtle);font-size:14px
       </tr>
     </table>
   </div>
+  </div>
+
+  <div class="overlay" style="position:absolute">
+    <div class="panel">
+      <div class="panelhead">
+        <div class="display" style="font-size:18px">Agregar clienta</div>
+        <a href="coach-dashboard.html" class="iconbtn"><img src="https://unpkg.com/lucide-static@latest/icons/x.svg" style="width:18px;height:18px" alt=""></a>
+      </div>
+      <div class="panelbody">
+        <span style="font-size:13px;color:var(--text-muted)">La clienta recibirá acceso por enlace mágico a su correo — sin contraseña.</span>
+        <div><label class="label">Correo electrónico *</label><input class="input" type="email" placeholder="clienta@ejemplo.com"></div>
+        <div><label class="label">Nombre (opcional)</label><input class="input" placeholder="Ej. Ana Torres"></div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--text-primary)">Bloque de adaptación</div>
+            <div style="font-size:12px;color:var(--text-muted);margin-top:2px">Decisión 100% manual — actívalo si esta clienta necesita una fase de adaptación antes del plan regular.</div>
+          </div>
+          <div class="toggle"><div class="knob"></div></div>
+        </div>
+
+        <div><label class="label">Día de corte de facturación</label><input class="input" type="date" value="2026-07-31"><span style="font-size:12px;color:var(--text-muted)">Por defecto, la fecha de hoy (día de la invitación). Editable.</span></div>
+      </div>
+      <div class="panelfoot">
+        <a href="coach-dashboard.html" class="btn btn-ghost">Cancelar</a>
+        <a href="coach-dashboard.html" class="btn btn-primary">Agregar</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Error state (duplicate email), shown inline above the Email field when submitted with an existing client's email: -->
+<div style="max-width:1280px;margin:0 auto 40px;padding:0 28px">
+  <div class="card" style="max-width:380px">
+    <div class="label" style="margin-bottom:10px">Estado de error — correo duplicado (referencia visual)</div>
+    <div class="banner banner-error" style="margin-bottom:12px">
+      <img src="https://unpkg.com/lucide-static@latest/icons/alert-circle.svg" style="width:18px;height:18px" alt="">
+      <div><div style="font-weight:600;font-size:14px;color:var(--text-primary)">Ese correo ya está registrado</div><div style="font-size:13px;color:var(--text-secondary)">Ya existe una clienta con este correo. Revisa el listado o usa otro correo.</div></div>
+    </div>
+    <input class="input" value="ana.torres@correo.com" style="border-color:var(--alert-error-icon)">
   </div>
 </div>
 
