@@ -22,7 +22,7 @@
 | **07-design-system** | Tokens/componentes/copy UI | — | v1.0 cerrado |
 | **08** | Frontend | FE-* | v1.0 cerrado (`FE-OPEN-02/03` → 10/09) |
 | **09** | Backend | BE-* | v1.0 cerrado (`BE-OPEN-*` vendor → 10) |
-| **10** | Stack | TS-* | Pendiente (M1-04) |
+| **10** | Stack | TS-* | v1.0 cerrado (Neon/Drizzle/Better Auth/Resend/R2/Vercel) |
 | **11** | Tests | TEST-* | Pendiente (M1) |
 | **12** | Plan | RM-*, Mx-NN | M1 activo; M2+ esqueleto |
 
@@ -48,8 +48,8 @@
 
 | Tema | Flow | Reglas | Feature | Stack |
 |------|------|--------|---------|-------|
-| Auth Jeny (usuario/contraseña) | FLOW-001, FLOW-002 | BR-071 | F-001 | _(10 — password)_ |
-| Auth cliente (magic link) / alta por coach | FLOW-003, FLOW-004 | BR-070, BR-071 | F-002, F-003 | _(10 — magic link)_ |
+| Auth Jeny (usuario/contraseña) | FLOW-001, FLOW-002 | BR-071 | F-001 | TS-013 Better Auth |
+| Auth cliente (magic link) / alta por coach | FLOW-003, FLOW-004 | BR-070, BR-071 | F-002, F-003 | TS-013 + TS-014 Resend |
 | Plan entrenamiento (bloque→serie) | FLOW-006 | BR-001…004, BR-015 | F-006 | — |
 | Registro RIR + cierre de día | FLOW-008 | BR-010…012 | F-015 | — |
 | Navegación secuencial / historial | FLOW-008, FLOW-009, FLOW-011, FLOW-018 | BR-010, BR-013, BR-016 | F-014, F-017 | — |
@@ -108,11 +108,16 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 | ID | Doc | Tema |
 |----|-----|------|
 | MVP-OPEN-02 | 02 / 06 | Contenido canónico de **preguntas** de la encuesta diagnóstica (cerradas / abiertas). Medidas → `MVP-014`. |
-| FE-OPEN-02 | 08 / 10 | Provider auth + session — cerrar con `TS-013` / M1-04. |
-| BE-OPEN-01…05 | 09 / 10 | Vendors DB/ORM/auth/storage/email + límites foto — contrato BE ya fijado; vendors en M1-04. |
-| TS-OPEN-* | 10 | Proveedor auth (password coach + magic link clientes), DB/ORM, hosting — cerrar en M1-04. |
+| TS-OPEN-03 | 10 | Pin de versiones exactas al instalar (majors ya binding en §2). |
 
-~~FE-OPEN-03~~ → `BE-008` (signed URL).
+~~FE-OPEN-02~~ → `TS-013` + `TS-025`.  
+~~FE-OPEN-03~~ → `BE-008` (signed URL).  
+~~BE-OPEN-01~~ → `TS-011` / `TS-012`.  
+~~BE-OPEN-02~~ → `TS-013`.  
+~~BE-OPEN-03~~ → `TS-016`.  
+~~BE-OPEN-04~~ → `TS-014`.  
+~~BE-OPEN-05~~ → `TS-017`.  
+~~TS-OPEN-01~~ / ~~TS-OPEN-02~~ → §2 doc 10.
 
 ~~VISION-OPEN-01~~ → `VISION-008`.  
 ~~MVP-OPEN-01~~ → `MVP-008` (7 días).  

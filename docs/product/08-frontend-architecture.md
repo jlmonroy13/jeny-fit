@@ -1,6 +1,6 @@
 # 08 · Frontend architecture
 
-> **Estado:** v1.0 — FE-001…013 cerradas. Auth provider → doc 10 (`FE-OPEN-02`). Upload fotos → `BE-008`.
+> **Estado:** v1.0 — FE-001…013 cerradas. Auth = Better Auth (`TS-013`, `TS-025`). Upload = `BE-008` / `TS-016`.
 
 ## 1. Objetivo y audiencia
 
@@ -18,7 +18,8 @@ Estructura frontend, mapa de rutas y decisiones `FE-*` para agents e implementac
 | Iconos | Lucide (paquete npm en app; prototipo usaba CDN) | doc 07 |
 | Forms / mutations | Server Actions (+ validación Zod cuando se cierre stack) | FE-006 |
 | Auth UI | Coach: password forms; Cliente: magic-link screens | VISION-004, FLOW-001…003 |
-| Auth provider | **OPEN** → M1-04 / `TS-013` | TS-OPEN |
+| Auth provider | **Better Auth** (password coach + magic link client) | TS-013 |
+| Session shape | `userId`, `role`, `clientProfileId?` | TS-025 |
 
 ## 3. Decisiones (`FE-NNN`)
 
@@ -178,8 +179,8 @@ Tipos de dominio alineados a [`05-domain-model.md`](05-domain-model.md); no inve
 | ID | Tema | Estado |
 |----|------|--------|
 | FE-OPEN-01 | Paths finales | **Cerrada** → `FE-013` (§4) |
-| FE-OPEN-02 | Provider auth y shape de session | **Abierta** — cerrar con `TS-013` / M1-04 (doc 10) |
-| FE-OPEN-03 | Upload de fotos | **Cerrada** → `BE-008` (signed URL directa a storage) |
+| FE-OPEN-02 | Provider auth y shape de session | **Cerrada** → `TS-013` Better Auth + `TS-025` |
+| FE-OPEN-03 | Upload de fotos | **Cerrada** → `BE-008` + `TS-016` R2 |
 
 ## 12. Referencias
 

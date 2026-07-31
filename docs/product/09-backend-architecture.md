@@ -1,6 +1,6 @@
 # 09 · Backend architecture
 
-> **Estado:** v1.0 — `BE-001`…`015` cerradas. Provider DB/ORM/auth/email/storage → `TS-*` / M1-04 (doc 10). Upload fotos cerrado (`BE-008`).
+> **Estado:** v1.0 — `BE-001`…`015` cerradas. Stack vendors = doc 10 (`TS-011`…`017`). Upload = `BE-008` + R2.
 
 ## 1. Objetivo y audiencia
 
@@ -198,12 +198,12 @@ Client                    Next (Action)              Object storage
 
 | ID | Tema | Estado |
 |----|------|--------|
-| FE-OPEN-03 | Upload fotos | **Cerrada** → `BE-008` (signed URL) |
-| BE-OPEN-01 | Vendor DB / ORM | **Abierta** → `TS-011`, `TS-012` / M1-04 |
-| BE-OPEN-02 | Vendor auth (password + magic link + reset) | **Abierta** → `TS-013` / M1-04; alinea `FE-OPEN-02` |
-| BE-OPEN-03 | Object storage (S3, R2, provider BaaS, …) | **Abierta** → doc 10; contrato API = `BE-008` |
-| BE-OPEN-04 | Email transactional provider | **Abierta** → doc 10 (`BE-013` fija usos) |
-| BE-OPEN-05 | Límite MIME/tamaño fotos | **Abierta** — cerrar en issue M8 valoración |
+| FE-OPEN-03 | Upload fotos | **Cerrada** → `BE-008` + `TS-016` |
+| BE-OPEN-01 | Vendor DB / ORM | **Cerrada** → `TS-011` Neon + `TS-012` Drizzle |
+| BE-OPEN-02 | Vendor auth | **Cerrada** → `TS-013` Better Auth |
+| BE-OPEN-03 | Object storage | **Cerrada** → `TS-016` Cloudflare R2 |
+| BE-OPEN-04 | Email | **Cerrada** → `TS-014` Resend |
+| BE-OPEN-05 | Límite MIME/tamaño fotos | **Cerrada** → `TS-017` |
 
 ## 11. Referencias
 
