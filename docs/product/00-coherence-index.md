@@ -20,7 +20,7 @@
 | **06** | Reglas testeables | BR-* | v1.0 cerrado |
 | **07-prototype-screens** | UI MVP vs prototipo | Tabla Sí/No | v1.1 cerrado (auth + alta incluidos) |
 | **07-design-system** | Tokens/componentes/copy UI | — | v1.0 cerrado |
-| **08** | Frontend | FE-* | Pendiente (M1) |
+| **08** | Frontend | FE-* | v1.0 cerrado (`FE-OPEN-02/03` → 10/09) |
 | **09** | Backend | BE-* | Pendiente (M1) |
 | **10** | Stack | TS-* | Pendiente (M1-04) |
 | **11** | Tests | TEST-* | Pendiente (M1) |
@@ -108,7 +108,9 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 | ID | Doc | Tema |
 |----|-----|------|
 | MVP-OPEN-02 | 02 / 06 | Contenido canónico de **preguntas** de la encuesta diagnóstica (cerradas / abiertas). Medidas → `MVP-014`. |
-| TS-OPEN-* | 10 | Proveedor auth (password coach + magic link clientes), DB/ORM, hosting — cerrar en M1-04 (no en este fill de producto). |
+| FE-OPEN-02 | 08 / 10 | Provider auth + session — cerrar con `TS-013` / M1-04. |
+| FE-OPEN-03 | 08 / 09 | Upload fotos (recomendado: signed URL a storage). |
+| TS-OPEN-* | 10 | Proveedor auth (password coach + magic link clientes), DB/ORM, hosting — cerrar en M1-04. |
 
 ~~VISION-OPEN-01~~ → `VISION-008`.  
 ~~MVP-OPEN-01~~ → `MVP-008` (7 días).  
