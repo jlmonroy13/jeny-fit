@@ -98,7 +98,7 @@ Fuente de nombres: [`02-scope-mvp.md`](02-scope-mvp.md) §7. Detalle de issues M
 | **RM-010** | **Branch naming** — `Mx-NN-<slug>`. Ej.: `M1-02-tooling-prettier`. |
 | **RM-011** | **Lazy-build UI** — componente design system solo con primer caller en el **mismo PR**. |
 
-## 5. M1 · Foundation (detalle)
+## 5. M1 · Foundation
 
 ### M1.1 Objetivo
 
