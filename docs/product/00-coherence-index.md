@@ -21,7 +21,7 @@
 | **07-prototype-screens** | UI MVP vs prototipo | Tabla Sí/No | v1.1 cerrado (auth + alta incluidos) |
 | **07-design-system** | Tokens/componentes/copy UI | — | v1.0 cerrado |
 | **08** | Frontend | FE-* | v1.0 cerrado (`FE-OPEN-02/03` → 10/09) |
-| **09** | Backend | BE-* | Pendiente (M1) |
+| **09** | Backend | BE-* | v1.0 cerrado (`BE-OPEN-*` vendor → 10) |
 | **10** | Stack | TS-* | Pendiente (M1-04) |
 | **11** | Tests | TEST-* | Pendiente (M1) |
 | **12** | Plan | RM-*, Mx-NN | M1 activo; M2+ esqueleto |
@@ -109,8 +109,10 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 |----|-----|------|
 | MVP-OPEN-02 | 02 / 06 | Contenido canónico de **preguntas** de la encuesta diagnóstica (cerradas / abiertas). Medidas → `MVP-014`. |
 | FE-OPEN-02 | 08 / 10 | Provider auth + session — cerrar con `TS-013` / M1-04. |
-| FE-OPEN-03 | 08 / 09 | Upload fotos (recomendado: signed URL a storage). |
+| BE-OPEN-01…05 | 09 / 10 | Vendors DB/ORM/auth/storage/email + límites foto — contrato BE ya fijado; vendors en M1-04. |
 | TS-OPEN-* | 10 | Proveedor auth (password coach + magic link clientes), DB/ORM, hosting — cerrar en M1-04. |
+
+~~FE-OPEN-03~~ → `BE-008` (signed URL).
 
 ~~VISION-OPEN-01~~ → `VISION-008`.  
 ~~MVP-OPEN-01~~ → `MVP-008` (7 días).  

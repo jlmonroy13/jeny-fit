@@ -1,6 +1,6 @@
 # 08 · Frontend architecture
 
-> **Estado:** v1.0 — FE-001…012 + rutas §4 cerradas (`FE-013`). Auth provider / upload fotos → docs 10 / 09.
+> **Estado:** v1.0 — FE-001…013 cerradas. Auth provider → doc 10 (`FE-OPEN-02`). Upload fotos → `BE-008`.
 
 ## 1. Objetivo y audiencia
 
@@ -179,7 +179,7 @@ Tipos de dominio alineados a [`05-domain-model.md`](05-domain-model.md); no inve
 |----|------|--------|
 | FE-OPEN-01 | Paths finales | **Cerrada** → `FE-013` (§4) |
 | FE-OPEN-02 | Provider auth y shape de session | **Abierta** — cerrar con `TS-013` / M1-04 (doc 10) |
-| FE-OPEN-03 | Upload de fotos (signed URL vs via API) | **Abierta** — cerrar en doc 09; **recomendación:** signed URL directa a storage |
+| FE-OPEN-03 | Upload de fotos | **Cerrada** → `BE-008` (signed URL directa a storage) |
 
 ## 12. Referencias
 
