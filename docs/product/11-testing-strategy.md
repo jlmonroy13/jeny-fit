@@ -1,6 +1,6 @@
 # 11 · Testing strategy
 
-> **Estado:** v1.0 — `TEST-001`…`015` cerradas. Matriz BR/FLOW alineada a docs 04/06 y milestones M2–M8.
+> **Estado:** v1.1 — `TEST-001`…`017`; free-tier Vercel/Neon (`TS-026`).
 
 ## 1. Objetivo y audiencia
 
@@ -30,12 +30,14 @@ Pirámide de tests, quality gates (`RM-008`) y **qué automatizar** vs manual. B
 | **TEST-007** | Fixtures seed: coach + ≥1 client + plan mínimo; datos en español de negocio OK, ids/keys en inglés. |
 | **TEST-008** | Timer, copy visual, layout responsive → **manual** (checklist issue); no automatizar vibra/sonido. |
 | **TEST-009** | `BR-080` / `BR-081` (ausencia de feature) → smoke unit/integration “no endpoint / reject”; no E2E de “no existe botón” salvo regresión. |
-| **TEST-010** | CI PR ejecuta **unit + integration** (`pnpm test`); E2E en CI cuando exista job dedicado (puede ser nightly o gate M9). |
+| **TEST-010** | CI PR ejecuta **unit + integration** (`pnpm test`) en **GitHub Actions**; E2E en job separado según `TEST-017`. |
 | **TEST-011** | Reloj/fechas en pagos y “día actual”: inyectar `now` / clock en domain (testeable sin flaky). |
 | **TEST-012** | Upload R2 en tests: mock signed URL; no subir bytes reales a prod en CI. |
 | **TEST-013** | Magic link en E2E: usar API/test hook o inbox de prueba — no depender de email real en CI. |
 | **TEST-014** | **Lean:** no tests por cobertura %; gatillos = authZ, dinero/pago, avance RIR, snapshot, encuesta keys, AC del issue. |
 | **TEST-015** | Issue sin AC testeable → no mergear feature; añadir AC o BR antes (docs-first). |
+| **TEST-016** | DB integration en CI = **Postgres service** en GitHub Actions (o Testcontainers local). **Prohibido:** Neon branch / compute por PR (`TS-026`). |
+| **TEST-017** | E2E: unit/integration en **cada PR**; suite E2E crítica desde **M4** en PR solo si cabe en minutos CI free; si no, **nightly** hasta M9. No desplegar a Vercel solo para correr E2E. |
 
 ## 4. Pirámide
 
@@ -152,12 +154,12 @@ Ubicación sugerida: `tests/fixtures/` o `lib/test/` (definir en M1-05 / M2). Se
 - Cobertura de todas las rutas `FE-013`
 - Tests de librerías third-party (Better Auth, Drizzle) más allá de nuestro wiring
 
-## 10. Preguntas abiertas
+## 10. Preguntas abiertas / cerradas
 
 | ID | Tema | Estado |
 |----|------|--------|
-| TEST-OPEN-01 | DB de integration en CI (Neon ephemeral vs Testcontainers) | **Abierta** — cerrar en issue M2/M3 wiring; preferencia: Neon branch efímero o Postgres service en GH Actions |
-| TEST-OPEN-02 | E2E en todo PR vs nightly hasta M9 | **Abierta** — default `TEST-010`: unit/integration en PR; E2E crítico desde M4/M9 según costo CI |
+| TEST-OPEN-01 | DB de integration en CI | **Cerrada** → `TEST-016` (Postgres en GH Actions; no Neon por PR) |
+| TEST-OPEN-02 | E2E en todo PR vs nightly | **Cerrada** → `TEST-017` (PR: unit/integration; E2E crítico M4+ con presupuesto CI; sin Vercel-as-test-runner) |
 
 ## 11. Referencias
 

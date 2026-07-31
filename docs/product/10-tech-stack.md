@@ -1,6 +1,6 @@
 # 10 · Tech stack
 
-> **Estado:** v1.0 — stack MVP cerrado (`TS-001`…`025`).
+> **Estado:** v1.1 — stack MVP cerrado (`TS-001`…`026`). Free tier Vercel/Neon binding.
 
 ## 1. Objetivo y audiencia
 
@@ -31,6 +31,7 @@ Versiones y librerías **binding** (`TS-*`) para agents e issues. No añadir dep
 | **TS-023** | Path alias | `@/*` → repo root (**confirmado** en `tsconfig.json`) |
 | **TS-024** | Node | Engines Node **≥ 22** (fijar en `package.json` en M1-02) |
 | **TS-025** | Session shape (mín.) | Tras auth: `userId`, `role` (`coach` \| `client`), `clientProfileId` si client — cierra `FE-OPEN-02` a nivel contrato; implementación Better Auth |
+| **TS-026** | Budget free tier | **No superar el free tier de Vercel ni de Neon** en MVP/dev. Diseñar CI, previews y DB de test para no consumir compute/branches/build minutes de más (ver §5–6). |
 
 ### 2.1 Alternativas explícitamente descartadas (MVP)
 
@@ -76,8 +77,10 @@ Nombres orientativos (ajustar prefijos al wire real de Better Auth / SDKs; docum
 
 ## 5. CI/CD
 
-- Host: Vercel (`TS-015`); previews por PR.
-- Gate PR (`RM-008`): **`pnpm lint` → `pnpm typecheck` → `pnpm format:check` → `pnpm test`**
+- Host: Vercel (`TS-015`); previews por PR **con moderación** (`TS-026`): preferir 1 proyecto, evitar redeploys inútiles; no spamear previews para docs-only si se puede skip.
+- Gate PR (`RM-008`): **`pnpm lint` → `pnpm typecheck` → `pnpm format:check` → `pnpm test`** en **GitHub Actions** (no usar Neon ni Vercel como runner de test).
+- **DB de integration en CI:** Postgres **service container** en GH Actions (`TEST-016`) — **no** Neon branches por PR (`TS-026`).
+- Neon: **un** proyecto free (dev/prod según convenga); connection pooling; suspender compute idle; sin branch-per-PR.
 - Migrations: aplicar en deploy / paso explícito (issue M2+); no mutar prod a mano.
 
 ## 6. Restricciones explícitas
@@ -87,6 +90,7 @@ Nombres orientativos (ajustar prefijos al wire real de Better Auth / SDKs; docum
 3. No Jest/Cypress si Vitest/Playwright están elegidos.
 4. No i18n multi-idioma ni pasarela de pago en dependencias MVP.
 5. UI copy en español; código en inglés (`AGENTS.md`).
+6. **`TS-026`:** no diseñar flujos que empujen fuera del free tier de **Vercel** o **Neon** (CI en Actions + Postgres efímero; Neon solo app; previews Vercel con cuidado).
 
 ## 7. Mapa OPEN → cerrado
 
