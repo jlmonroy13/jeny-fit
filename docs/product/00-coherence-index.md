@@ -20,8 +20,8 @@
 | **06** | Reglas testeables | BR-* | v1.0 cerrado |
 | **07-prototype-screens** | UI MVP vs prototipo | Tabla Sí/No | v1.1 cerrado (auth + alta incluidos) |
 | **07-design-system** | Tokens/componentes/copy UI | — | v1.0 cerrado |
-| **08** | Frontend | FE-* | v1.0 cerrado (`FE-OPEN-02/03` → 10/09) |
-| **09** | Backend | BE-* | v1.0 cerrado (`BE-OPEN-*` vendor → 10) |
+| **08** | Frontend | FE-* | v1.0 cerrado |
+| **09** | Backend | BE-* | v1.0 cerrado |
 | **10** | Stack | TS-* | v1.0 cerrado (Neon/Drizzle/Better Auth/Resend/R2/Vercel) |
 | **11** | Tests | TEST-* | Pendiente (M1) |
 | **12** | Plan | RM-*, Mx-NN | M1 activo; M2+ esqueleto |
