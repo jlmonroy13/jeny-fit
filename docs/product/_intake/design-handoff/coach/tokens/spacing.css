@@ -1,0 +1,10 @@
+:root{
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-8:32px;--space-10:40px;--space-12:48px;--space-16:64px;--space-20:80px;
+--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-pill:999px;
+--shadow-sm:0 1px 2px oklch(30% 0.02 300 / 0.08);
+--shadow-md:0 8px 24px oklch(30% 0.03 305 / 0.12);
+--shadow-lg:0 20px 48px oklch(25% 0.04 305 / 0.16);
+--ease-standard:cubic-bezier(.2,.8,.2,1);/* @kind other */
+--duration-fast:120ms;/* @kind other */
+--duration-standard:200ms/* @kind other */
+}

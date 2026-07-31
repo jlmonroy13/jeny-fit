@@ -1,0 +1,27 @@
+:root{
+--day-completado-bg:var(--purple-700);
+--day-completado-fg:var(--white);
+--day-completado-border:var(--purple-700);
+--day-actual-bg:var(--lavender-100);
+--day-actual-fg:var(--purple-900);
+--day-actual-border:var(--purple-700);
+--day-futuro-bg:var(--gray-100);
+--day-futuro-fg:var(--ink-500);
+--day-futuro-border:var(--gray-200);
+--alert-info-bg:var(--lavender-050);
+--alert-info-border:var(--purple-300);
+--alert-info-fg:var(--purple-900);
+--alert-info-icon:var(--purple-700);
+--alert-success-bg:var(--green-100);
+--alert-success-border:var(--green-300);
+--alert-success-fg:oklch(32% 0.08 155);
+--alert-success-icon:var(--green-600);
+--alert-warning-bg:var(--amber-100);
+--alert-warning-border:var(--amber-300);
+--alert-warning-fg:oklch(36% 0.09 70);
+--alert-warning-icon:var(--amber-600);
+--alert-error-bg:var(--rose-100);
+--alert-error-border:var(--rose-300);
+--alert-error-fg:oklch(34% 0.12 20);
+--alert-error-icon:var(--rose-600)
+}

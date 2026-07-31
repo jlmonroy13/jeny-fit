@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JenyFit — Nutrición</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--surface-sunken);font-family:var(--font-body)}
+a{color:var(--brand-primary);text-decoration:none}
+a:hover{color:var(--brand-primary-hover)}
+img{display:block}
+.phone{width:390px;margin:24px auto;background:var(--surface-sunken);border-radius:28px;box-shadow:var(--shadow-lg);overflow:hidden;min-height:844px;display:flex;flex-direction:column;position:relative}
+.card{background:var(--surface-page);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:20px}
+.btn{display:flex;align-items:center;justify-content:center;border-radius:var(--radius-pill);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;border:none}
+.btn-primary{background:var(--brand-primary);color:#fff;padding:13px 20px}
+.btn-secondary{background:var(--surface-wash);color:var(--purple-900);padding:13px 20px}
+.btn-ghost{background:transparent;color:var(--text-secondary);padding:13px 20px}
+.badge{display:inline-flex;align-items:center;padding:4px 12px;border-radius:var(--radius-pill);font-size:12px;font-weight:600}
+.badge-success{background:var(--alert-success-bg);color:var(--alert-success-icon)}
+.badge-warning{background:var(--alert-warning-bg);color:var(--alert-warning-icon)}
+.badge-error{background:var(--alert-error-bg);color:var(--alert-error-icon)}
+.banner{display:flex;gap:10px;padding:14px 16px;border-radius:var(--radius-md)}
+.banner-info{background:var(--alert-info-bg)}
+.banner-success{background:var(--alert-success-bg)}
+.banner-warning{background:var(--alert-warning-bg)}
+.banner-error{background:var(--alert-error-bg)}
+.tag{display:inline-flex;align-items:center;padding:0 16px;height:32px;border-radius:var(--radius-pill);font-size:13px;font-weight:500;background:var(--gray-100);color:var(--text-secondary);cursor:pointer;white-space:nowrap}
+.tag.selected{background:var(--brand-primary);color:#fff}
+.daychip{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.daychip.completado{background:var(--day-completado-bg);color:var(--day-completado-fg)}
+.daychip.actual{background:var(--day-actual-bg);color:var(--day-actual-fg);border:2px solid var(--brand-primary)}
+.daychip.futuro{background:var(--day-futuro-bg);color:var(--day-futuro-fg)}
+.input{width:100%;padding:11px 14px;border-radius:var(--radius-sm);border:1px solid var(--border-default);font-family:var(--font-body);font-size:14px;color:var(--text-primary)}
+.label{font-size:12px;color:var(--text-muted);margin-bottom:6px;display:block;font-weight:600}
+.bottomnav{display:flex;border-top:1px solid var(--border-subtle);background:var(--surface-card);padding:8px 4px 10px;flex-shrink:0}
+.navitem{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 0;font-size:11px;color:var(--text-muted)}
+.navitem img{width:20px;height:20px;opacity:0.55}
+.navitem.active{color:var(--brand-primary);font-weight:600}
+.navitem.active img{opacity:1;filter:invert(24%) sepia(31%) saturate(1400%) hue-rotate(240deg)}
+.display{font-family:var(--font-display);font-weight:700;text-transform:uppercase;color:var(--text-primary)}
+.header{padding:20px 16px 16px;display:flex;flex-direction:column;gap:14px}
+.content{flex:1;overflow-y:auto}
+.rir{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff}
+</style>
+</head>
+<body>
+
+<div class="phone">
+  <div class="content">
+    <div class="header">
+      <div>
+        <div class="display" style="font-size:24px">Tu plan de nutrición</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:2px">Cantidades sugeridas por Jeny — solo lectura</div>
+      </div>
+      <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-weight:600;font-size:15px;color:var(--text-primary)">Comida 1</div><div style="font-size:12px;color:var(--text-muted)">7:30 am</div></div>
+      <img src="https://unpkg.com/lucide-static@latest/icons/chevron-up.svg" style="width:16px;height:16px;opacity:0.5" alt="">
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border-subtle)">
+      <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:var(--text-secondary)">Avena con frutos rojos</span><span style="color:var(--text-muted)">1 taza + 100 g</span></div><div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:var(--text-secondary)">Clara de huevo</span><span style="color:var(--text-muted)">3 unidades</span></div>
+    </div>
+  </div>
+      <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-weight:600;font-size:15px;color:var(--text-primary)">Comida 2</div><div style="font-size:12px;color:var(--text-muted)">10:30 am</div></div>
+      <img src="https://unpkg.com/lucide-static@latest/icons/chevron-down.svg" style="width:16px;height:16px;opacity:0.5" alt="">
+    </div>
+    
+  </div>
+      <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-weight:600;font-size:15px;color:var(--text-primary)">Comida 3</div><div style="font-size:12px;color:var(--text-muted)">1:00 pm</div></div>
+      <img src="https://unpkg.com/lucide-static@latest/icons/chevron-down.svg" style="width:16px;height:16px;opacity:0.5" alt="">
+    </div>
+    
+  </div>
+      <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-weight:600;font-size:15px;color:var(--text-primary)">Comida 4</div><div style="font-size:12px;color:var(--text-muted)">4:00 pm</div></div>
+      <img src="https://unpkg.com/lucide-static@latest/icons/chevron-down.svg" style="width:16px;height:16px;opacity:0.5" alt="">
+    </div>
+    
+  </div>
+      <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-weight:600;font-size:15px;color:var(--text-primary)">Comida 5</div><div style="font-size:12px;color:var(--text-muted)">7:00 pm</div></div>
+      <img src="https://unpkg.com/lucide-static@latest/icons/chevron-down.svg" style="width:16px;height:16px;opacity:0.5" alt="">
+    </div>
+    
+  </div>
+      <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-weight:600;font-size:15px;color:var(--text-primary)">Comida 6</div><div style="font-size:12px;color:var(--text-muted)">9:30 pm</div></div>
+      <img src="https://unpkg.com/lucide-static@latest/icons/chevron-down.svg" style="width:16px;height:16px;opacity:0.5" alt="">
+    </div>
+    
+  </div>
+      <div class="banner banner-info">
+        <img src="https://unpkg.com/lucide-static@latest/icons/info.svg" style="width:18px;height:18px" alt="">
+        <div><div style="font-weight:600;font-size:14px;color:var(--text-primary)">Tip de Jeny</div><div style="font-size:13px;color:var(--text-secondary)">Recuerda hidratarte bien antes y después de entrenar.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="bottomnav"><a class="navitem" href="client-inicio.html"><img src="https://unpkg.com/lucide-static@latest/icons/home.svg" alt=""/>Inicio</a><a class="navitem" href="client-entreno.html"><img src="https://unpkg.com/lucide-static@latest/icons/dumbbell.svg" alt=""/>Entreno</a><a class="navitem active" href="client-nutricion.html"><img src="https://unpkg.com/lucide-static@latest/icons/salad.svg" alt=""/>Nutrición</a><a class="navitem" href="client-historial.html"><img src="https://unpkg.com/lucide-static@latest/icons/history.svg" alt=""/>Historial</a><a class="navitem" href="client-perfil.html"><img src="https://unpkg.com/lucide-static@latest/icons/user.svg" alt=""/>Perfil</a></div>
+</div>
+
+</body>
+</html>

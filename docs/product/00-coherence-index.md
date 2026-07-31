@@ -18,8 +18,8 @@
 | **04** | Cómo (journeys) | FLOW-* | v1.0 cerrado |
 | **05** | Qué persiste | DOMAIN-* | v1.0 cerrado |
 | **06** | Reglas testeables | BR-* | v1.0 cerrado |
-| **07-prototype-screens** | UI MVP vs prototipo | Tabla Sí/No | Pendiente |
-| **07-design-system** | Tokens/componentes/copy UI | — | Pendiente |
+| **07-prototype-screens** | UI MVP vs prototipo | Tabla Sí/No | v1.0 cerrado (gaps: login magic link, alta clienta) |
+| **07-design-system** | Tokens/componentes/copy UI | — | v1.0 cerrado |
 | **08** | Frontend | FE-* | Pendiente (M1) |
 | **09** | Backend | BE-* | Pendiente (M1) |
 | **10** | Stack | TS-* | Pendiente (M1-04) |
@@ -39,7 +39,7 @@
 | §7 Plan nutricional | 05, 06, 07 |
 | §8 Pagos | 02, 04, 05, 06 |
 | §9 Reglas clave | 06 |
-| §10 Diseño / UX | 07-design, 07-prototype |
+| §10 Diseño / UX | 07-design, 07-prototype + `_intake/design-handoff/` |
 | §11 Fuera de MVP | 02 |
 
 **Insumo:** [`_intake/jenyfit-contexto-v1.md`](_intake/jenyfit-contexto-v1.md) — **no binding**; si hay conflicto, ganan 01–12.

@@ -1,0 +1,41 @@
+:root{
+--purple-900:oklch(30% 0.09 314);
+--purple-700:#764293;
+--purple-600:oklch(53% 0.12 312);
+--purple-400:oklch(70% 0.09 311);
+--purple-300:#CCA9D0;
+--lavender-100:#DED3E0;
+--lavender-050:oklch(97.5% 0.012 310);
+--ink-900:#3F3E3F;
+--ink-700:oklch(46% 0.006 300);
+--ink-500:oklch(61% 0.005 300);
+--gray-300:#D1D0D1;
+--gray-200:oklch(91% 0.003 300);
+--gray-100:oklch(96.5% 0.002 300);
+--white:#FFFFFF;
+--green-600:oklch(52% 0.11 155);
+--green-100:oklch(95% 0.03 155);
+--green-300:oklch(80% 0.09 155);
+--amber-600:oklch(55% 0.13 75);
+--amber-100:oklch(96% 0.04 90);
+--amber-300:oklch(82% 0.12 85);
+--rose-600:oklch(52% 0.15 20);
+--rose-100:oklch(96% 0.025 20);
+--rose-300:oklch(80% 0.11 20);
+--surface-page:var(--white);
+--surface-card:var(--white);
+--surface-sunken:var(--lavender-050);
+--surface-wash:var(--lavender-100);
+--text-primary:var(--ink-900);
+--text-secondary:var(--ink-700);
+--text-muted:var(--ink-500);
+--text-on-brand:var(--white);
+--brand-primary:var(--purple-700);
+--brand-primary-hover:var(--purple-600);
+--brand-primary-active:var(--purple-900);
+--brand-soft:var(--purple-300);
+--brand-wash:var(--lavender-100);
+--border-default:var(--gray-300);
+--border-subtle:var(--gray-200);
+--focus-ring:var(--purple-700)
+}

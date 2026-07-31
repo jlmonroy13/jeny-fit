@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JenyFit Coach — Editor de nota de feedback</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--surface-sunken);font-family:var(--font-body)}
+a{color:var(--brand-primary);text-decoration:none}
+a:hover{color:var(--brand-primary-hover)}
+img{display:block}
+.display{font-family:var(--font-display);font-weight:700;text-transform:uppercase;color:var(--text-primary)}
+.card{background:var(--surface-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius-pill);font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;border:none;padding:11px 18px}
+.btn-primary{background:var(--brand-primary);color:#fff}
+.btn-secondary{background:var(--surface-wash);color:var(--purple-900)}
+.btn-ghost{background:transparent;color:var(--text-secondary)}
+.badge{display:inline-flex;align-items:center;padding:4px 12px;border-radius:var(--radius-pill);font-size:12px;font-weight:600}
+.badge-success{background:var(--alert-success-bg);color:var(--alert-success-icon)}
+.badge-warning{background:var(--alert-warning-bg);color:var(--alert-warning-icon)}
+.badge-error{background:var(--alert-error-bg);color:var(--alert-error-icon)}
+.banner{display:flex;gap:10px;padding:14px 16px;border-radius:var(--radius-md)}
+.banner-success{background:var(--alert-success-bg)}
+.tag{display:inline-flex;align-items:center;padding:0 16px;height:32px;border-radius:var(--radius-pill);font-size:13px;font-weight:500;background:var(--gray-100);color:var(--text-secondary);white-space:nowrap}
+.tag.selected{background:var(--brand-primary);color:#fff}
+.daychip{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.daychip.completado{background:var(--day-completado-bg);color:var(--day-completado-fg)}
+.daychip.actual{background:var(--day-actual-bg);color:var(--day-actual-fg);border:2px solid var(--brand-primary)}
+.daychip.futuro{background:var(--day-futuro-bg);color:var(--day-futuro-fg)}
+.input{width:100%;padding:11px 14px;border-radius:var(--radius-sm);border:1px solid var(--border-default);font-family:var(--font-body);font-size:14px;color:var(--text-primary)}
+.select{width:100%;padding:11px 14px;border-radius:var(--radius-sm);border:1px solid var(--border-default);font-family:var(--font-body);font-size:14px;color:var(--text-primary);background:var(--surface-page)}
+.label{font-size:12px;color:var(--text-muted);margin-bottom:6px;display:block;font-weight:600}
+.rir{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.shell{width:1280px;max-width:100%;margin:16px auto 40px;background:var(--surface-page);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);display:flex;min-height:800px;overflow:hidden}
+.sidebar{width:220px;background:var(--surface-card);border-right:1px solid var(--border-subtle);display:flex;flex-direction:column;padding:20px 12px;gap:4px;flex-shrink:0}
+.sidebar .logo{font-family:var(--font-display);font-weight:700;font-size:18px;text-transform:uppercase;color:var(--brand-primary);padding:0 10px 20px}
+.navitem{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--radius-sm);font-size:14px;color:var(--text-secondary)}
+.navitem img{width:17px;height:17px;opacity:0.65}
+.navitem.active{background:var(--surface-wash);color:var(--purple-900);font-weight:600}
+.navitem.active img{opacity:1;filter:invert(24%) sepia(31%) saturate(1400%) hue-rotate(240deg)}
+.main{flex:1;overflow-y:auto;padding:28px}
+.tabsbar{display:flex;gap:6px;margin-bottom:18px;overflow-x:auto}
+.tabitem{padding:9px 18px;border-radius:var(--radius-pill);font-size:13px;font-weight:600;color:var(--text-secondary);background:var(--gray-100);white-space:nowrap}
+.tabitem.active{background:var(--brand-primary);color:#fff}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:12px;color:var(--text-muted);padding:12px 20px;border-bottom:1px solid var(--border-subtle);font-weight:400}
+td{padding:14px 20px;border-bottom:1px solid var(--border-subtle);font-size:14px;color:var(--text-secondary)}
+.tablewrap{background:var(--surface-card);border-radius:var(--radius-lg);border:1px solid var(--border-subtle);overflow:hidden}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <div class="sidebar">
+    <div class="logo">JenyFit</div>
+    <a class="navitem active" href="coach-dashboard.html"><img src="https://unpkg.com/lucide-static@latest/icons/users.svg" alt="">Clientas</a><a class="navitem" href="coach-library.html"><img src="https://unpkg.com/lucide-static@latest/icons/clipboard-list.svg" alt="">Biblioteca</a><a class="navitem" href="coach-login.html"><img src="https://unpkg.com/lucide-static@latest/icons/log-out.svg" alt="">Salir</a>
+  </div>
+  <div class="main">
+    <a href="coach-dashboard.html" style="display:inline-block;margin-bottom:14px;font-size:13px">← Volver a clientas</a>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:10px">
+    <div class="display" style="font-size:26px">Ana Torres</div>
+    <span class="badge badge-warning">Próximo a vencer</span>
+  </div>
+    <div class="tabsbar"><a class="tabitem" href="coach-training-editor.html">Entrenamiento</a><a class="tabitem active" href="coach-plan-completo.html">Plan Completo</a><a class="tabitem" href="coach-comparacion.html">Comparación</a><a class="tabitem" href="coach-nutrition-editor.html">Nutrición</a><a class="tabitem" href="coach-pagos.html">Pagos</a><a class="tabitem" href="coach-valoracion.html">Valoración</a></div>
+    <div style="max-width:420px;background:var(--surface-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:24px;display:flex;flex-direction:column;gap:14px">
+      <div class="display" style="font-size:18px">Feedback del bloque</div>
+      <span style="font-size:13px;color:var(--text-muted)">Este comentario aparecerá para la clienta en su Historial al final del bloque.</span>
+      <textarea rows="5" class="input" style="resize:vertical" placeholder="Ej. Terminaste el bloque con muy buena técnica...">Terminaste el bloque con muy buena técnica en sentadilla. Para el próximo, vamos a subir un poco el peso en prensa. ¡Sigue así!</textarea>
+      <div style="display:flex;justify-content:flex-end;gap:10px">
+        <a href="coach-plan-completo.html" class="btn btn-ghost">Cancelar</a>
+        <a href="coach-plan-completo.html" class="btn btn-primary">Guardar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+@font-face{font-family:'Open Sans Condensed';src:url(https://cdn.jsdelivr.net/fontsource/fonts/open-sans-condensed@latest/latin-700-normal.woff2) format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Open Sans Condensed';src:url(https://cdn.jsdelivr.net/fontsource/fonts/open-sans-condensed@latest/latin-300-normal.woff2) format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Open Sauce Sans';src:url(https://cdn.jsdelivr.net/fontsource/fonts/open-sauce-sans@latest/latin-300-normal.woff2) format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Open Sauce Sans';src:url(https://cdn.jsdelivr.net/fontsource/fonts/open-sauce-sans@latest/latin-400-normal.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Open Sauce Sans';src:url(https://cdn.jsdelivr.net/fontsource/fonts/open-sauce-sans@latest/latin-600-normal.woff2) format('woff2');font-weight:600;font-style:normal;font-display:swap}
+:root{
+--font-display:'Open Sans Condensed',Impact,sans-serif;
+--font-body:'Open Sauce Sans','Segoe UI',sans-serif;
+--weight-display:700;
+--weight-body-light:300;
+--weight-body-regular:400;
+--weight-body-medium:600;
+--text-display-xl:56px;
+--text-display-lg:40px;
+--text-display-md:28px;
+--text-display-sm:22px;
+--text-body-lg:18px;
+--text-body-md:15px;
+--text-body-sm:13px;
+--text-caption:12px;
+--leading-display:1.05;
+--leading-body:1.5;
+--tracking-display:0.01em
+}
