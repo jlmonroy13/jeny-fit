@@ -24,7 +24,7 @@
 | **09** | Backend | BE-* | v1.0 cerrado |
 | **10** | Stack | TS-* | v1.1 (`TS-026` free tier Vercel/Neon) |
 | **11** | Tests | TEST-* | v1.1 (`TEST-016`/`017`; sin Neon/Vercel en CI test) |
-| **12** | Plan | RM-*, Mx-NN | M1 activo; M2+ esqueleto |
+| **12** | Plan | RM-*, Mx-NN | v0.2 — M1 activo; M2–M9 nombres tentativos |
 
 ### 1.1 Mapa intake → doc canónico
 
@@ -107,8 +107,9 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 
 | ID | Doc | Tema |
 |----|-----|------|
-| TS-OPEN-03 | 10 | Pin de versiones exactas al instalar (majors ya binding en §2). |
+| TS-OPEN-03 | 10 | Pin de versiones exactas al instalar — cerrar en **M1-06**. |
 
+~~RM-OPEN-01~~ → nombres M2–M9 tentativos en doc 12 §2 / doc 02 §7.  
 ~~TEST-OPEN-01~~ → `TEST-016`.  
 ~~TEST-OPEN-02~~ → `TEST-017`.  
 ~~MVP-OPEN-02~~ → `MVP-018`.  
