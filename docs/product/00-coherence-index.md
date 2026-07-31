@@ -107,9 +107,9 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 
 | ID | Doc | Tema |
 |----|-----|------|
-| MVP-OPEN-02 | 02 / 06 | ~~abierta~~ → **`MVP-018`** (catálogo encuesta §3.3 doc 02). |
 | TS-OPEN-03 | 10 | Pin de versiones exactas al instalar (majors ya binding en §2). |
 
+~~MVP-OPEN-02~~ → `MVP-018`.  
 ~~FE-OPEN-02~~ → `TS-013` + `TS-025`.  
 ~~FE-OPEN-03~~ → `BE-008` (signed URL).  
 ~~BE-OPEN-01~~ → `TS-011` / `TS-012`.  
@@ -118,8 +118,6 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 ~~BE-OPEN-04~~ → `TS-014`.  
 ~~BE-OPEN-05~~ → `TS-017`.  
 ~~TS-OPEN-01~~ / ~~TS-OPEN-02~~ → §2 doc 10.  
-~~MVP-OPEN-02~~ → `MVP-018`.
-
 ~~VISION-OPEN-01~~ → `VISION-008`.  
 ~~MVP-OPEN-01~~ → `MVP-008` (7 días).  
 ~~MVP-OPEN-03~~ → `MVP-015` (resultado fuera de app).  
