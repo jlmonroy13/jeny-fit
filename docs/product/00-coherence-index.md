@@ -23,7 +23,7 @@
 | **08** | Frontend | FE-* | v1.0 cerrado |
 | **09** | Backend | BE-* | v1.0 cerrado |
 | **10** | Stack | TS-* | v1.0 cerrado (Neon/Drizzle/Better Auth/Resend/R2/Vercel) |
-| **11** | Tests | TEST-* | Pendiente (M1) |
+| **11** | Tests | TEST-* | v1.0 cerrado (`TEST-OPEN-01/02` CI wiring) |
 | **12** | Plan | RM-*, Mx-NN | M1 activo; M2+ esqueleto |
 
 ### 1.1 Mapa intake → doc canónico
@@ -108,6 +108,8 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 | ID | Doc | Tema |
 |----|-----|------|
 | TS-OPEN-03 | 10 | Pin de versiones exactas al instalar (majors ya binding en §2). |
+| TEST-OPEN-01 | 11 | DB efímera para integration en CI (Neon branch vs Postgres service). |
+| TEST-OPEN-02 | 11 | E2E en todo PR vs nightly hasta M9. |
 
 ~~MVP-OPEN-02~~ → `MVP-018`.  
 ~~FE-OPEN-02~~ → `TS-013` + `TS-025`.  
