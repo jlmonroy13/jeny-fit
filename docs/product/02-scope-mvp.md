@@ -1,6 +1,6 @@
 # 02 · Scope MVP
 
-> **Estado:** v0.5 — scope estable salvo encuesta diagnóstica (`MVP-OPEN-02`). Snapshot mínimo y auth Jeny cerrados.
+> **Estado:** v1.0 — scope MVP cerrado; encuesta canónica `MVP-018` (ex-`MVP-OPEN-02`).
 
 ## 1. Objetivo y audiencia
 
@@ -33,7 +33,7 @@ Web donde **Jeny** gestiona clientes, planes (entrenamiento + nutrición), bibli
 | MVP-006 | **Plan nutricional** ≤6 comidas (Comida 1…6), cantidades sugeridas; solo lectura para cliente; independiente del ciclo de bloques. |
 | MVP-007 | **Plan Completo** + **Comparación/progreso** en panel Jeny; feedback in-app al cierre de bloque (visible en historial del cliente). |
 | MVP-008 | **Pagos** mensuales USD, fecha fija por cliente, marcado manual; estados: **al día** / **próximo a vencer** (≤ **7 días** antes de la fecha de cobro) / **vencido**; vencido **no** bloquea acceso (solo aviso). |
-| MVP-009 | **Valoración:** diagnóstico inicial una vez (preguntas + fotos + medidas + peso); seguimientos mensuales sin cuestionario (fotos + medidas + peso). |
+| MVP-009 | **Valoración:** diagnóstico inicial una vez (encuesta `MVP-018` + fotos + medidas + peso); seguimientos mensuales sin cuestionario (fotos + medidas + peso). |
 | MVP-010 | **Timer de descanso** en día de entreno (2–6 min; pausar / saltar / extender; sonido + vibración al terminar). |
 | MVP-011 | Video por serie: **placeholder “Próximamente”** (WhatsApp fuera de app). |
 | MVP-012 | UX: Jeny responsive; cliente **mobile-only** con bottom nav (Inicio, Entreno, Nutrición, Historial, Perfil). |
@@ -115,7 +115,86 @@ Estructura del documento que Jeny produce hoy (referencia para post-MVP in-app):
 | Macros estimados | Proteína / grasa / carbohidrato (g, kcal, %) coherentes con kcal de mantenimiento |
 | Conclusión | Texto narrativo de Jeny |
 
-**Datos base que la valoración in-app debe poder alimentar** (además de las 12 medidas): peso, talla, edad, sexo, fotos, respuestas del cuestionario (hábitos, lesiones, condiciones de salud — texto exacto en `MVP-OPEN-02`).
+**Datos base que la valoración in-app debe poder alimentar** (además de las 12 medidas): peso, talla, edad (vía `birthDate`), sexo, teléfono/dirección/ciudad/tipo de sangre (perfil), fotos, respuestas `MVP-018`.
+
+### 3.3 Encuesta diagnóstica canónica (`MVP-018`)
+
+Insumo: [`_intake/encuesta-diagnostica/`](_intake/encuesta-diagnostica/). Solo en Assessment `initial` (`BR-061`).
+
+#### A. Datos personales (perfil + assessment — no son `questionKey`)
+
+| Campo UI | Persistencia |
+|----------|--------------|
+| Nombre | `User.name` |
+| Correo | `User.email` (ya del alta) |
+| Teléfono, dirección, ciudad, tipo de sangre | `ClientProfile` (`DOMAIN-027`) |
+| Fecha | `Assessment.createdAt` / `submittedAt` |
+| Edad | Derivada de `ClientProfile.birthDate` (capturar birthDate o edad→approx solo si se acuerda en UI; **preferir birthDate**) |
+| Estatura | `ClientProfile.heightCm` |
+| Peso | `Assessment.weightKg` |
+| Sexo | `ClientProfile.sex` (si se captura en el flujo; puede no estar en el Excel original) |
+
+#### B. Preguntas de salud Q1–10 (`yes_no` + `detail?` si SI)
+
+Copy UI (es). Keys estables:
+
+| # | `questionKey` | Pregunta |
+|---|---------------|----------|
+| 1 | `health_heart_disease` | ¿Le han diagnosticado alguna enfermedad cardiaca donde se le recomiende actividad física supervisada? |
+| 2 | `health_chest_pain_activity` | ¿Tiene dolores en el pecho producidos por la actividad física? |
+| 3 | `health_chest_pain_month` | ¿Ha notado dolor en el pecho durante el último mes? |
+| 4 | `health_dizziness` | ¿Tiende a perder el conocimiento o el equilibrio como resultado de mareos? |
+| 5 | `health_bp_meds` | ¿Alguna vez un médico le ha prescrito medicación para la presión arterial o por algún otro problema cardiovascular? |
+| 6 | `health_bone_joint` | ¿Tiene usted alguna alteración ósea o muscular que se pueda agravar con la actividad física propuesta? |
+| 7 | `health_hormonal_metabolic` | ¿Tiene actualmente algún problema hormonal o metabólico? |
+| 8 | `health_psychiatric` | ¿Le han diagnosticado alguna enfermedad psiquiátrica o usa algún medicamento relacionado? |
+| 9 | `health_gi` | ¿Padece alguna enfermedad gástrica o intestinal? |
+| 10 | `health_other_barrier` | ¿Tiene conocimiento, por experiencia propia o por indicación de algún médico, de alguna otra razón de tipo físico o psicológico que le impida realizar ejercicio físico sin supervisión médica? |
+
+**Aviso UI (`BR-065`):** si alguna Q1–10 = SI → mostrar: *“Si ha respondido SI a alguna de estas preguntas se le indica que debe visitar primero a su médico.”* No bloquea el envío en MVP (Jeny decide fuera de app).
+
+#### C. Actividad y logística Q11–13
+
+| # | `questionKey` | Tipo | Opciones / notas |
+|---|---------------|------|------------------|
+| 11 | `activity_level` | single_choice | `sedentary` · `beginner` · `intermediate` · `advanced` (copy: Sedentario / Principiante 3–6 meses / Intermedio 7–12 meses / Avanzado >1 año) |
+| 12 | `training_availability` | multi_choice | `morning` (5:00–11:59) · `midday` (12:00–13:59) · `afternoon` (14:00–18:59) · `evening` (19:00–23:59) |
+| 13 | `training_duration` | single_choice | `30m` · `1h` · `2h` |
+| 13b | `training_duration_note` | free_text | “OBSERVACION” opcional |
+
+**Aviso UI:** si edad > 65 **y** `activity_level=sedentary` → indicar chequeo médico previo (informativo).
+
+#### D. Objetivos y nutrición Q14–20
+
+| # | `questionKey` | Tipo | Opciones / notas |
+|---|---------------|------|------------------|
+| 14 | `goal` | multi_choice | `health` · `sport_functional` · `aesthetic` · `muscle_gain` · `fat_loss` · `maintenance` |
+| 14b | `goal_body_focus` | free_text | “¿Qué parte de tu cuerpo quieres trabajar más?” |
+| 15 | `food_restriction` | yes_no + detail | Alergia / no puede / no le gusta → `food_restriction_detail` |
+| 16 | `current_diet` | structured_json | Comidas: desayuno, merienda_am, almuerzo, merienda_pm, cena — cada una `{ text, time? }`; + `condiments_oil` |
+| 17 | `food_likes` | structured_json | `{ proteins?, carbs?, fats? }` (alimentos que más le gustan) |
+| 18 | `daily_routine` | free_text | Reseña rutina diaria |
+| 19 | `weekend_routine` | free_text | Reseña fin de semana |
+| 20 | `current_training` | free_text | Entrenamiento actual |
+
+#### E. Fuera de encuesta in-app
+
+| Campo Excel | Destino MVP |
+|-------------|-------------|
+| CONCLUSIÓNES | Fuera de app (`MVP-015`) |
+| RECOMENDACIONES | Fuera de app (`MVP-015`) |
+
+#### F. Shape de `SurveyAnswer.value`
+
+| `answerType` | Uso |
+|--------------|-----|
+| `yes_no` | boolean (+ detail en key hermana `*_detail` o campo `detail` en JSON) |
+| `single_choice` | string enum |
+| `multi_choice` | string[] |
+| `free_text` | string |
+| `structured_json` | objeto tipado (dieta / likes) |
+
+Keys desconocidas → rechazo (`BR-066`).
 
 ## 4. Fuera del MVP (Out of scope)
 
@@ -173,7 +252,7 @@ Nombres M2+ **tentativos** hasta retrospectiva M1 / `roadmap-detail` (RM-003). N
 | ID | Tema | Estado |
 |----|------|--------|
 | MVP-OPEN-01 | Umbral “próximo a vencer” | **cerrada** → **7 días** antes de la fecha de cobro (`MVP-008`) |
-| MVP-OPEN-02 | Contenido canónico de **preguntas** de la encuesta diagnóstica (cerradas / abiertas). Medidas → `MVP-014`. Pistas del resultado: lesiones, condiciones de salud, hábitos previos. | abierta |
+| MVP-OPEN-02 | Contenido canónico de la encuesta diagnóstica | **cerrada** → `MVP-018` + §3.3 |
 | MVP-OPEN-03 | Canal del Resultado diagnóstico | **cerrada** → fuera de la app en MVP (`MVP-015`); in-app = post-MVP |
 | VISION-OPEN-01 | North Star Metric (doc 01) | **cerrada** → VISION-008 |
 | DOMAIN-OPEN-01 | Single-coach vs multi-tenant | **cerrada** → single-coach (`MVP-016`) |
@@ -187,4 +266,5 @@ Nombres M2+ **tentativos** hasta retrospectiva M1 / `roadmap-detail` (RM-003). N
 - [`12-roadmap-milestones.md`](12-roadmap-milestones.md)
 - [`_intake/jenyfit-contexto-v1.md`](_intake/jenyfit-contexto-v1.md)
 - [`_intake/medidas-instructivo/`](_intake/medidas-instructivo/) (guía visual de circunferencias)
+- [`_intake/encuesta-diagnostica/`](_intake/encuesta-diagnostica/) (insumo encuesta `MVP-018`)
 - [`_intake/resultado-diagnostico/`](_intake/resultado-diagnostico/) (ejemplo de informe; entrega fuera de app en MVP)

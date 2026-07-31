@@ -1,6 +1,6 @@
 # 10 · Tech stack
 
-> **Estado:** v1.0 — stack MVP cerrado (`TS-001`…`025`). Copia encuesta = `MVP-OPEN-02` (producto, no stack).
+> **Estado:** v1.0 — stack MVP cerrado (`TS-001`…`025`).
 
 ## 1. Objetivo y audiencia
 
@@ -105,7 +105,6 @@ Nombres orientativos (ajustar prefijos al wire real de Better Auth / SDKs; docum
 
 | ID | Tema | Notas |
 |----|------|-------|
-| MVP-OPEN-02 | Copy encuesta diagnóstica | Producto (docs 02/06); no bloquea instalar stack |
 | TS-OPEN-03 | Exact package versions pin | Cerrar al instalar en issues M1-02 / M2 (mantener majors de §2) |
 
 ## 9. Referencias

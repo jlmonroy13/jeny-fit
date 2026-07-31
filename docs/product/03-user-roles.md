@@ -1,6 +1,6 @@
 # 03 · User roles
 
-> **Estado:** v1.0 — roles y `F-*` cerrados salvo `MVP-OPEN-02` (copy encuesta).
+> **Estado:** v1.0 — roles y `F-*` cerrados.
 
 ## 1. Objetivo y audiencia
 
@@ -103,9 +103,9 @@ Leyenda: ✅ permitido · ❌ denegado · ◐ solo lectura / limitado
 |----|------|--------|
 | ROLE-001 | Jeny puede **editar el RIR** (y observación) del cliente desde el panel | **Cerrada:** sí (`MVP-004` + matriz §4) |
 | ROLE-002 | Quién inicia el **seguimiento mensual** de valoración | **Cerrada:** el **coach crea/abre** el seguimiento; el **cliente completa** fotos/medidas/peso; el coach puede editar/asistir y ver evolución. Detalle de pasos → doc 04 |
-| MVP-OPEN-02 | Preguntas exactas de encuesta diagnóstica | Abierta (campos de F-013; no cambia roles) |
+| MVP-OPEN-02 | Preguntas exactas de encuesta diagnóstica | **Cerrada** → `MVP-018` (doc 02 §3.3) |
 
-> **Estado:** v1.0 — roles y `F-*` cerrados salvo `MVP-OPEN-02` (copy encuesta).
+> **Estado:** v1.0 — roles y `F-*` cerrados.
 
 ## 9. Referencias
 

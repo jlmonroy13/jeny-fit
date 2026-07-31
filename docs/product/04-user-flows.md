@@ -1,6 +1,6 @@
 # 04 · User flows
 
-> **Estado:** v1.0 — journeys MVP `FLOW-001`…`018`. Pendiente enlace `BR-*` (doc 06) y copy encuesta (`MVP-OPEN-02`).
+> **Estado:** v1.0 — journeys MVP `FLOW-001`…`018`. Encuesta = `MVP-018`.
 
 ## 1. Objetivo y audiencia
 
@@ -212,13 +212,14 @@ Journeys end-to-end (`FLOW-*`) para agents y revisión humana. Binding de secuen
 **Precondiciones:** Alta del cliente; diagnóstico aún no completado.  
 **Pasos:**
 
-1. Cliente responde encuesta (preguntas — `MVP-OPEN-02`), sube fotos, registra **12 medidas** (con instructivo), peso, talla y datos base.
-2. Coach ve datos en panel Valoración (evolución).
-3. Jeny elabora **Resultado diagnóstico fuera de la app** (`MVP-015`).
+1. Cliente completa datos personales + encuesta `MVP-018` (Q1–20), sube fotos, registra **12 medidas** (con instructivo), peso y talla.
+2. Si alguna Q1–10 = SI → aviso médico (`BR-065`); envío permitido.
+3. Coach ve datos en panel Valoración (evolución).
+4. Jeny elabora **Resultado diagnóstico fuera de la app** (`MVP-015`) — CONCLUSIÓNES/RECOMENDACIONES no se capturan in-app.
 
-**Errores:** Envío incompleto → validación de campos requeridos (definir en 06).  
+**Errores:** Keys inválidas → `BR-066`; envío incompleto → validación de campos requeridos en issue M8.  
 **Resultado:** Valoración inicial persistida; informe externo.  
-**Refs:** F-012, F-013, MVP-009, MVP-014, MVP-015
+**Refs:** F-012, F-013, MVP-009, MVP-014, MVP-015, MVP-018, BR-060…066
 
 ### FLOW-017 · Seguimiento mensual de valoración
 

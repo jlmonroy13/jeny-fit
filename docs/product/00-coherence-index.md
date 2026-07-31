@@ -13,11 +13,11 @@
 | Doc | Rol | IDs | Estado fill |
 |-----|-----|-----|-------------|
 | **01** | Por qué | VISION-* | v1.0 cerrado |
-| **02** | Qué entra MVP | MVP-* | v0.5 — estable; solo `MVP-OPEN-02` (encuesta) |
+| **02** | Qué entra MVP | MVP-* | v1.0 cerrado (`MVP-018` encuesta) |
 | **03** | Quién | ROLE-*, F-* | v1.0 cerrado |
 | **04** | Cómo (journeys) | FLOW-* | v1.0 cerrado |
-| **05** | Qué persiste | DOMAIN-* | v1.0 cerrado |
-| **06** | Reglas testeables | BR-* | v1.0 cerrado |
+| **05** | Qué persiste | DOMAIN-* | v1.1 (`DOMAIN-027`) |
+| **06** | Reglas testeables | BR-* | v1.1 (`BR-065`/`066`) |
 | **07-prototype-screens** | UI MVP vs prototipo | Tabla Sí/No | v1.1 cerrado (auth + alta incluidos) |
 | **07-design-system** | Tokens/componentes/copy UI | — | v1.0 cerrado |
 | **08** | Frontend | FE-* | v1.0 cerrado |
@@ -57,7 +57,7 @@
 | Plan nutricional (≤6 comidas) | FLOW-007 | BR-030…032 | F-009, F-016 | — |
 | Feedback coach al cierre de bloque | FLOW-012, FLOW-011 | BR-040, BR-041 | F-010 | — |
 | Pagos manuales + avisos | FLOW-014, FLOW-015 | BR-050…053 | F-011 | — |
-| Valoración inicial + seguimiento | FLOW-016, FLOW-017 | BR-060…064 | F-012, F-013 | — |
+| Valoración inicial + seguimiento | FLOW-016, FLOW-017 | BR-060…066 | F-012, F-013 | — |
 | Timer descanso (cliente) | FLOW-008 | — (UI 07) | F-015 | — |
 | Coach corrige RIR | FLOW-010 | BR-015 | F-006 | — |
 | Plan Completo / Comparación | FLOW-013 | — | F-007, F-008 | — |
@@ -94,7 +94,7 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 | Pagos | Mensuales USD, fecha fija por cliente; marcado **manual**; **próximo a vencer** = ≤ **7 días** antes del cobro; vencido **no** bloquea acceso (solo aviso). |
 | Fecha cobro default | Día en que Jeny agregó al cliente; Jeny puede ajustar. |
 | Tenancy MVP | **Single-coach** (solo Jeny); sin multi-tenant genérico (`MVP-016`). |
-| Valoración | Diagnóstico **una vez** (preguntas + fotos + medidas + peso); seguimientos mensuales **sin** cuestionario (fotos + medidas + peso). |
+| Valoración | Diagnóstico **una vez** (encuesta `MVP-018` + fotos + medidas + peso); seguimientos mensuales **sin** cuestionario (fotos + medidas + peso). |
 | Medidas corporales | 12 circunferencias canónicas (`MVP-014`) + **instructivo in-app** de cómo tomarlas. |
 | Resultado diagnóstico | Jeny lo elabora y entrega **fuera de la app** en MVP; la app solo guarda inputs y evolución (`MVP-015`). |
 | Feedback in-app | Jeny deja notas al cliente; visibles en historial al final de cada bloque. |
@@ -107,7 +107,7 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 
 | ID | Doc | Tema |
 |----|-----|------|
-| MVP-OPEN-02 | 02 / 06 | Contenido canónico de **preguntas** de la encuesta diagnóstica (cerradas / abiertas). Medidas → `MVP-014`. |
+| MVP-OPEN-02 | 02 / 06 | ~~abierta~~ → **`MVP-018`** (catálogo encuesta §3.3 doc 02). |
 | TS-OPEN-03 | 10 | Pin de versiones exactas al instalar (majors ya binding en §2). |
 
 ~~FE-OPEN-02~~ → `TS-013` + `TS-025`.  
@@ -117,7 +117,8 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 ~~BE-OPEN-03~~ → `TS-016`.  
 ~~BE-OPEN-04~~ → `TS-014`.  
 ~~BE-OPEN-05~~ → `TS-017`.  
-~~TS-OPEN-01~~ / ~~TS-OPEN-02~~ → §2 doc 10.
+~~TS-OPEN-01~~ / ~~TS-OPEN-02~~ → §2 doc 10.  
+~~MVP-OPEN-02~~ → `MVP-018`.
 
 ~~VISION-OPEN-01~~ → `VISION-008`.  
 ~~MVP-OPEN-01~~ → `MVP-008` (7 días).  

@@ -1,6 +1,6 @@
 # 05 · Domain model
 
-> **Estado:** v1.0 — modelo MVP cerrado (`DOMAIN-001`…`016`, `DOMAIN-020`…`026`). Encuesta copy = `MVP-OPEN-02`.
+> **Estado:** v1.1 — `DOMAIN-027` perfil contacto; encuesta keys = `MVP-018`.
 
 ## 1. Objetivo y audiencia
 
@@ -94,6 +94,10 @@ erDiagram
 | heightCm | decimal? | Base valoración |
 | sex | enum? | Para escalas de referencia |
 | birthDate | date? | Fuente de edad (no persistir solo `age`) |
+| phone | string? | Teléfono (`MVP-018` datos personales) |
+| address | string? | Dirección |
+| city | string? | Ciudad |
+| bloodType | string? | Tipo de sangre (texto libre MVP) |
 | createdAt | datetime | |
 
 Estado de pago (**al día / próximo a vencer / vencido**) es **derivado** (no columna obligatoria): ancla + último `PaymentRecord` + regla 7 días (`MVP-008`).
@@ -254,9 +258,9 @@ Máximo **un** `initial` por cliente. Follow-ups: N.
 |-------|------|-------|
 | id | uuid | PK |
 | assessmentId | uuid | Solo assessment `initial` |
-| questionKey | string | Keys canónicas → `MVP-OPEN-02` |
-| answerType | enum | `closed` \| `free_text` |
-| value | json/text | |
+| questionKey | string | Keys canónicas `MVP-018` (doc 02 §3.3) |
+| answerType | enum | `yes_no` \| `single_choice` \| `multi_choice` \| `free_text` \| `structured_json` |
+| value | json/text | Shape según tipo (`MVP-018` §F) |
 
 **No** se crean en follow-ups mensuales.
 
@@ -305,6 +309,7 @@ No hay entidad “cursor” obligatoria: el **día actual** = primer `TrainingDa
 | DOMAIN-024 | Resultado diagnóstico **no** es entidad persistida en MVP (`MVP-015`) |
 | DOMAIN-025 | Edad vía `birthDate` (no campo `age` persistido) |
 | DOMAIN-026 | `Meal`: columnas `protein`, `carbs`, `vegetables`, `fats` + `notes?`; día sin columna `status` (derivado + `closedAt`) |
+| DOMAIN-027 | `ClientProfile`: `phone`, `address`, `city`, `bloodType` opcionales (datos personales encuesta) |
 
 ## 8. Fuera del modelo MVP
 

@@ -1,6 +1,6 @@
 # 06 · Business rules
 
-> **Estado:** v1.0 — reglas MVP `BR-*` cerradas. Encuesta copy = `MVP-OPEN-02`.
+> **Estado:** v1.1 — `BR-065`/`066` encuesta; copy = `MVP-018`.
 
 ## 1. Objetivo y audiencia
 
@@ -76,6 +76,8 @@ Reglas testeables (`BR-*`) para **Jeny Fit**. Cada BR debe poder convertirse en 
 | BR-062 | Follow-up lo **abre** el coach; cliente completa fotos/medidas/peso | Given solo client When create monthly Assessment Then rechazo; Given coach opens Then client puede submit measurements |
 | BR-063 | Medidas de un assessment usan el catálogo fijo de **12** métricas (`MVP-014`) | Given metric desconocida When save BodyMeasurement Then rechazo |
 | BR-064 | MVP no persiste entidad de Resultado diagnóstico | Given cualquier rol When create DiagnosticReport entity Then no existe endpoint/modelo (`MVP-015`) |
+| BR-065 | Si alguna respuesta de salud Q1–10 es SI, la UI/API expone flag `needsMedicalClearanceAdvice=true` (aviso médico); **no** bloquea submit en MVP | Given Q5=SI When submit initial assessment Then persistido OK y flag aviso true |
+| BR-066 | `SurveyAnswer.questionKey` debe pertenecer al catálogo `MVP-018`; keys desconocidas se rechazan | Given key=`foo` When save SurveyAnswer Then rechazo |
 
 ### 3.8 Auth y acceso
 
@@ -96,7 +98,7 @@ Reglas testeables (`BR-*`) para **Jeny Fit**. Cada BR debe poder convertirse en 
 
 | ID | Decisión |
 |----|----------|
-| BR-SET-001 | Set MVP = BR-001…004, 010…016, 020…022, 030…032, 040…041, 050…053, 060…064, 070…072, 080…081 |
+| BR-SET-001 | Set MVP = BR-001…004, 010…016, 020…022, 030…032, 040…041, 050…053, 060…066, 070…072, 080…081 |
 | — | Literales alineados a intake §9 + `MVP-008` (7 días) + roles/domain docs |
 
 ## 5. Mapa rápido Flow → BR
@@ -110,7 +112,7 @@ Reglas testeables (`BR-*`) para **Jeny Fit**. Cada BR debe poder convertirse en 
 | FLOW-010 | BR-015 |
 | FLOW-011, 012 | BR-040, BR-041 |
 | FLOW-014, 015 | BR-050…053 |
-| FLOW-016, 017 | BR-060…064 |
+| FLOW-016, 017 | BR-060…066 |
 
 ## 6. Referencias
 
