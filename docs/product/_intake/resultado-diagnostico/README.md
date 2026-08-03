@@ -18,6 +18,7 @@ Generación o lectura in-app del informe = **post-MVP**.
 ## Contenido observado en el ejemplo (2 páginas)
 
 ### Página 1 — Estado inicial
+
 - Identidad: nombre, fecha del diagnóstico
 - Datos: edad, peso (kg), talla (m)
 - Derivados / estimaciones: **IMC**, % grasa estimado, masa magra estimada (kg), **TMB**, calorías de mantenimiento estimadas
@@ -25,6 +26,7 @@ Generación o lectura in-app del informe = **post-MVP**.
 - Referencias educativas: tabla OMS IMC; escala ACSM % grasa (ej. hombres)
 
 ### Página 2 — Recomendaciones + conclusión
+
 - Recomendaciones en prosa: composición corporal, plan nutricional, entrenamiento (RIR / sobrecarga), antecedentes de lesión / salud
 - Tabla **macros estimados** (proteína / grasa / carbohidrato: g, kcal, %) alineada a calorías de mantenimiento
 - Conclusión narrativa
@@ -36,8 +38,8 @@ Generación o lectura in-app del informe = **post-MVP**.
 
 ## Implicaciones para la app (MVP)
 
-| Pieza | MVP |
-|-------|-----|
-| Inputs valoración | Preguntas, fotos, 12 medidas, peso, talla, edad/sexo — **sí in-app** |
-| Evolución para Jeny | Comparar fotos/medidas/peso en el tiempo — **sí in-app** |
+| Pieza                  | MVP                                                                     |
+| ---------------------- | ----------------------------------------------------------------------- |
+| Inputs valoración      | Preguntas, fotos, 12 medidas, peso, talla, edad/sexo — **sí in-app**    |
+| Evolución para Jeny    | Comparar fotos/medidas/peso en el tiempo — **sí in-app**                |
 | Cálculos / informe PDF | IMC, % grasa, TMB, macros, recomendaciones — **fuera**; in-app post-MVP |

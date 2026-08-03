@@ -24,10 +24,10 @@ Eso genera fricción operativa para Jeny y una experiencia incompleta / inconsis
 
 ## 4. Propuesta de valor
 
-| Para quién | Valor |
-|------------|--------|
+| Para quién               | Valor                                                                                                                                                                                |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Jeny (coach / admin)** | Centralizar clientes, planes (entrenamiento + nutrición), biblioteca de ejercicios, comparación/progreso, feedback in-app, captura/evolución de valoración y pagos en un solo panel. |
-| **Cliente** | Ver su plan vigente, registrar RIR en el gym (mobile), consultar historial/feedback/nutrición, y recibir avisos claros (pago, próximo bloque) sin fricción. |
+| **Cliente**              | Ver su plan vigente, registrar RIR en el gym (mobile), consultar historial/feedback/nutrición, y recibir avisos claros (pago, próximo bloque) sin fricción.                          |
 
 ## 5. North Star Metric
 
@@ -37,13 +37,13 @@ Mide adopción del gesto central del producto (reemplazo de Excel/WhatsApp para 
 
 **KPIs secundarios** (no son North Star; útiles para operación):
 
-| KPI | Para qué |
-|-----|----------|
+| KPI                                                                   | Para qué                    |
+| --------------------------------------------------------------------- | --------------------------- |
 | Clientes con bloque vigente planeado (sin “esperando próximo bloque”) | Ritmo de planeación de Jeny |
-| Clientes al día de pago (entre activos) | Salud de cobro (USD) |
+| Clientes al día de pago (entre activos)                               | Salud de cobro (USD)        |
 
-| ID | Decisión |
-|----|----------|
+| ID         | Decisión                                                            |
+| ---------- | ------------------------------------------------------------------- |
 | VISION-008 | North Star = % días de entreno cerrados por cliente activo / semana |
 
 ## 6. Usuario objetivo (primario)
@@ -52,12 +52,12 @@ Mide adopción del gesto central del producto (reemplazo de Excel/WhatsApp para 
 - **Secundario (MVP):** Cliente final — persona que entrena con Jeny y usa la app en el celular en el gimnasio.
 - **Perfil / límites año 1** (orientativo, single-coach):
 
-| Dimensión | Límite orientativo | Implicación producto |
-|-----------|-------------------|----------------------|
-| Coaches | **1 (Jeny)** en MVP — `MVP-016` / ex-`DOMAIN-OPEN-01` | Sin multi-tenant genérico en MVP. |
-| Clientes | Decenas (no miles) | UX de lista/dashboard simple; sin complejidad enterprise. |
-| Plataforma | Web only | Sin apps nativas. |
-| Idioma / mercado | Clientes internacionales · UI en español · cobros USD | Sin i18n multi-idioma en MVP (`VISION-001`). |
+| Dimensión        | Límite orientativo                                    | Implicación producto                                      |
+| ---------------- | ----------------------------------------------------- | --------------------------------------------------------- |
+| Coaches          | **1 (Jeny)** en MVP — `MVP-016` / ex-`DOMAIN-OPEN-01` | Sin multi-tenant genérico en MVP.                         |
+| Clientes         | Decenas (no miles)                                    | UX de lista/dashboard simple; sin complejidad enterprise. |
+| Plataforma       | Web only                                              | Sin apps nativas.                                         |
+| Idioma / mercado | Clientes internacionales · UI en español · cobros USD | Sin i18n multi-idioma en MVP (`VISION-001`).              |
 
 ## 7. Concepto clave del producto
 
@@ -68,16 +68,16 @@ Mide adopción del gesto central del producto (reemplazo de Excel/WhatsApp para 
 
 ## 8. Decisiones de mercado y producto (`VISION-NNN`)
 
-| ID | Decisión | Valor |
-|----|----------|--------|
+| ID         | Decisión                  | Valor                                                                                                              |
+| ---------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | VISION-001 | Mercado / idioma / moneda | Clientes en **varios países** · UI en **español** (es; sin i18n multi-idioma en MVP) · cobros y montos en **USD**. |
-| VISION-002 | Modelo de acceso | Web 100%; sin apps nativas en MVP. |
-| VISION-003 | Roles de producto | Solo **coach/admin (Jeny)** y **cliente**. |
-| VISION-004 | Auth por rol | Jeny: **usuario + contraseña**. Cliente: **magic link** (correo). |
-| VISION-005 | Alta de clientes | Solo Jeny invita/agrega por correo; sin auto-registro. |
-| VISION-006 | Job-to-be-done coach | Reemplazar Excel + operación suelta en WhatsApp por una plataforma de planeación, seguimiento y cobro. |
-| VISION-007 | Job-to-be-done cliente | Ejecutar el día de entreno (RIR + timer), ver nutrición/historial/feedback, sin gestionar la planeación. |
-| VISION-008 | North Star Metric | % de días de entreno **cerrados** (RIR completo) por cliente activo / semana. |
+| VISION-002 | Modelo de acceso          | Web 100%; sin apps nativas en MVP.                                                                                 |
+| VISION-003 | Roles de producto         | Solo **coach/admin (Jeny)** y **cliente**.                                                                         |
+| VISION-004 | Auth por rol              | Jeny: **usuario + contraseña**. Cliente: **magic link** (correo).                                                  |
+| VISION-005 | Alta de clientes          | Solo Jeny invita/agrega por correo; sin auto-registro.                                                             |
+| VISION-006 | Job-to-be-done coach      | Reemplazar Excel + operación suelta en WhatsApp por una plataforma de planeación, seguimiento y cobro.             |
+| VISION-007 | Job-to-be-done cliente    | Ejecutar el día de entreno (RIR + timer), ver nutrición/historial/feedback, sin gestionar la planeación.           |
+| VISION-008 | North Star Metric         | % de días de entreno **cerrados** (RIR completo) por cliente activo / semana.                                      |
 
 ## 9. Referencias
 

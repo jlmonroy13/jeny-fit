@@ -10,23 +10,23 @@ API, authZ, datos, mutaciones y seguridad (`BE-*`) para **Jeny Fit**. Contrato p
 
 ## 2. Decisiones (`BE-NNN`)
 
-| ID | Decisión |
-|----|----------|
-| **BE-001** | **BFF en Next.js** — sin servicio API separado (Nest/Express) en MVP. Lecturas en Server Components; mutaciones en **Server Actions**; Route Handlers solo si el provider de auth/webhooks/storage lo exige. |
-| **BE-002** | **Single-coach** (`MVP-016` / `DOMAIN-020`): sin `Organization` / `tenantId`. El portafolio = todos los `ClientProfile`. Cliente aislado por `clientProfileId` propio (`BR-072`). |
-| **BE-003** | **Auth dual:** coach = email + password (+ reset email); client = magic link sin password (`VISION-004`, `BR-070`/`071`). Shape de session cookie = `TS-013`. |
-| **BE-004** | **AuthZ en servidor** en cada query/mutation (además de middleware `FE-011`). Nunca confiar solo en ocultar UI. |
-| **BE-005** | Lógica de negocio testeable (`BR-*`) en **funciones puras / services** en `lib/domain/` (o equivalente), invocadas desde actions — no solo en componentes. |
-| **BE-006** | Mutaciones: input validado con **Zod** (o el validador del stack); errores tipados; `revalidatePath` / `revalidateTag` tras éxito (`FE-006`). |
-| **BE-007** | Persistencia = entidades `DOMAIN-*`; migraciones versionadas vía ORM (`TS-012`). No columnas inventadas fuera de doc 05 sin PR al doc. |
+| ID         | Decisión                                                                                                                                                                                                                 |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **BE-001** | **BFF en Next.js** — sin servicio API separado (Nest/Express) en MVP. Lecturas en Server Components; mutaciones en **Server Actions**; Route Handlers solo si el provider de auth/webhooks/storage lo exige.             |
+| **BE-002** | **Single-coach** (`MVP-016` / `DOMAIN-020`): sin `Organization` / `tenantId`. El portafolio = todos los `ClientProfile`. Cliente aislado por `clientProfileId` propio (`BR-072`).                                        |
+| **BE-003** | **Auth dual:** coach = email + password (+ reset email); client = magic link sin password (`VISION-004`, `BR-070`/`071`). Shape de session cookie = `TS-013`.                                                            |
+| **BE-004** | **AuthZ en servidor** en cada query/mutation (además de middleware `FE-011`). Nunca confiar solo en ocultar UI.                                                                                                          |
+| **BE-005** | Lógica de negocio testeable (`BR-*`) en **funciones puras / services** en `lib/domain/` (o equivalente), invocadas desde actions — no solo en componentes.                                                               |
+| **BE-006** | Mutaciones: input validado con **Zod** (o el validador del stack); errores tipados; `revalidatePath` / `revalidateTag` tras éxito (`FE-006`).                                                                            |
+| **BE-007** | Persistencia = entidades `DOMAIN-*`; migraciones versionadas vía ORM (`TS-012`). No columnas inventadas fuera de doc 05 sin PR al doc.                                                                                   |
 | **BE-008** | **Fotos de valoración:** upload **directo al storage** con **signed URL** (browser → storage); la API solo emite URL firmada + persiste `AssessmentPhoto.storageKey` / metadata. No proxy de bytes por el server en MVP. |
-| **BE-009** | Cuenta coach inicial por **seed/script** + secrets (`MVP-017`); no auto-registro coach ni client. |
-| **BE-010** | Soft-delete de biblioteca: `ExerciseLibraryItem.active = false`; no hard-delete si hay `DayExercise` referenciados (`BR-021`). |
-| **BE-011** | Campos **derivados** (estado de pago, día “actual”, status de día) se calculan en server/domain — **no** columnas obligatorias de estado mutables a mano (`DOMAIN-022`, `DOMAIN-026`, `BR-010`, `BR-050`…`052`). |
-| **BE-012** | Sin API REST pública para terceros ni webhooks de pasarela de pago (`BR-081`). |
-| **BE-013** | Email transaccional solo para: magic link cliente, reset password coach. Contenido UI en español. |
-| **BE-014** | Secretos solo en env / secret manager del host (`TS-015`); nunca en repo. |
-| **BE-015** | Creación de bloque materializa **4 semanas** (4ª deload) en **una transacción** (`BR-001`, `BR-002`). |
+| **BE-009** | Cuenta coach inicial por **seed/script** + secrets (`MVP-017`); no auto-registro coach ni client.                                                                                                                        |
+| **BE-010** | Soft-delete de biblioteca: `ExerciseLibraryItem.active = false`; no hard-delete si hay `DayExercise` referenciados (`BR-021`).                                                                                           |
+| **BE-011** | Campos **derivados** (estado de pago, día “actual”, status de día) se calculan en server/domain — **no** columnas obligatorias de estado mutables a mano (`DOMAIN-022`, `DOMAIN-026`, `BR-010`, `BR-050`…`052`).         |
+| **BE-012** | Sin API REST pública para terceros ni webhooks de pasarela de pago (`BR-081`).                                                                                                                                           |
+| **BE-013** | Email transaccional solo para: magic link cliente, reset password coach. Contenido UI en español.                                                                                                                        |
+| **BE-014** | Secretos solo en env / secret manager del host (`TS-015`); nunca en repo.                                                                                                                                                |
+| **BE-015** | Creación de bloque materializa **4 semanas** (4ª deload) en **una transacción** (`BR-001`, `BR-002`).                                                                                                                    |
 
 ## 3. Tenancy / aislamiento
 
@@ -39,11 +39,11 @@ API, authZ, datos, mutaciones y seguridad (`BE-*`) para **Jeny Fit**. Contrato p
 └─────────────────────────────────────┘
 ```
 
-| Actor | Lectura | Escritura |
-|-------|---------|-----------|
-| Coach | Todos los `ClientProfile` + biblioteca | Todo lo permitido en matriz doc 03 |
-| Client | Solo su `ClientProfile` y agregados | RIR/obs (día actual/pasado), submit valoración propia, logout |
-| Anónimo | Solo pantallas login + callback auth | Request magic link (sin crear User) |
+| Actor   | Lectura                                | Escritura                                                     |
+| ------- | -------------------------------------- | ------------------------------------------------------------- |
+| Coach   | Todos los `ClientProfile` + biblioteca | Todo lo permitido en matriz doc 03                            |
+| Client  | Solo su `ClientProfile` y agregados    | RIR/obs (día actual/pasado), submit valoración propia, logout |
+| Anónimo | Solo pantallas login + callback auth   | Request magic link (sin crear User)                           |
 
 **Alta cliente (`FLOW-004`):** coach crea `User(role=client)` + `ClientProfile` (ancla de cobro = día del alta por default). Magic link **falla cerrado** si el email no existe (`BR-070`).
 
@@ -51,22 +51,22 @@ API, authZ, datos, mutaciones y seguridad (`BE-*`) para **Jeny Fit**. Contrato p
 
 ### 4.1 Flujos
 
-| Flujo | Rol | Mecánica | Ref |
-|-------|-----|----------|-----|
-| Login password | coach | Credenciales → session | FLOW-001, F-001 |
-| Reset password | coach | Email con token → set password | MVP-017 |
-| Request magic link | client | Email → link de un solo uso / TTL | FLOW-003, F-002 |
-| Consume magic link | client | `/auth/callback` (o path `TS-013`) → session | FE-013 |
-| Logout | ambos | Invalidar session | F-018 |
+| Flujo              | Rol    | Mecánica                                     | Ref             |
+| ------------------ | ------ | -------------------------------------------- | --------------- |
+| Login password     | coach  | Credenciales → session                       | FLOW-001, F-001 |
+| Reset password     | coach  | Email con token → set password               | MVP-017         |
+| Request magic link | client | Email → link de un solo uso / TTL            | FLOW-003, F-002 |
+| Consume magic link | client | `/auth/callback` (o path `TS-013`) → session | FE-013          |
+| Logout             | ambos  | Invalidar session                            | F-018           |
 
 ### 4.2 Session (provider-agnostic)
 
 Mínimo en sesión server-readable:
 
-| Campo | Uso |
-|-------|-----|
-| `userId` | PK `User` |
-| `role` | `coach` \| `client` |
+| Campo             | Uso                                             |
+| ----------------- | ----------------------------------------------- |
+| `userId`          | PK `User`                                       |
+| `role`            | `coach` \| `client`                             |
 | `clientProfileId` | solo si `role=client` (o resolve 1:1 en server) |
 
 Detalle cookie / JWT / adapter → **`TS-013` / FE-OPEN-02**.
@@ -97,23 +97,23 @@ lib/storage/     # signed URL helpers (BE-008)
 
 ### 5.3 Derivados (no persistir como source of truth)
 
-| Concepto | Cálculo |
-|----------|---------|
-| Día actual | Primer `TrainingDay` incompleto en orden bloque→semana→día (`BR-010`) |
-| Status día UI | Derivado de sets con RIR + `closedAt` |
-| Estado pago | Ancla + `PaymentRecord` + ventana 7 días (`BR-050`…`051`) |
-| Esperando bloque | Sin día pendiente y sin bloque siguiente (`BR-016`) |
+| Concepto         | Cálculo                                                               |
+| ---------------- | --------------------------------------------------------------------- |
+| Día actual       | Primer `TrainingDay` incompleto en orden bloque→semana→día (`BR-010`) |
+| Status día UI    | Derivado de sets con RIR + `closedAt`                                 |
+| Estado pago      | Ancla + `PaymentRecord` + ventana 7 días (`BR-050`…`051`)             |
+| Esperando bloque | Sin día pendiente y sin bloque siguiente (`BR-016`)                   |
 
 ### 5.4 Transacciones / invariantes
 
-| Operación | Invariante |
-|-----------|------------|
-| Crear `TrainingBlock` | 4 `TrainingWeek`; week 4 `isDeload=true` |
+| Operación               | Invariante                                                  |
+| ----------------------- | ----------------------------------------------------------- |
+| Crear `TrainingBlock`   | 4 `TrainingWeek`; week 4 `isDeload=true`                    |
 | Asignar ejercicio a día | Snapshot `DayExercise` + N `ExerciseSet` según `targetSets` |
-| Cerrar día | Todas las series con `rir` ≠ null → set `closedAt` |
-| Soft-delete library | `active=false`; snapshots intactos |
-| Assessment `initial` | Máximo uno por cliente (`BR-060`) |
-| Follow-up | Sin `SurveyAnswer` (`BR-061`); lo abre coach (`BR-062`) |
+| Cerrar día              | Todas las series con `rir` ≠ null → set `closedAt`          |
+| Soft-delete library     | `active=false`; snapshots intactos                          |
+| Assessment `initial`    | Máximo uno por cliente (`BR-060`)                           |
+| Follow-up               | Sin `SurveyAnswer` (`BR-061`); lo abre coach (`BR-062`)     |
 
 ## 6. Mutations (Server Actions / Route Handlers)
 
@@ -128,17 +128,17 @@ lib/storage/     # signed URL helpers (BE-008)
 
 ### 6.2 Catálogo por bounded context (MVP)
 
-| Contexto | Ejemplos de actions | AuthZ |
-|----------|---------------------|-------|
-| **Auth** | `signInCoach`, `requestClientMagicLink`, `signOut`, reset password | público / rol |
-| **Clients** | `createClient`, `updateClientProfile`, `listClients` | coach |
-| **Library** | `createExercise`, `updateExercise`, `deactivateExercise` | coach |
-| **Training** | `createBlock`, `upsertDayExercise`, `duplicateWeek/Day`, `setSetRir`, `closeDay` | coach o client según BR |
-| **Nutrition** | `upsertMeal`, `upsertNutritionPlan` | coach write; client read-only |
-| **Feedback** | `upsertBlockFeedback` | coach write; client read |
-| **Payments** | `markPaid`, `updateBillingAnchor` | coach; client read status |
-| **Assessment** | `openFollowUp`, `submitAssessment`, `createSignedPhotoUpload` | coach open; client/coach submit |
-| **Storage** | `createAssessmentPhotoUploadUrl` | sesión + assessment ownership |
+| Contexto       | Ejemplos de actions                                                              | AuthZ                           |
+| -------------- | -------------------------------------------------------------------------------- | ------------------------------- |
+| **Auth**       | `signInCoach`, `requestClientMagicLink`, `signOut`, reset password               | público / rol                   |
+| **Clients**    | `createClient`, `updateClientProfile`, `listClients`                             | coach                           |
+| **Library**    | `createExercise`, `updateExercise`, `deactivateExercise`                         | coach                           |
+| **Training**   | `createBlock`, `upsertDayExercise`, `duplicateWeek/Day`, `setSetRir`, `closeDay` | coach o client según BR         |
+| **Nutrition**  | `upsertMeal`, `upsertNutritionPlan`                                              | coach write; client read-only   |
+| **Feedback**   | `upsertBlockFeedback`                                                            | coach write; client read        |
+| **Payments**   | `markPaid`, `updateBillingAnchor`                                                | coach; client read status       |
+| **Assessment** | `openFollowUp`, `submitAssessment`, `createSignedPhotoUpload`                    | coach open; client/coach submit |
+| **Storage**    | `createAssessmentPhotoUploadUrl`                                                 | sesión + assessment ownership   |
 
 Route Handlers típicos: callback auth, (opcional) webhook email provider — **no** CRUD de negocio por REST.
 
@@ -158,52 +158,52 @@ Client                    Next (Action)              Object storage
 
 ## 7. Seguridad
 
-| Tema | Regla |
-|------|-------|
-| AuthZ | `BE-004` + matriz doc 03 |
-| Isolation | `BR-072` en toda query filtrada por `clientProfileId` |
-| Password | Solo coach; hash via provider; nunca loguear secrets |
+| Tema       | Regla                                                                                                    |
+| ---------- | -------------------------------------------------------------------------------------------------------- |
+| AuthZ      | `BE-004` + matriz doc 03                                                                                 |
+| Isolation  | `BR-072` en toda query filtrada por `clientProfileId`                                                    |
+| Password   | Solo coach; hash via provider; nunca loguear secrets                                                     |
 | Magic link | No revela si email existe de forma útil a atacantes (respuesta genérica UX); **no** crea User (`BR-070`) |
-| CSRF | Server Actions de Next + same-origin; seguir guía del Next instalado |
-| Upload | Solo signed URL corto TTL; validar ownership del assessment |
-| Pago | Sin PCI / pasarela (`BR-081`) |
-| Video | Sin endpoint (`BR-080`) |
-| Rate limit | Magic link + login password (provider o middleware) — detalle en issue auth |
+| CSRF       | Server Actions de Next + same-origin; seguir guía del Next instalado                                     |
+| Upload     | Solo signed URL corto TTL; validar ownership del assessment                                              |
+| Pago       | Sin PCI / pasarela (`BR-081`)                                                                            |
+| Video      | Sin endpoint (`BR-080`)                                                                                  |
+| Rate limit | Magic link + login password (provider o middleware) — detalle en issue auth                              |
 
 ## 8. Seed / CI
 
-| Pieza | Notas |
-|-------|-------|
-| Seed coach | Email + password hash desde env (`BE-009`, `MVP-017`) |
+| Pieza         | Notas                                                                               |
+| ------------- | ----------------------------------------------------------------------------------- |
+| Seed coach    | Email + password hash desde env (`BE-009`, `MVP-017`)                               |
 | Seed opcional | Biblioteca mínima / cliente demo — solo si un issue lo pide (no default producción) |
-| Migrations | Corren en CI/CD o paso de deploy (`TS-015`) |
-| Tests | Literales `BR-*` en unit/integration (doc 11); harness Vitest M1-05 |
+| Migrations    | Corren en CI/CD o paso de deploy (`TS-015`)                                         |
+| Tests         | Literales `BR-*` en unit/integration (doc 11); harness Vitest M1-05                 |
 
 ## 9. Entrega por milestone
 
-| Milestone | Entrega BE |
-|-----------|------------|
-| **M1** | Docs 09/10; decisiones `TS-*`; sin schema productivo obligatorio hasta post M1-04 |
-| **M2** | Schema User/ClientProfile; auth dual; seed coach; alta clienta; isolation |
-| **M3** | Library + Training* + snapshot + transacciones de bloque |
-| **M4** | RIR / closeDay / currentDay services |
-| **M5** | Historial queries + BlockFeedback |
-| **M6** | NutritionPlan / Meal |
-| **M7** | PaymentRecord + `paymentStatus` derivado |
-| **M8** | Assessment* + signed upload fotos |
+| Milestone | Entrega BE                                                                        |
+| --------- | --------------------------------------------------------------------------------- |
+| **M1**    | Docs 09/10; decisiones `TS-*`; sin schema productivo obligatorio hasta post M1-04 |
+| **M2**    | Schema User/ClientProfile; auth dual; seed coach; alta clienta; isolation         |
+| **M3**    | Library + Training* + snapshot + transacciones de bloque                          |
+| **M4**    | RIR / closeDay / currentDay services                                              |
+| **M5**    | Historial queries + BlockFeedback                                                 |
+| **M6**    | NutritionPlan / Meal                                                              |
+| **M7**    | PaymentRecord + `paymentStatus` derivado                                          |
+| **M8**    | Assessment* + signed upload fotos                                                 |
 
 (Nombres M2+ alineados a doc 02 §7 / 08 §10; detalle JIT en doc 12.)
 
 ## 10. Preguntas abiertas / cerradas
 
-| ID | Tema | Estado |
-|----|------|--------|
-| FE-OPEN-03 | Upload fotos | **Cerrada** → `BE-008` + `TS-016` |
-| BE-OPEN-01 | Vendor DB / ORM | **Cerrada** → `TS-011` Neon + `TS-012` Drizzle |
-| BE-OPEN-02 | Vendor auth | **Cerrada** → `TS-013` Better Auth |
-| BE-OPEN-03 | Object storage | **Cerrada** → `TS-016` Cloudflare R2 |
-| BE-OPEN-04 | Email | **Cerrada** → `TS-014` Resend |
-| BE-OPEN-05 | Límite MIME/tamaño fotos | **Cerrada** → `TS-017` |
+| ID         | Tema                     | Estado                                         |
+| ---------- | ------------------------ | ---------------------------------------------- |
+| FE-OPEN-03 | Upload fotos             | **Cerrada** → `BE-008` + `TS-016`              |
+| BE-OPEN-01 | Vendor DB / ORM          | **Cerrada** → `TS-011` Neon + `TS-012` Drizzle |
+| BE-OPEN-02 | Vendor auth              | **Cerrada** → `TS-013` Better Auth             |
+| BE-OPEN-03 | Object storage           | **Cerrada** → `TS-016` Cloudflare R2           |
+| BE-OPEN-04 | Email                    | **Cerrada** → `TS-014` Resend                  |
+| BE-OPEN-05 | Límite MIME/tamaño fotos | **Cerrada** → `TS-017`                         |
 
 ## 11. Referencias
 

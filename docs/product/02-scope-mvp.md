@@ -12,45 +12,47 @@ Web donde **Jeny** gestiona clientes, planes (entrenamiento + nutrición), bibli
 
 ### 2.1 Decisiones binding (desde doc 01)
 
-| ID | Decisión |
-|----|----------|
-| VISION-001 | Clientes internacionales · UI español · cobros **USD** · sin i18n multi-idioma en MVP |
-| VISION-002 | 100% web; sin apps nativas |
-| VISION-003 | Roles: coach/admin (Jeny) + cliente |
-| VISION-004 | Auth: Jeny = usuario/contraseña; cliente = magic link |
-| VISION-005 | Alta de clientes solo por Jeny (correo) |
-| VISION-006 / 007 | JTBD coach y cliente (ver doc 01) |
+| ID               | Decisión                                                                              |
+| ---------------- | ------------------------------------------------------------------------------------- |
+| VISION-001       | Clientes internacionales · UI español · cobros **USD** · sin i18n multi-idioma en MVP |
+| VISION-002       | 100% web; sin apps nativas                                                            |
+| VISION-003       | Roles: coach/admin (Jeny) + cliente                                                   |
+| VISION-004       | Auth: Jeny = usuario/contraseña; cliente = magic link                                 |
+| VISION-005       | Alta de clientes solo por Jeny (correo)                                               |
+| VISION-006 / 007 | JTBD coach y cliente (ver doc 01)                                                     |
 
 ### 2.2 Decisiones de producto (confirmadas)
 
-| ID | Decisión |
-|----|----------|
-| MVP-001 | **Entrenamiento completo:** Bloque → Semana → Día → Ejercicio → Serie; bloque = 4 semanas (última descarga); bloque de adaptación opcional (manual). |
-| MVP-002 | **Avance secuencial** del cliente (por días cerrados), no por fecha calendario. |
-| MVP-003 | Cliente registra **RIR** (+ observación opcional); cierre de día solo con RIR en todas las series; edición RIR en día actual/pasados, no futuros. |
-| MVP-004 | Jeny puede editar **cualquier** campo del plan en cualquier día (pasado/actual/futuro). |
-| MVP-005 | **Biblioteca global** de ejercicios (solo Jeny); snapshot histórico en días ya usados. |
-| MVP-006 | **Plan nutricional** ≤6 comidas (Comida 1…6), cantidades sugeridas; solo lectura para cliente; independiente del ciclo de bloques. |
-| MVP-007 | **Plan Completo** + **Comparación/progreso** en panel Jeny; feedback in-app al cierre de bloque (visible en historial del cliente). |
-| MVP-008 | **Pagos** mensuales USD, fecha fija por cliente, marcado manual; estados: **al día** / **próximo a vencer** (≤ **7 días** antes de la fecha de cobro) / **vencido**; vencido **no** bloquea acceso (solo aviso). |
-| MVP-009 | **Valoración:** diagnóstico inicial una vez (encuesta `MVP-018` + fotos + medidas + peso); seguimientos mensuales sin cuestionario (fotos + medidas + peso). |
-| MVP-010 | **Timer de descanso** en día de entreno (2–6 min; pausar / saltar / extender; sonido + vibración al terminar). |
-| MVP-011 | Video por serie: **placeholder “Próximamente”** (WhatsApp fuera de app). |
-| MVP-012 | UX: Jeny responsive; cliente **mobile-only** con bottom nav (Inicio, Entreno, Nutrición, Historial, Perfil). |
-| MVP-013 | Estado “**esperando el próximo bloque**” cuando el bloque actual terminó y no hay siguiente planeado. |
-| MVP-014 | **Medidas corporales canónicas** (12 circunferencias, ver §3.1) + **instructivo in-app** de cómo tomarse cada una (referencia visual). |
+| ID      | Decisión                                                                                                                                                                                                                                                   |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MVP-001 | **Entrenamiento completo:** Bloque → Semana → Día → Ejercicio → Serie; bloque = 4 semanas (última descarga); bloque de adaptación opcional (manual).                                                                                                       |
+| MVP-002 | **Avance secuencial** del cliente (por días cerrados), no por fecha calendario.                                                                                                                                                                            |
+| MVP-003 | Cliente registra **RIR** (+ observación opcional); cierre de día solo con RIR en todas las series; edición RIR en día actual/pasados, no futuros.                                                                                                          |
+| MVP-004 | Jeny puede editar **cualquier** campo del plan en cualquier día (pasado/actual/futuro).                                                                                                                                                                    |
+| MVP-005 | **Biblioteca global** de ejercicios (solo Jeny); snapshot histórico en días ya usados.                                                                                                                                                                     |
+| MVP-006 | **Plan nutricional** ≤6 comidas (Comida 1…6), cantidades sugeridas; solo lectura para cliente; independiente del ciclo de bloques.                                                                                                                         |
+| MVP-007 | **Plan Completo** + **Comparación/progreso** en panel Jeny; feedback in-app al cierre de bloque (visible en historial del cliente).                                                                                                                        |
+| MVP-008 | **Pagos** mensuales USD, fecha fija por cliente, marcado manual; estados: **al día** / **próximo a vencer** (≤ **7 días** antes de la fecha de cobro) / **vencido**; vencido **no** bloquea acceso (solo aviso).                                           |
+| MVP-009 | **Valoración:** diagnóstico inicial una vez (encuesta `MVP-018` + fotos + medidas + peso); seguimientos mensuales sin cuestionario (fotos + medidas + peso).                                                                                               |
+| MVP-010 | **Timer de descanso** en día de entreno (2–6 min; pausar / saltar / extender; sonido + vibración al terminar).                                                                                                                                             |
+| MVP-011 | Video por serie: **placeholder “Próximamente”** (WhatsApp fuera de app).                                                                                                                                                                                   |
+| MVP-012 | UX: Jeny responsive; cliente **mobile-only** con bottom nav (Inicio, Entreno, Nutrición, Historial, Perfil).                                                                                                                                               |
+| MVP-013 | Estado “**esperando el próximo bloque**” cuando el bloque actual terminó y no hay siguiente planeado.                                                                                                                                                      |
+| MVP-014 | **Medidas corporales canónicas** (12 circunferencias, ver §3.1) + **instructivo in-app** de cómo tomarse cada una (referencia visual).                                                                                                                     |
 | MVP-015 | Tras la valoración inicial, Jeny elabora un **Resultado diagnóstico** **fuera de la app** (PDF/canal actual). La app **solo** captura y muestra inputs de valoración (evolución fotos/medidas/peso). Generación/lectura in-app del informe → **post-MVP**. |
-| MVP-016 | Producto **single-coach** en MVP: solo Jeny como admin; sin multi-tenant / multi-coach genérico. |
-| MVP-017 | Cuenta inicial de Jeny: **seed/script** (credenciales en secrets/env). Recuperación de contraseña: **reset por email**. |
+| MVP-016 | Producto **single-coach** en MVP: solo Jeny como admin; sin multi-tenant / multi-coach genérico.                                                                                                                                                           |
+| MVP-017 | Cuenta inicial de Jeny: **seed/script** (credenciales en secrets/env). Recuperación de contraseña: **reset por email**.                                                                                                                                    |
 
 ## 3. Dentro del MVP (In scope)
 
 ### Auth y cuentas
+
 - [ ] Login Jeny (usuario + contraseña); provisioning inicial vía seed (`MVP-017`); reset por email
 - [ ] Login cliente (magic link)
 - [ ] Alta de cliente por correo desde panel Jeny (sin auto-registro)
 
 ### Panel Jeny
+
 - [ ] Dashboard de clientes (bloque/semana/día actual + estado de pago)
 - [ ] Perfil del cliente: Nutrición, Entrenamiento (editor), Plan Completo, Comparación/Progreso, Pagos, Valoración
 - [ ] Editor plan nutricional (≤6 comidas)
@@ -63,6 +65,7 @@ Web donde **Jeny** gestiona clientes, planes (entrenamiento + nutrición), bibli
 - [ ] ~~Editor / visor del Resultado diagnóstico PDF in-app~~ → fuera de MVP (`MVP-015`)
 
 ### App cliente (mobile)
+
 - [ ] Inicio (día pendiente + avisos)
 - [ ] Entreno (RIR, observación, timer, placeholder video, cerrar día)
 - [ ] Nutrición (solo lectura)
@@ -74,20 +77,20 @@ Web donde **Jeny** gestiona clientes, planes (entrenamiento + nutrición), bibli
 
 Unidad: circunferencia (cm). Lista fija del MVP:
 
-| # | Medida |
-|---|--------|
-| 1 | Circunferencia cuello |
-| 2 | Circunferencia hombros |
-| 3 | Circunferencia del pecho |
-| 4 | Circunferencia cintura |
-| 5 | Circunferencia brazo relajado |
-| 6 | Circunferencia brazo contraído |
-| 7 | Circunferencia de la muñeca |
-| 8 | Circunferencia de la cadera |
-| 9 | Circunferencia del muslo medio |
-| 10 | Circunferencia del muslo alto |
-| 11 | Circunferencia de la rodilla |
-| 12 | Circunferencia de la pantorrilla |
+| #   | Medida                           |
+| --- | -------------------------------- |
+| 1   | Circunferencia cuello            |
+| 2   | Circunferencia hombros           |
+| 3   | Circunferencia del pecho         |
+| 4   | Circunferencia cintura           |
+| 5   | Circunferencia brazo relajado    |
+| 6   | Circunferencia brazo contraído   |
+| 7   | Circunferencia de la muñeca      |
+| 8   | Circunferencia de la cadera      |
+| 9   | Circunferencia del muslo medio   |
+| 10  | Circunferencia del muslo alto    |
+| 11  | Circunferencia de la rodilla     |
+| 12  | Circunferencia de la pantorrilla |
 
 **Instructivo:** la app debe mostrar, por cada medida, guía visual de cómo tomarla. Insumo de referencia:
 
@@ -108,12 +111,12 @@ Insumo de ejemplo (contenido de negocio de referencia, no UI):
 
 Estructura del documento que Jeny produce hoy (referencia para post-MVP in-app):
 
-| Bloque | Contenido |
-|--------|-----------|
-| Estado inicial | Nombre, fecha, edad, peso, talla, IMC, % grasa estimado, masa magra estimada, TMB, calorías mantenimiento, observaciones |
-| Recomendaciones | Composición corporal, nutrición, entrenamiento (RIR / sobrecarga), consideraciones por antecedentes (lesiones / salud) |
-| Macros estimados | Proteína / grasa / carbohidrato (g, kcal, %) coherentes con kcal de mantenimiento |
-| Conclusión | Texto narrativo de Jeny |
+| Bloque           | Contenido                                                                                                                |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Estado inicial   | Nombre, fecha, edad, peso, talla, IMC, % grasa estimado, masa magra estimada, TMB, calorías mantenimiento, observaciones |
+| Recomendaciones  | Composición corporal, nutrición, entrenamiento (RIR / sobrecarga), consideraciones por antecedentes (lesiones / salud)   |
+| Macros estimados | Proteína / grasa / carbohidrato (g, kcal, %) coherentes con kcal de mantenimiento                                        |
+| Conclusión       | Texto narrativo de Jeny                                                                                                  |
 
 **Datos base que la valoración in-app debe poder alimentar** (además de las 12 medidas): peso, talla, edad (vía `birthDate`), sexo, teléfono/dirección/ciudad/tipo de sangre (perfil), fotos, respuestas `MVP-018`.
 
@@ -123,76 +126,76 @@ Insumo: [`_intake/encuesta-diagnostica/`](_intake/encuesta-diagnostica/). Solo e
 
 #### A. Datos personales (perfil + assessment — no son `questionKey`)
 
-| Campo UI | Persistencia |
-|----------|--------------|
-| Nombre | `User.name` |
-| Correo | `User.email` (ya del alta) |
-| Teléfono, dirección, ciudad, tipo de sangre | `ClientProfile` (`DOMAIN-027`) |
-| Fecha | `Assessment.createdAt` / `submittedAt` |
-| Edad | Derivada de `ClientProfile.birthDate` (capturar birthDate o edad→approx solo si se acuerda en UI; **preferir birthDate**) |
-| Estatura | `ClientProfile.heightCm` |
-| Peso | `Assessment.weightKg` |
-| Sexo | `ClientProfile.sex` (si se captura en el flujo; puede no estar en el Excel original) |
+| Campo UI                                    | Persistencia                                                                                                              |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Nombre                                      | `User.name`                                                                                                               |
+| Correo                                      | `User.email` (ya del alta)                                                                                                |
+| Teléfono, dirección, ciudad, tipo de sangre | `ClientProfile` (`DOMAIN-027`)                                                                                            |
+| Fecha                                       | `Assessment.createdAt` / `submittedAt`                                                                                    |
+| Edad                                        | Derivada de `ClientProfile.birthDate` (capturar birthDate o edad→approx solo si se acuerda en UI; **preferir birthDate**) |
+| Estatura                                    | `ClientProfile.heightCm`                                                                                                  |
+| Peso                                        | `Assessment.weightKg`                                                                                                     |
+| Sexo                                        | `ClientProfile.sex` (si se captura en el flujo; puede no estar en el Excel original)                                      |
 
 #### B. Preguntas de salud Q1–10 (`yes_no` + `detail?` si SI)
 
 Copy UI (es). Keys estables:
 
-| # | `questionKey` | Pregunta |
-|---|---------------|----------|
-| 1 | `health_heart_disease` | ¿Le han diagnosticado alguna enfermedad cardiaca donde se le recomiende actividad física supervisada? |
-| 2 | `health_chest_pain_activity` | ¿Tiene dolores en el pecho producidos por la actividad física? |
-| 3 | `health_chest_pain_month` | ¿Ha notado dolor en el pecho durante el último mes? |
-| 4 | `health_dizziness` | ¿Tiende a perder el conocimiento o el equilibrio como resultado de mareos? |
-| 5 | `health_bp_meds` | ¿Alguna vez un médico le ha prescrito medicación para la presión arterial o por algún otro problema cardiovascular? |
-| 6 | `health_bone_joint` | ¿Tiene usted alguna alteración ósea o muscular que se pueda agravar con la actividad física propuesta? |
-| 7 | `health_hormonal_metabolic` | ¿Tiene actualmente algún problema hormonal o metabólico? |
-| 8 | `health_psychiatric` | ¿Le han diagnosticado alguna enfermedad psiquiátrica o usa algún medicamento relacionado? |
-| 9 | `health_gi` | ¿Padece alguna enfermedad gástrica o intestinal? |
-| 10 | `health_other_barrier` | ¿Tiene conocimiento, por experiencia propia o por indicación de algún médico, de alguna otra razón de tipo físico o psicológico que le impida realizar ejercicio físico sin supervisión médica? |
+| #   | `questionKey`                | Pregunta                                                                                                                                                                                        |
+| --- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | `health_heart_disease`       | ¿Le han diagnosticado alguna enfermedad cardiaca donde se le recomiende actividad física supervisada?                                                                                           |
+| 2   | `health_chest_pain_activity` | ¿Tiene dolores en el pecho producidos por la actividad física?                                                                                                                                  |
+| 3   | `health_chest_pain_month`    | ¿Ha notado dolor en el pecho durante el último mes?                                                                                                                                             |
+| 4   | `health_dizziness`           | ¿Tiende a perder el conocimiento o el equilibrio como resultado de mareos?                                                                                                                      |
+| 5   | `health_bp_meds`             | ¿Alguna vez un médico le ha prescrito medicación para la presión arterial o por algún otro problema cardiovascular?                                                                             |
+| 6   | `health_bone_joint`          | ¿Tiene usted alguna alteración ósea o muscular que se pueda agravar con la actividad física propuesta?                                                                                          |
+| 7   | `health_hormonal_metabolic`  | ¿Tiene actualmente algún problema hormonal o metabólico?                                                                                                                                        |
+| 8   | `health_psychiatric`         | ¿Le han diagnosticado alguna enfermedad psiquiátrica o usa algún medicamento relacionado?                                                                                                       |
+| 9   | `health_gi`                  | ¿Padece alguna enfermedad gástrica o intestinal?                                                                                                                                                |
+| 10  | `health_other_barrier`       | ¿Tiene conocimiento, por experiencia propia o por indicación de algún médico, de alguna otra razón de tipo físico o psicológico que le impida realizar ejercicio físico sin supervisión médica? |
 
-**Aviso UI (`BR-065`):** si alguna Q1–10 = SI → mostrar: *“Si ha respondido SI a alguna de estas preguntas se le indica que debe visitar primero a su médico.”* No bloquea el envío en MVP (Jeny decide fuera de app).
+**Aviso UI (`BR-065`):** si alguna Q1–10 = SI → mostrar: _“Si ha respondido SI a alguna de estas preguntas se le indica que debe visitar primero a su médico.”_ No bloquea el envío en MVP (Jeny decide fuera de app).
 
 #### C. Actividad y logística Q11–13
 
-| # | `questionKey` | Tipo | Opciones / notas |
-|---|---------------|------|------------------|
-| 11 | `activity_level` | single_choice | `sedentary` · `beginner` · `intermediate` · `advanced` (copy: Sedentario / Principiante 3–6 meses / Intermedio 7–12 meses / Avanzado >1 año) |
-| 12 | `training_availability` | multi_choice | `morning` (5:00–11:59) · `midday` (12:00–13:59) · `afternoon` (14:00–18:59) · `evening` (19:00–23:59) |
-| 13 | `training_duration` | single_choice | `30m` · `1h` · `2h` |
-| 13b | `training_duration_note` | free_text | “OBSERVACION” opcional |
+| #   | `questionKey`            | Tipo          | Opciones / notas                                                                                                                             |
+| --- | ------------------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| 11  | `activity_level`         | single_choice | `sedentary` · `beginner` · `intermediate` · `advanced` (copy: Sedentario / Principiante 3–6 meses / Intermedio 7–12 meses / Avanzado >1 año) |
+| 12  | `training_availability`  | multi_choice  | `morning` (5:00–11:59) · `midday` (12:00–13:59) · `afternoon` (14:00–18:59) · `evening` (19:00–23:59)                                        |
+| 13  | `training_duration`      | single_choice | `30m` · `1h` · `2h`                                                                                                                          |
+| 13b | `training_duration_note` | free_text     | “OBSERVACION” opcional                                                                                                                       |
 
 **Aviso UI:** si edad > 65 **y** `activity_level=sedentary` → indicar chequeo médico previo (informativo).
 
 #### D. Objetivos y nutrición Q14–20
 
-| # | `questionKey` | Tipo | Opciones / notas |
-|---|---------------|------|------------------|
-| 14 | `goal` | multi_choice | `health` · `sport_functional` · `aesthetic` · `muscle_gain` · `fat_loss` · `maintenance` |
-| 14b | `goal_body_focus` | free_text | “¿Qué parte de tu cuerpo quieres trabajar más?” |
-| 15 | `food_restriction` | yes_no + detail | Alergia / no puede / no le gusta → `food_restriction_detail` |
-| 16 | `current_diet` | structured_json | Comidas: desayuno, merienda_am, almuerzo, merienda_pm, cena — cada una `{ text, time? }`; + `condiments_oil` |
-| 17 | `food_likes` | structured_json | `{ proteins?, carbs?, fats? }` (alimentos que más le gustan) |
-| 18 | `daily_routine` | free_text | Reseña rutina diaria |
-| 19 | `weekend_routine` | free_text | Reseña fin de semana |
-| 20 | `current_training` | free_text | Entrenamiento actual |
+| #   | `questionKey`      | Tipo            | Opciones / notas                                                                                             |
+| --- | ------------------ | --------------- | ------------------------------------------------------------------------------------------------------------ |
+| 14  | `goal`             | multi_choice    | `health` · `sport_functional` · `aesthetic` · `muscle_gain` · `fat_loss` · `maintenance`                     |
+| 14b | `goal_body_focus`  | free_text       | “¿Qué parte de tu cuerpo quieres trabajar más?”                                                              |
+| 15  | `food_restriction` | yes_no + detail | Alergia / no puede / no le gusta → `food_restriction_detail`                                                 |
+| 16  | `current_diet`     | structured_json | Comidas: desayuno, merienda_am, almuerzo, merienda_pm, cena — cada una `{ text, time? }`; + `condiments_oil` |
+| 17  | `food_likes`       | structured_json | `{ proteins?, carbs?, fats? }` (alimentos que más le gustan)                                                 |
+| 18  | `daily_routine`    | free_text       | Reseña rutina diaria                                                                                         |
+| 19  | `weekend_routine`  | free_text       | Reseña fin de semana                                                                                         |
+| 20  | `current_training` | free_text       | Entrenamiento actual                                                                                         |
 
 #### E. Fuera de encuesta in-app
 
-| Campo Excel | Destino MVP |
-|-------------|-------------|
-| CONCLUSIÓNES | Fuera de app (`MVP-015`) |
+| Campo Excel     | Destino MVP              |
+| --------------- | ------------------------ |
+| CONCLUSIÓNES    | Fuera de app (`MVP-015`) |
 | RECOMENDACIONES | Fuera de app (`MVP-015`) |
 
 #### F. Shape de `SurveyAnswer.value`
 
-| `answerType` | Uso |
-|--------------|-----|
-| `yes_no` | boolean (+ detail en key hermana `*_detail` o campo `detail` en JSON) |
-| `single_choice` | string enum |
-| `multi_choice` | string[] |
-| `free_text` | string |
-| `structured_json` | objeto tipado (dieta / likes) |
+| `answerType`      | Uso                                                                   |
+| ----------------- | --------------------------------------------------------------------- |
+| `yes_no`          | boolean (+ detail en key hermana `*_detail` o campo `detail` en JSON) |
+| `single_choice`   | string enum                                                           |
+| `multi_choice`    | string[]                                                              |
+| `free_text`       | string                                                                |
+| `structured_json` | objeto tipado (dieta / likes)                                         |
 
 Keys desconocidas → rechazo (`BR-066`).
 
@@ -222,42 +225,42 @@ Keys desconocidas → rechazo (`BR-066`).
 
 ## 6. Fases posteriores
 
-| Fase | Qué |
-|------|-----|
+| Fase     | Qué                                                                                  |
+| -------- | ------------------------------------------------------------------------------------ |
 | Post-MVP | **Resultado diagnóstico in-app** (Jeny edita / cliente lee; posible exportación PDF) |
-| Post-MVP | Video por serie in-app |
-| Post-MVP | Pasarela / cobro integrado (USD) |
-| Post-MVP | i18n (p. ej. EN) si la demanda de clientes lo justifica |
-| Post-MVP | Multi-coach / tenant (si se valida el modelo) |
-| Post-MVP | Automatizaciones de planeación / recordatorios avanzados |
+| Post-MVP | Video por serie in-app                                                               |
+| Post-MVP | Pasarela / cobro integrado (USD)                                                     |
+| Post-MVP | i18n (p. ej. EN) si la demanda de clientes lo justifica                              |
+| Post-MVP | Multi-coach / tenant (si se valida el modelo)                                        |
+| Post-MVP | Automatizaciones de planeación / recordatorios avanzados                             |
 
 ## 7. MVP y milestones
 
 Nombres M2+ **tentativos** hasta retrospectiva M1 / `roadmap-detail` (RM-003). No son issues binding aún.
 
-| Milestone | Entrega MVP |
-|-----------|-------------|
-| M1 | Foundation (docs, CI, stack) — sin features de negocio |
-| M2 | Auth + alta clientes + esqueleto roles (Jeny password / cliente magic link) |
-| M3 | Biblioteca + plan de entrenamiento (editor Jeny) |
-| M4 | App cliente: día de entreno, RIR, timer, cierre secuencial |
-| M5 | Historial, Plan Completo, comparación/progreso, feedback |
-| M6 | Nutrición |
-| M7 | Pagos (manual, USD) + avisos |
-| M8 | Valoración (inputs + evolución; **sin** informe diagnóstico in-app) |
-| M9 | Hardening / DoD MVP / pulido UX |
+| Milestone | Entrega MVP                                                                 |
+| --------- | --------------------------------------------------------------------------- |
+| M1        | Foundation (docs, CI, stack) — sin features de negocio                      |
+| M2        | Auth + alta clientes + esqueleto roles (Jeny password / cliente magic link) |
+| M3        | Biblioteca + plan de entrenamiento (editor Jeny)                            |
+| M4        | App cliente: día de entreno, RIR, timer, cierre secuencial                  |
+| M5        | Historial, Plan Completo, comparación/progreso, feedback                    |
+| M6        | Nutrición                                                                   |
+| M7        | Pagos (manual, USD) + avisos                                                |
+| M8        | Valoración (inputs + evolución; **sin** informe diagnóstico in-app)         |
+| M9        | Hardening / DoD MVP / pulido UX                                             |
 
 ## 8. Historial / `MVP-OPEN-*`
 
-| ID | Tema | Estado |
-|----|------|--------|
-| MVP-OPEN-01 | Umbral “próximo a vencer” | **cerrada** → **7 días** antes de la fecha de cobro (`MVP-008`) |
-| MVP-OPEN-02 | Contenido canónico de la encuesta diagnóstica | **cerrada** → `MVP-018` + §3.3 |
-| MVP-OPEN-03 | Canal del Resultado diagnóstico | **cerrada** → fuera de la app en MVP (`MVP-015`); in-app = post-MVP |
-| VISION-OPEN-01 | North Star Metric (doc 01) | **cerrada** → VISION-008 |
-| DOMAIN-OPEN-01 | Single-coach vs multi-tenant | **cerrada** → single-coach (`MVP-016`) |
-| AUTH-OPEN-01 | Provisioning cuenta Jeny + recuperación de contraseña | **cerrada** → seed/script + reset por email (`MVP-017`) |
-| DOMAIN-OPEN-02 | Snapshot de ejercicio en un día | **cerrada (mínimo)** → nombre, carga, series, reps objetivo, id biblioteca si existe (detalle en doc 05) |
+| ID             | Tema                                                  | Estado                                                                                                   |
+| -------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| MVP-OPEN-01    | Umbral “próximo a vencer”                             | **cerrada** → **7 días** antes de la fecha de cobro (`MVP-008`)                                          |
+| MVP-OPEN-02    | Contenido canónico de la encuesta diagnóstica         | **cerrada** → `MVP-018` + §3.3                                                                           |
+| MVP-OPEN-03    | Canal del Resultado diagnóstico                       | **cerrada** → fuera de la app en MVP (`MVP-015`); in-app = post-MVP                                      |
+| VISION-OPEN-01 | North Star Metric (doc 01)                            | **cerrada** → VISION-008                                                                                 |
+| DOMAIN-OPEN-01 | Single-coach vs multi-tenant                          | **cerrada** → single-coach (`MVP-016`)                                                                   |
+| AUTH-OPEN-01   | Provisioning cuenta Jeny + recuperación de contraseña | **cerrada** → seed/script + reset por email (`MVP-017`)                                                  |
+| DOMAIN-OPEN-02 | Snapshot de ejercicio en un día                       | **cerrada (mínimo)** → nombre, carga, series, reps objetivo, id biblioteca si existe (detalle en doc 05) |
 
 ## 9. Referencias
 

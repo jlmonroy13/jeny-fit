@@ -17,34 +17,34 @@ Guide for AI agents and human reviewers working on **Jeny Fit**. Development is 
 
 ## Cursor rules (`.cursor/rules/`)
 
-| Rule | Scope |
-|------|--------|
-| `documentation-first.mdc` | Always — docs-first, RM-001/002/010 |
-| `milestone-active.mdc` | Always — current milestone issues, no scope creep |
-| `business-binding.mdc` | Always — map to docs/product, closed MVP decisions |
-| `ci-quality-gate.mdc` | Always — ESLint + Prettier before READY_FOR_PUBLISH / PR |
-| `code-conventions.mdc` | `*.{ts,tsx}` — EN code, es-CO UI |
-| `nextjs-app.mdc` | `app/**` — App Router, FE-* |
+| Rule                      | Scope                                                    |
+| ------------------------- | -------------------------------------------------------- |
+| `documentation-first.mdc` | Always — docs-first, RM-001/002/010                      |
+| `milestone-active.mdc`    | Always — current milestone issues, no scope creep        |
+| `business-binding.mdc`    | Always — map to docs/product, closed MVP decisions       |
+| `ci-quality-gate.mdc`     | Always — ESLint + Prettier before READY_FOR_PUBLISH / PR |
+| `code-conventions.mdc`    | `*.{ts,tsx}` — EN code, es-CO UI                         |
+| `nextjs-app.mdc`          | `app/**` — App Router, FE-*                              |
 
 Update `milestone-active.mdc` when the active milestone changes (after each MX.10 retrospective).
 
 ## When to read each doc
 
-| Doc | Read when |
-|-----|-----------|
-| [`docs/product/01-product-vision.md`](docs/product/01-product-vision.md) | Understanding problem, vision, north star |
-| [`docs/product/02-scope-mvp.md`](docs/product/02-scope-mvp.md) | Cutting scope, MVP vs later phases |
-| [`docs/product/03-user-roles.md`](docs/product/03-user-roles.md) | AuthZ, roles, permissions |
-| [`docs/product/04-user-flows.md`](docs/product/04-user-flows.md) | End-to-end journeys (FLOW-*) |
-| [`docs/product/05-domain-model.md`](docs/product/05-domain-model.md) | Entities, ER, migrations |
-| [`docs/product/06-business-rules.md`](docs/product/06-business-rules.md) | BR-* rules and literal test cases |
-| [`docs/product/07-design-system.md`](docs/product/07-design-system.md) | Visual contract, components |
-| [`docs/product/07-prototype-screens.md`](docs/product/07-prototype-screens.md) | Screen inventory, MVP vs prototype |
-| [`docs/product/08-frontend-architecture.md`](docs/product/08-frontend-architecture.md) | Next.js structure, FE-* decisions |
-| [`docs/product/09-backend-architecture.md`](docs/product/09-backend-architecture.md) | API, auth, BE-* decisions |
-| [`docs/product/10-tech-stack.md`](docs/product/10-tech-stack.md) | Versions, libraries, TS-* / TS-OPEN-* |
-| [`docs/product/11-testing-strategy.md`](docs/product/11-testing-strategy.md) | Test layers, quality gates |
-| [`docs/product/12-roadmap-milestones.md`](docs/product/12-roadmap-milestones.md) | **Always** for active milestone, issues, RM-*, branches |
+| Doc                                                                                    | Read when                                               |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| [`docs/product/01-product-vision.md`](docs/product/01-product-vision.md)               | Understanding problem, vision, north star               |
+| [`docs/product/02-scope-mvp.md`](docs/product/02-scope-mvp.md)                         | Cutting scope, MVP vs later phases                      |
+| [`docs/product/03-user-roles.md`](docs/product/03-user-roles.md)                       | AuthZ, roles, permissions                               |
+| [`docs/product/04-user-flows.md`](docs/product/04-user-flows.md)                       | End-to-end journeys (FLOW-*)                            |
+| [`docs/product/05-domain-model.md`](docs/product/05-domain-model.md)                   | Entities, ER, migrations                                |
+| [`docs/product/06-business-rules.md`](docs/product/06-business-rules.md)               | BR-* rules and literal test cases                       |
+| [`docs/product/07-design-system.md`](docs/product/07-design-system.md)                 | Visual contract, components                             |
+| [`docs/product/07-prototype-screens.md`](docs/product/07-prototype-screens.md)         | Screen inventory, MVP vs prototype                      |
+| [`docs/product/08-frontend-architecture.md`](docs/product/08-frontend-architecture.md) | Next.js structure, FE-* decisions                       |
+| [`docs/product/09-backend-architecture.md`](docs/product/09-backend-architecture.md)   | API, auth, BE-* decisions                               |
+| [`docs/product/10-tech-stack.md`](docs/product/10-tech-stack.md)                       | Versions, libraries, TS-* / TS-OPEN-*                   |
+| [`docs/product/11-testing-strategy.md`](docs/product/11-testing-strategy.md)           | Test layers, quality gates                              |
+| [`docs/product/12-roadmap-milestones.md`](docs/product/12-roadmap-milestones.md)       | **Always** for active milestone, issues, RM-*, branches |
 
 ## Milestone workflow
 
@@ -58,19 +58,19 @@ Update `milestone-active.mdc` when the active milestone changes (after each MX.1
 
 ## Roadmap decisions (binding summary)
 
-| ID | Rule |
-|----|------|
-| RM-001 | 1 issue = 1 PR |
-| RM-002 | Linear milestones |
-| RM-003 | JIT detailed issues |
+| ID     | Rule                                       |
+| ------ | ------------------------------------------ |
+| RM-001 | 1 issue = 1 PR                             |
+| RM-002 | Linear milestones                          |
+| RM-003 | JIT detailed issues                        |
 | RM-004 | Retrospective before next milestone detail |
-| RM-005 | docs/product is contract |
-| RM-006 | Issue body copies doc |
-| RM-007 | Blocking dependencies |
-| RM-008 | Progressive quality gates |
-| RM-009 | Decision IDs binding |
-| RM-010 | Branch `Mx-NN-slug` |
-| RM-011 | Lazy-build UI components |
+| RM-005 | docs/product is contract                   |
+| RM-006 | Issue body copies doc                      |
+| RM-007 | Blocking dependencies                      |
+| RM-008 | Progressive quality gates                  |
+| RM-009 | Decision IDs binding                       |
+| RM-010 | Branch `Mx-NN-slug`                        |
+| RM-011 | Lazy-build UI components                   |
 
 Full text: [`docs/product/12-roadmap-milestones.md`](docs/product/12-roadmap-milestones.md) §4.
 
@@ -96,6 +96,7 @@ This is **not** the Next.js version from most training data. Before writing rout
 - Follow deprecation notices in the installed version (**TS-001**: Next 16)
 
 <!-- BEGIN:nextjs-agent-rules -->
+
 # This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
