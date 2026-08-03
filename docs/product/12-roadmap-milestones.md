@@ -1,6 +1,6 @@
 # 12 · Roadmap & milestones
 
-> **Estado:** v0.3 — **M1** issues de foundation hechas (docs/tooling/CI/Vitest/sync). Pendiente **M1.10** retrospectiva; luego `roadmap-detail` M2.
+> **Estado:** v0.4 — **M1 Foundation cerrada** (issues + M1.10). Siguiente: `roadmap-detail` → sync → M2 Auth & onboarding.
 
 ## 1. Objetivo y audiencia
 
@@ -13,19 +13,19 @@ Guía a **agentes AI** y al **revisor humano**: qué construir, en qué orden, c
 
 ## 2. Mapa de milestones
 
-| ID     | Nombre                  | Entrega principal                                          | MVP | Estado                       |
-| ------ | ----------------------- | ---------------------------------------------------------- | --- | ---------------------------- |
-| **M1** | Foundation              | Docs, CI, stack cerrado, harness — sin features de negocio | —   | **Activo**                   |
-| **M2** | Auth & onboarding       | Password coach + magic link + alta clientas + roles        | Sí  | Esqueleto (nombre tentativo) |
-| **M3** | Library & training plan | Biblioteca + editor plan (bloques…series)                  | Sí  | Esqueleto                    |
-| **M4** | Client training day     | Entreno: RIR, timer, cierre secuencial                     | Sí  | Esqueleto                    |
-| **M5** | Progress & feedback     | Historial, Plan Completo, comparación, feedback            | Sí  | Esqueleto                    |
-| **M6** | Nutrition               | Editor coach + RO cliente (≤6 comidas)                     | Sí  | Esqueleto                    |
-| **M7** | Payments                | Marcado manual USD + avisos (sin lock)                     | Sí  | Esqueleto                    |
-| **M8** | Assessment              | Encuesta `MVP-018` + fotos/medidas; sin PDF in-app         | Sí  | Esqueleto                    |
-| **M9** | Hardening               | DoD MVP, pulido UX, E2E crítico                            | Sí  | Esqueleto                    |
+| ID     | Nombre                  | Entrega principal                                          | MVP | Estado                    |
+| ------ | ----------------------- | ---------------------------------------------------------- | --- | ------------------------- |
+| **M1** | Foundation              | Docs, CI, stack cerrado, harness — sin features de negocio | —   | ✅ Cerrado                |
+| **M2** | Auth & onboarding       | Password coach + magic link + alta clientas + roles        | Sí  | **Siguiente** (esqueleto) |
+| **M3** | Library & training plan | Biblioteca + editor plan (bloques…series)                  | Sí  | Esqueleto                 |
+| **M4** | Client training day     | Entreno: RIR, timer, cierre secuencial                     | Sí  | Esqueleto                 |
+| **M5** | Progress & feedback     | Historial, Plan Completo, comparación, feedback            | Sí  | Esqueleto                 |
+| **M6** | Nutrition               | Editor coach + RO cliente (≤6 comidas)                     | Sí  | Esqueleto                 |
+| **M7** | Payments                | Marcado manual USD + avisos (sin lock)                     | Sí  | Esqueleto                 |
+| **M8** | Assessment              | Encuesta `MVP-018` + fotos/medidas; sin PDF in-app         | Sí  | Esqueleto                 |
+| **M9** | Hardening               | DoD MVP, pulido UX, E2E crítico                            | Sí  | Esqueleto                 |
 
-Fuente de nombres: [`02-scope-mvp.md`](02-scope-mvp.md) §7. Detalle de issues M2+ → post **M1.10**.
+Fuente de nombres: [`02-scope-mvp.md`](02-scope-mvp.md) §7. Detalle de issues M2+ → post **M1.10** (hecho) + `roadmap-detail`.
 
 ### 2.1 Estado de implementación (repo)
 
@@ -41,7 +41,7 @@ Fuente de nombres: [`02-scope-mvp.md`](02-scope-mvp.md) §7. Detalle de issues M
 | **M1-03** | `.github/workflows/ci.yml`     | ✅ Closed (#3) |
 | **M1-04** | Doc 10 stack TS-*              | ✅ Closed (#4) |
 | **M1-05** | Vitest harness + smoke         | ✅ Closed (#5) |
-| **M1-06** | Docs sync + TS-OPEN-03         | ⏳ este issue  |
+| **M1-06** | Docs sync + TS-OPEN-03         | ✅ Closed (#6) |
 
 ## 3. Plantilla canónica de milestone
 
@@ -115,7 +115,7 @@ Base técnica y de proceso: docs canónicos **llenos**, CI, stack **decidido**, 
 - [x] CI PR: lint → typecheck → format:check → test en verde (Actions + Vitest)
 - [x] Decisiones `TS-*` cerradas en doc 10 (incl. `TS-026` free tier; pins §2.2)
 - [x] Scripts tooling + Vitest harness (M1-02, M1-05)
-- [ ] Retrospectiva M1.10 completada
+- [x] Retrospectiva M1.10 completada
 - [x] `roadmap-sync` de issues M1 a GitHub (Project #13)
 
 ### M1.3 Scope (in)
@@ -135,7 +135,7 @@ Features de negocio, design system sin caller, Neon/Vercel como runners de test,
 | **M1-03** | CI workflow (lint/typecheck/format/test)       | ci    | S    | M1-02               | RM-008, TS-015, TS-026, TEST-016       | ✅           |
 | **M1-04** | Stack decisions close (DB/auth/hosting)        | docs  | S    | M1-01               | TS-011…TS-017, TS-026                  | ✅           |
 | **M1-05** | Vitest harness                                 | chore | S    | M1-02               | TS-020, TEST-001, TEST-014             | ✅           |
-| **M1-06** | Docs sync 08/09/10/11 post-tooling             | docs  | S    | M1-02, M1-04, M1-05 | RM-005, TS-OPEN-03                     | ⏳           |
+| **M1-06** | Docs sync 08/09/10/11 post-tooling             | docs  | S    | M1-02, M1-04, M1-05 | RM-005, TS-OPEN-03                     | ✅ (#6)      |
 
 #### M1-01 · Product docs bootstrap & AGENTS
 
@@ -292,15 +292,47 @@ Lint + typecheck + format + test (activar con M1-02/03/05). Ver doc 11 §5 M1.
 
 - Quemar free tier Vercel/Neon → mitigado `TS-026` / `TEST-016`.
 - `projectNumber` en `.cursor/roadmap-sync.defaults.json` debe coincidir con el GitHub Project real.
-- No codear M2+ hasta M1.10 + `roadmap-detail`.
+- No codear M2+ hasta M1.10 + `roadmap-detail` — **M1.10 hecho**; falta detallar M2.
 
 ### M1.9 Docs a actualizar
 
-Tras tooling: `10` (pins), `00`, este `12` §2.1, `milestone-active.mdc`.
+Tras tooling: `10` (pins), `00`, este `12` §2.1, `milestone-active.mdc` — **hecho** en M1-06 (#6 / PR #10).
 
 ### M1.10 Retrospectiva
 
-_(Completar al cerrar M1 — luego `roadmap-detail` para M2.)_
+Cerrada **2026-08-03** tras merge de M1-01…M1-06 (#1–#6; PRs #7–#10 + cierres docs).
+
+#### Qué funcionó
+
+- **Docs-first real:** 01–11 cerrados antes de tooling; agents no inventaron stack/producto.
+- **Issues chicas + 1 PR:** M1-02…06 revisables en ~30 min; grafo `Depends on` + `roadmap-project-ready` desbloqueó Ready sin thrash.
+- **Skills loop:** `issue-plan` → code → `pr-review` (Prettier + checklist humana) → `pr-publish` (`Closes #N`) — predecible.
+- **Free tier (`TS-026`):** CI en GitHub Actions; sin Neon/Vercel como runner de tests.
+- **Pins pragmáticos:** majors en doc 10 §2.2 (no pin patch-by-patch en `package.json`).
+
+#### Fricciones
+
+- **Auth GH/SSH** (`jlmonroy13` + `ssh-add`) cada sesión — coste operativo, no de producto.
+- **Issues ya hechas en `main`:** M1-01/#1 y M1-04/#4 se cerraron sin PR formal (contenido previo); rompe un poco el ritual “1 issue = 1 PR” pero no bloqueó.
+- **Placeholder `pnpm test` en M1-03** hasta Vitest (M1-05) — CI “verde” sin harness real un rato.
+- **Título vs AC:** M1-06 decía sync 08/09/11; el AC real era 10 / `00` / §2.1 — título confunde.
+- **Prettier + `.mdc`:** no hay parser; hay que excluir o no formatear rules Cursor.
+- **Checkboxes GH desactualizados:** body sync (RM-006) no refleja `[x]` del doc tras merge.
+
+#### Lecciones → M2 (binding para `roadmap-detail`)
+
+1. **Última issue del milestone = retro (+ baseline si aplica)** — no dejar MX.10 solo como sección huérfana.
+2. **Título de issue = AC** — no prometer sync de docs que el AC no exige.
+3. **No placeholders que maquillen CI** — si el gate aún no existe, documentar skip explícito o depender de la issue que lo introduce.
+4. **Auth/DB en M2 respetando `TS-026`:** Better Auth + Neon + Resend; Postgres service en CI solo cuando existan integration tests (`TEST-016`); sin Neon branch por PR.
+5. **Seed coach (`MVP-017`) temprano** en el grafo — desbloquea login real y smoke auth.
+6. **Mantener skills:** plan → review (format gate) → publish; agent **no** corre suites de test (checklist humana).
+7. **Actualizar `milestone-active.mdc` + §2.1 en el mismo PR** que cierra el milestone (o en la issue de sync/retro).
+8. **AC con paths concretos** (`app/...`, `lib/auth/...`) — facilita review y checklist manual.
+
+#### Decisión de cierre M1
+
+M1 DoD completo. **Siguiente:** `roadmap-detail` **M2** (Auth & onboarding) → `roadmap-sync` → Ready → code.
 
 ## 6. M2+ (esqueleto)
 

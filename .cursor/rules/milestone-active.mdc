@@ -5,23 +5,23 @@ alwaysApply: true
 
 # Active milestone (Jeny Fit)
 
-**Current:** **M1 · Foundation** — issues M1-01…M1-05 cerradas; **M1-06** docs sync. Tras merge de M1-06: completar **M1.10** retrospectiva en [`docs/product/12-roadmap-milestones.md`](../../docs/product/12-roadmap-milestones.md), luego `roadmap-detail` para **M2**. Do not build M2+ features yet (**RM-003**).
+**Current:** **M1 · Foundation** ✅ cerrada (M1-01…M1-06 + M1.10). **Siguiente:** detallar **M2 · Auth & onboarding** con skill `roadmap-detail`, luego `roadmap-sync` → Ready → code. Do not implement M2 until issues exist (**RM-003**).
 
 ## Binding now
 
 | Issue | Status | Next action |
 |-------|--------|-------------|
-| **M1-01…M1-05** | ✅ Closed | — |
-| **M1-06** (#6) | In progress / Ready | Pins + sync docs (`TS-OPEN-03`) |
-| **M1.10** | Pendiente | Retrospectiva al cerrar M1-06 |
-| **M2+** | Esqueleto | Solo tras M1.10 + `roadmap-detail` |
+| **M1** | ✅ Closed | Retrospectiva M1.10 en doc 12 |
+| **M2** | Esqueleto | `/roadmap-detail` M2 → sync → Ready |
+| **M3+** | Esqueleto | Solo tras M2.10 + `roadmap-detail` |
 
 ## Rules
 
-1. **One issue = one PR** (**RM-001**); branch `M1-NN-slug` (**RM-010**).
+1. **One issue = one PR** (**RM-001**); branch `M2-NN-slug` (**RM-010**) when M2 is detailed.
 2. Prefer `roadmap-sync` → Ready → code when using GitHub Project (**RM-006**).
-3. **M2+** remains skeleton — no build ahead (**RM-003**).
+3. **M3+** remains skeleton — no build ahead (**RM-003**).
 4. Respect **TS-026** (free tier Vercel/Neon).
 5. Before coding: read **Acceptance criteria** and **Out of scope** in the detailed issue.
+6. Honor **M1.10 lecciones** in doc 12 (seed coach temprano, no CI placeholders, AC = título).
 
-When M1 closes (after M1.10), update this rule’s “Current” line to M2.
+When M2 issues are synced and work starts, update this rule’s “Current” line to **M2**.
