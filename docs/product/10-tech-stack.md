@@ -1,6 +1,6 @@
 # 10 · Tech stack
 
-> **Estado:** v1.1 — stack MVP cerrado (`TS-001`…`026`). Free tier Vercel/Neon binding.
+> **Estado:** v1.2 — stack MVP cerrado (`TS-001`…`026`); **TS-OPEN-03** cerrada (pins M1). Free tier Vercel/Neon binding.
 
 ## 1. Objetivo y audiencia
 
@@ -17,7 +17,7 @@ Versiones y librerías **binding** (`TS-*`) para agents e issues. No añadir dep
 | **TS-005** | CSS                  | **Tailwind CSS 4** + CSS variables (doc 07)                                                                                                                       |
 | **TS-006** | Icons                | **Lucide** (npm)                                                                                                                                                  |
 | **TS-007** | Validation           | **Zod** (inputs de Server Actions / forms)                                                                                                                        |
-| **TS-010** | Format               | **Prettier** binding en CI (añadir en M1-02)                                                                                                                      |
+| **TS-010** | Format               | **Prettier** binding en CI (`package.json` + `.prettierrc`)                                                                                                       |
 | **TS-011** | DB                   | **PostgreSQL** managed en **Neon**                                                                                                                                |
 | **TS-012** | ORM                  | **Drizzle ORM** + Drizzle Kit (migrations)                                                                                                                        |
 | **TS-013** | Auth                 | **Better Auth** — coach: email/password + reset; client: magic link; **sin** Auth.js/NextAuth en MVP                                                              |
@@ -25,11 +25,11 @@ Versiones y librerías **binding** (`TS-*`) para agents e issues. No añadir dep
 | **TS-015** | Hosting              | **Vercel** (app Next)                                                                                                                                             |
 | **TS-016** | Object storage       | **Cloudflare R2** (S3-compatible) — signed upload/download (`BE-008`)                                                                                             |
 | **TS-017** | File limits (fotos)  | MIME: `image/jpeg`, `image/png`, `image/webp`; máx **8 MB**/archivo; máx **6** fotos / assessment                                                                 |
-| **TS-020** | Unit tests           | **Vitest** (M1-05)                                                                                                                                                |
+| **TS-020** | Unit tests           | **Vitest** (`vitest.config.mts`, `tests/**/*.test.ts`)                                                                                                            |
 | **TS-021** | E2E                  | **Playwright** (milestone posterior; no Cypress)                                                                                                                  |
 | **TS-022** | Lint                 | **ESLint** (`eslint-config-next`)                                                                                                                                 |
 | **TS-023** | Path alias           | `@/*` → repo root (**confirmado** en `tsconfig.json`)                                                                                                             |
-| **TS-024** | Node                 | Engines Node **≥ 22** (fijar en `package.json` en M1-02)                                                                                                          |
+| **TS-024** | Node                 | Engines Node **≥ 22** (`package.json` `engines`)                                                                                                                  |
 | **TS-025** | Session shape (mín.) | Tras auth: `userId`, `role` (`coach` \| `client`), `clientProfileId` si client — cierra `FE-OPEN-02` a nivel contrato; implementación Better Auth                 |
 | **TS-026** | Budget free tier     | **No superar el free tier de Vercel ni de Neon** en MVP/dev. Diseñar CI, previews y DB de test para no consumir compute/branches/build minutes de más (ver §5–6). |
 
@@ -44,6 +44,24 @@ Versiones y librerías **binding** (`TS-*`) para agents e issues. No añadir dep
 | Storage   | Proxy de bytes por Next                     | Contrario a `BE-008`                                                              |
 | Tests     | Jest / Cypress                              | Vitest + Playwright                                                               |
 
+### 2.2 Installed majors (repo — cierra `TS-OPEN-03`)
+
+Fuente: `package.json` + resolución en `pnpm-lock.yaml` (M1). Carets en `package.json` OK; majors binding abajo.
+
+| Paquete                                | `package.json`       | Resuelto (lock) | Notas  |
+| -------------------------------------- | -------------------- | --------------- | ------ |
+| `next`                                 | `16.2.12`            | 16.2.12         | TS-001 |
+| `react` / `react-dom`                  | `19.2.4`             | 19.2.4          | TS-004 |
+| `typescript`                           | `^5`                 | 5.9.x           | TS-002 |
+| `eslint` / `eslint-config-next`        | `^9` / `16.2.12`     | 9.x / 16.2.12   | TS-022 |
+| `prettier`                             | `^3.9.6`             | 3.9.6           | TS-010 |
+| `tailwindcss` / `@tailwindcss/postcss` | `^4`                 | 4.x             | TS-005 |
+| `vitest`                               | `^4.1.10`            | 4.1.10          | TS-020 |
+| Node                                   | `engines.node: >=22` | —               | TS-024 |
+| pnpm (CI)                              | action `version: 10` | —               | TS-003 |
+
+**Aún no instalados** (binding de producto; wiring M2+): Lucide, Zod, Better Auth, Drizzle, Resend, SDKs R2/Neon.
+
 ## 3. Scripts `pnpm` (objetivo)
 
 | Script                                     | Propósito              | Milestone       |
@@ -51,9 +69,9 @@ Versiones y librerías **binding** (`TS-*`) para agents e issues. No añadir dep
 | `dev`                                      | Dev server             | ya              |
 | `build` / `start`                          | Prod                   | ya              |
 | `lint`                                     | ESLint                 | ya              |
-| `typecheck`                                | `tsc --noEmit`         | M1-02           |
-| `format` / `format:check`                  | Prettier               | M1-02           |
-| `test` / `test:watch`                      | Vitest                 | M1-05           |
+| `typecheck`                                | `tsc --noEmit`         | ya              |
+| `format` / `format:check`                  | Prettier               | ya              |
+| `test` / `test:watch`                      | Vitest                 | ya              |
 | `db:generate` / `db:migrate` / `db:studio` | Drizzle Kit            | post M1-04 / M2 |
 | `auth:seed` (o `db:seed`)                  | Seed coach (`MVP-017`) | M2              |
 
@@ -105,12 +123,11 @@ Nombres orientativos (ajustar prefijos al wire real de Better Auth / SDKs; docum
 | BE-OPEN-03          | `TS-016` R2                                  |
 | BE-OPEN-04          | `TS-014` Resend                              |
 | BE-OPEN-05          | `TS-017` límites foto                        |
+| TS-OPEN-03 (pins)   | §2.2 — majors documentados post M1 tooling   |
 
 ## 8. Preguntas abiertas
 
-| ID         | Tema                       | Notas                                                           |
-| ---------- | -------------------------- | --------------------------------------------------------------- |
-| TS-OPEN-03 | Exact package versions pin | Cerrar al instalar en issues M1-02 / M2 (mantener majors de §2) |
+_(Ninguna de stack. Producto: ver [`00-coherence-index.md`](00-coherence-index.md) §4.)_
 
 ## 9. Referencias
 
