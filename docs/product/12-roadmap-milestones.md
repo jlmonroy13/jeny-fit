@@ -111,7 +111,7 @@ Base técnica y de proceso: docs canónicos **llenos**, CI, stack **decidido**, 
 - [x] Decisiones `TS-*` cerradas en doc 10 (incl. `TS-026` free tier)
 - [ ] Scripts tooling + Vitest harness (M1-02, M1-05)
 - [ ] Retrospectiva M1.10 completada
-- [ ] `roadmap-sync` de issues M1 a GitHub (si se usa Project)
+- [x] `roadmap-sync` de issues M1 a GitHub (Project #13)
 
 ### M1.3 Scope (in)
 

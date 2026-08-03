@@ -11,12 +11,12 @@ alwaysApply: true
 
 | Issue | Status | Next action |
 |-------|--------|-------------|
-| **M1-01** | Docs ✅ en repo | Sync GH / cerrar issue formal si aplica |
-| **M1-04** | Stack docs ✅ | Cerrar issue formal si aplica |
-| **M1-02** | Pendiente | **Primera a codear** — Prettier, typecheck, engines |
-| **M1-03** | Pendiente | CI GH Actions (tras M1-02) |
-| **M1-05** | Pendiente | Vitest harness (tras M1-02) |
-| **M1-06** | Pendiente | Pins + sync docs (tras 02/04/05) |
+| **M1-01** (#1) | ✅ Closed | — |
+| **M1-04** (#4) | ✅ Closed | — |
+| **M1-02** (#2) | Ready (tras project-ready) | **Primera a codear** — Prettier, typecheck, engines |
+| **M1-03** (#3) | Bloqueado por #2 | CI GH Actions |
+| **M1-05** (#5) | Bloqueado por #2 | Vitest harness |
+| **M1-06** (#6) | Bloqueado por #2/#5 | Pins + sync docs |
 
 ## Rules
 
