@@ -13,7 +13,8 @@
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "node -e \"console.log('M1-05: Vitest harness pending'); process.exit(0)\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "roadmap:extract": "node scripts/roadmap-extract-issues.mjs",
     "roadmap:sync": "node scripts/roadmap-sync-github.mjs",
     "roadmap:project-ready": "node scripts/roadmap-project-ready.mjs"
@@ -32,6 +33,7 @@
     "eslint-config-next": "16.2.12",
     "prettier": "^3.9.6",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.10"
   }
 }

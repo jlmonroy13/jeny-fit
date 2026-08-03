@@ -144,7 +144,7 @@ Solo los marcados **Sí** son binding para suite crítica. El resto: manual o cu
 | `paymentOverdue`        | Ancla pasada sin `PaymentRecord`        |
 | `assessmentInitialOpen` | Para M8                                 |
 
-Ubicación sugerida: `tests/fixtures/` o `lib/test/` (definir en M1-05 / M2). Seed de prod ≠ fixtures de test (`BE-009`).
+Ubicación: **`tests/**/*.test.ts`** (smoke: `tests/smoke.test.ts`). Fixtures futuras: `tests/fixtures/` (M2+). Seed de prod ≠ fixtures de test (`BE-009`).
 
 ## 9. Qué no automatizar (MVP)
 
