@@ -1,6 +1,6 @@
 # 00 · Índice de coherencia documental
 
-> **Estado:** v0.4 — docs 01–11 cerrados; **M1 Foundation cerrada** (pins + retro M1.10). Siguiente: detallar M2.
+> **Estado:** v0.5 — docs 01–11 cerrados; **M2** detallada en doc 12 §6. Siguiente: sync → code.
 
 ## 1. Cadena de verdad (orden de lectura)
 
@@ -9,21 +9,21 @@
          → 07 design / prototype → 08–09 arquitectura → 10 stack → 11 tests → 12 roadmap
 ```
 
-| Doc                      | Rol                        | IDs         | Estado fill                                    |
-| ------------------------ | -------------------------- | ----------- | ---------------------------------------------- |
-| **01**                   | Por qué                    | VISION-*    | v1.0 cerrado                                   |
-| **02**                   | Qué entra MVP              | MVP-*       | v1.0 cerrado (`MVP-018` encuesta)              |
-| **03**                   | Quién                      | ROLE-_, F-_ | v1.0 cerrado                                   |
-| **04**                   | Cómo (journeys)            | FLOW-*      | v1.0 cerrado                                   |
-| **05**                   | Qué persiste               | DOMAIN-*    | v1.1 (`DOMAIN-027`)                            |
-| **06**                   | Reglas testeables          | BR-*        | v1.1 (`BR-065`/`066`)                          |
-| **07-prototype-screens** | UI MVP vs prototipo        | Tabla Sí/No | v1.1 cerrado (auth + alta incluidos)           |
-| **07-design-system**     | Tokens/componentes/copy UI | —           | v1.0 cerrado                                   |
-| **08**                   | Frontend                   | FE-*        | v1.0 cerrado                                   |
-| **09**                   | Backend                    | BE-*        | v1.0 cerrado                                   |
-| **10**                   | Stack                      | TS-*        | v1.2 (`TS-OPEN-03` cerrada; pins §2.2)         |
-| **11**                   | Tests                      | TEST-*      | v1.1 (`tests/`; Vitest harness)                |
-| **12**                   | Plan                       | RM-*, Mx-NN | v0.4 — M1 cerrada; M2 pending `roadmap-detail` |
+| Doc                      | Rol                        | IDs         | Estado fill                             |
+| ------------------------ | -------------------------- | ----------- | --------------------------------------- |
+| **01**                   | Por qué                    | VISION-*    | v1.0 cerrado                            |
+| **02**                   | Qué entra MVP              | MVP-*       | v1.0 cerrado (`MVP-018` encuesta)       |
+| **03**                   | Quién                      | ROLE-_, F-_ | v1.0 cerrado                            |
+| **04**                   | Cómo (journeys)            | FLOW-*      | v1.0 cerrado                            |
+| **05**                   | Qué persiste               | DOMAIN-*    | v1.1 (`DOMAIN-027`)                     |
+| **06**                   | Reglas testeables          | BR-*        | v1.1 (`BR-065`/`066`)                   |
+| **07-prototype-screens** | UI MVP vs prototipo        | Tabla Sí/No | v1.1 cerrado (auth + alta incluidos)    |
+| **07-design-system**     | Tokens/componentes/copy UI | —           | v1.0 cerrado                            |
+| **08**                   | Frontend                   | FE-*        | v1.0 cerrado                            |
+| **09**                   | Backend                    | BE-*        | v1.0 cerrado                            |
+| **10**                   | Stack                      | TS-*        | v1.2 (`TS-OPEN-03` cerrada; pins §2.2)  |
+| **11**                   | Tests                      | TEST-*      | v1.1 (`tests/`; Vitest harness)         |
+| **12**                   | Plan                       | RM-*, Mx-NN | v0.5 — M2 detallada (§6); M3+ esqueleto |
 
 ### 1.1 Mapa intake → doc canónico
 
@@ -104,9 +104,9 @@ Acordadas en discovery. Al cerrar 01/02 se anclan con `VISION-*` / `MVP-*`; al c
 
 ## 4. Preguntas abiertas activas
 
-| ID  | Doc | Tema                                                                         |
-| --- | --- | ---------------------------------------------------------------------------- |
-| —   | —   | _(ninguna OPEN de producto/stack; M2 issues pendientes de `roadmap-detail`)_ |
+| ID  | Doc | Tema                                                          |
+| --- | --- | ------------------------------------------------------------- |
+| —   | —   | _(ninguna OPEN de producto/stack; M2 en sync/implementación)_ |
 
 ~~TS-OPEN-03~~ → doc 10 §2.2.  
 ~~RM-OPEN-01~~ → nombres M2–M9 tentativos en doc 12 §2 / doc 02 §7.  
