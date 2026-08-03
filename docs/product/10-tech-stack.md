@@ -53,7 +53,7 @@ Versiones y librerías **binding** (`TS-*`) para agents e issues. No añadir dep
 | `lint`                                     | ESLint                 | ya              |
 | `typecheck`                                | `tsc --noEmit`         | M1-02           |
 | `format` / `format:check`                  | Prettier               | M1-02           |
-| `test`                                     | Vitest                 | M1-05           |
+| `test` / `test:watch`                      | Vitest                 | M1-05           |
 | `db:generate` / `db:migrate` / `db:studio` | Drizzle Kit            | post M1-04 / M2 |
 | `auth:seed` (o `db:seed`)                  | Seed coach (`MVP-017`) | M2              |
 
@@ -79,8 +79,8 @@ Nombres orientativos (ajustar prefijos al wire real de Better Auth / SDKs; docum
 
 - Host: Vercel (`TS-015`); previews por PR **con moderación** (`TS-026`): preferir 1 proyecto, evitar redeploys inútiles; no spamear previews para docs-only si se puede skip.
 - Gate PR (`RM-008`): workflow [`.github/workflows/ci.yml`](../../.github/workflows/ci.yml) en **GitHub Actions** (Node 22 + pnpm): **`pnpm lint` → `pnpm typecheck` → `pnpm format:check` → `pnpm test`**. No usar Neon ni Vercel como runner de test (`TS-026`, `TEST-010`).
-- `pnpm test`: placeholder hasta **M1-05** (Vitest); el job debe seguir existiendo en CI.
-- **DB de integration en CI:** Postgres **service container** en GH Actions (`TEST-016`) — **no** en M1-03; llega con integration M2+. **Prohibido** Neon branches por PR (`TS-026`).
+- `pnpm test`: **Vitest** (`vitest run`; config `vitest.config.mts`; specs en `tests/**/*.test.ts`).
+- **DB de integration en CI:** Postgres **service container** en GH Actions (`TEST-016`) — **no** en M1; llega con integration M2+. **Prohibido** Neon branches por PR (`TS-026`).
 - Neon: **un** proyecto free (dev/prod según convenga); connection pooling; suspender compute idle; sin branch-per-PR.
 - Migrations: aplicar en deploy / paso explícito (issue M2+); no mutar prod a mano.
 
