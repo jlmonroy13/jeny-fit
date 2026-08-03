@@ -1,0 +1,21 @@
+.next
+out
+build
+node_modules
+pnpm-lock.yaml
+package-lock.json
+coverage
+*.min.js
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.ico
+*.pdf
+*.woff
+*.woff2
+docs/product/_intake/**/*.png
+docs/product/_intake/**/*.jpg
+# Reference HTML exports — not app source; keep Claude Design handoff as-is
+docs/product/_intake/design-handoff/**

@@ -2,11 +2,17 @@
   "name": "jeny-fit",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "roadmap:extract": "node scripts/roadmap-extract-issues.mjs",
     "roadmap:sync": "node scripts/roadmap-sync-github.mjs",
     "roadmap:project-ready": "node scripts/roadmap-project-ready.mjs"
@@ -23,6 +29,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
+    "prettier": "^3.9.6",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

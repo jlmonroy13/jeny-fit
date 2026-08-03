@@ -4,11 +4,11 @@
 
 ## Archivos
 
-| Archivo | Contenido |
-|---------|-----------|
-| `01-salud-actividad.png` | Datos personales + Q1–13 (salud, actividad, horario, duración) |
-| `02-objetivos-alimentacion.png` | Q14–19 (objetivos, alergias, alimentación, rutinas) |
-| `03-entrenamiento-conclusiones.png` | Q20 + CONCLUSIÓNES / RECOMENDACIONES (coach) |
+| Archivo                             | Contenido                                                      |
+| ----------------------------------- | -------------------------------------------------------------- |
+| `01-salud-actividad.png`            | Datos personales + Q1–13 (salud, actividad, horario, duración) |
+| `02-objetivos-alimentacion.png`     | Q14–19 (objetivos, alergias, alimentación, rutinas)            |
+| `03-entrenamiento-conclusiones.png` | Q20 + CONCLUSIÓNES / RECOMENDACIONES (coach)                   |
 
 ## Binding
 

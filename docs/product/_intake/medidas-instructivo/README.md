@@ -4,18 +4,18 @@
 
 ## Lista canónica (12)
 
-1. Circunferencia cuello  
-2. Circunferencia hombros  
-3. Circunferencia del pecho  
-4. Circunferencia cintura  
-5. Circunferencia brazo relajado  
-6. Circunferencia brazo contraído  
-7. Circunferencia de la muñeca  
-8. Circunferencia de la cadera  
-9. Circunferencia del muslo medio  
-10. Circunferencia del muslo alto  
-11. Circunferencia de la rodilla  
-12. Circunferencia de la pantorrilla  
+1. Circunferencia cuello
+2. Circunferencia hombros
+3. Circunferencia del pecho
+4. Circunferencia cintura
+5. Circunferencia brazo relajado
+6. Circunferencia brazo contraído
+7. Circunferencia de la muñeca
+8. Circunferencia de la cadera
+9. Circunferencia del muslo medio
+10. Circunferencia del muslo alto
+11. Circunferencia de la rodilla
+12. Circunferencia de la pantorrilla
 
 ## Imágenes de referencia
 

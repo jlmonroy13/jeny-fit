@@ -14,26 +14,26 @@ Journeys end-to-end (`FLOW-*`) para agents y revisión humana. Binding de secuen
 
 ## 3. Mapa de flujos MVP
 
-| ID | Nombre | Actor | Features |
-|----|--------|-------|----------|
-| FLOW-001 | Login coach | ROLE-coach | F-001 |
-| FLOW-002 | Reset password coach | ROLE-coach | F-001 |
-| FLOW-003 | Login cliente (magic link) | ROLE-client | F-002 |
-| FLOW-004 | Alta de cliente | ROLE-coach | F-003, F-004 |
-| FLOW-005 | Gestionar biblioteca de ejercicios | ROLE-coach | F-005 |
-| FLOW-006 | Armar / editar plan de entrenamiento | ROLE-coach | F-006, F-007 |
-| FLOW-007 | Editar plan nutricional | ROLE-coach | F-009 |
-| FLOW-008 | Ejecutar día de entreno (RIR + cerrar) | ROLE-client | F-014, F-015 |
-| FLOW-009 | Editar RIR en día pasado | ROLE-client | F-017 |
-| FLOW-010 | Coach corrige RIR / plan de un día | ROLE-coach | F-006, ROLE-001 |
-| FLOW-011 | Navegar historial + leer feedback | ROLE-client | F-017, F-010 |
-| FLOW-012 | Escribir feedback de bloque | ROLE-coach | F-010 |
-| FLOW-013 | Ver Plan Completo / Comparación | ROLE-coach | F-007, F-008 |
-| FLOW-014 | Gestionar pagos | ROLE-coach | F-011 |
-| FLOW-015 | Cliente ve estado de pago / aviso | ROLE-client | F-011, F-018 |
-| FLOW-016 | Valoración inicial (diagnóstico) | ROLE-client (+ coach) | F-012, F-013 |
-| FLOW-017 | Seguimiento mensual de valoración | ROLE-coach abre · ROLE-client completa | F-012, F-013, ROLE-002 |
-| FLOW-018 | Estado “esperando próximo bloque” | ROLE-client | F-014, MVP-013 |
+| ID       | Nombre                                 | Actor                                  | Features               |
+| -------- | -------------------------------------- | -------------------------------------- | ---------------------- |
+| FLOW-001 | Login coach                            | ROLE-coach                             | F-001                  |
+| FLOW-002 | Reset password coach                   | ROLE-coach                             | F-001                  |
+| FLOW-003 | Login cliente (magic link)             | ROLE-client                            | F-002                  |
+| FLOW-004 | Alta de cliente                        | ROLE-coach                             | F-003, F-004           |
+| FLOW-005 | Gestionar biblioteca de ejercicios     | ROLE-coach                             | F-005                  |
+| FLOW-006 | Armar / editar plan de entrenamiento   | ROLE-coach                             | F-006, F-007           |
+| FLOW-007 | Editar plan nutricional                | ROLE-coach                             | F-009                  |
+| FLOW-008 | Ejecutar día de entreno (RIR + cerrar) | ROLE-client                            | F-014, F-015           |
+| FLOW-009 | Editar RIR en día pasado               | ROLE-client                            | F-017                  |
+| FLOW-010 | Coach corrige RIR / plan de un día     | ROLE-coach                             | F-006, ROLE-001        |
+| FLOW-011 | Navegar historial + leer feedback      | ROLE-client                            | F-017, F-010           |
+| FLOW-012 | Escribir feedback de bloque            | ROLE-coach                             | F-010                  |
+| FLOW-013 | Ver Plan Completo / Comparación        | ROLE-coach                             | F-007, F-008           |
+| FLOW-014 | Gestionar pagos                        | ROLE-coach                             | F-011                  |
+| FLOW-015 | Cliente ve estado de pago / aviso      | ROLE-client                            | F-011, F-018           |
+| FLOW-016 | Valoración inicial (diagnóstico)       | ROLE-client (+ coach)                  | F-012, F-013           |
+| FLOW-017 | Seguimiento mensual de valoración      | ROLE-coach abre · ROLE-client completa | F-012, F-013, ROLE-002 |
+| FLOW-018 | Estado “esperando próximo bloque”      | ROLE-client                            | F-014, MVP-013         |
 
 ## 4. Flujos detallados
 
@@ -251,16 +251,16 @@ Journeys end-to-end (`FLOW-*`) para agents y revisión humana. Binding de secuen
 
 ## 6. Verificación cruzada (01–03 → 04)
 
-| Tema 01–03 | Flows |
-|------------|-------|
-| Auth dual | FLOW-001…003 |
-| Alta sin auto-registro | FLOW-004 |
-| Plan + RIR secuencial | FLOW-006, 008, 009, 010, 018 |
-| Nutrición | FLOW-007 |
-| Feedback | FLOW-011, 012 |
-| Pagos 7 días / no bloqueo | FLOW-014, 015 |
-| Valoración + instructivo | FLOW-016, 017 |
-| Single-coach | Todos los flows coach asumen un solo ROLE-coach |
+| Tema 01–03                | Flows                                           |
+| ------------------------- | ----------------------------------------------- |
+| Auth dual                 | FLOW-001…003                                    |
+| Alta sin auto-registro    | FLOW-004                                        |
+| Plan + RIR secuencial     | FLOW-006, 008, 009, 010, 018                    |
+| Nutrición                 | FLOW-007                                        |
+| Feedback                  | FLOW-011, 012                                   |
+| Pagos 7 días / no bloqueo | FLOW-014, 015                                   |
+| Valoración + instructivo  | FLOW-016, 017                                   |
+| Single-coach              | Todos los flows coach asumen un solo ROLE-coach |
 
 ## 7. Referencias
 

@@ -115,7 +115,8 @@ function main() {
   console.log(JSON.stringify(result, null, 2));
 }
 
-const invokedAsMain = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(__filename);
+const invokedAsMain =
+  process.argv[1] && path.resolve(process.argv[1]) === path.resolve(__filename);
 
 if (invokedAsMain) {
   main();

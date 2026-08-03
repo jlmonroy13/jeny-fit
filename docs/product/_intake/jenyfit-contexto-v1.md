@@ -17,6 +17,7 @@ Este texto reúne toda la información definida sobre la app JenyFit, para que s
 Jeny es una entrenadora personal de gimnasio. Actualmente gestiona a sus clientes de forma manual: envía los planes de entrenamiento en un archivo de Excel, recibe videos de ejercicios y actualizaciones de RIR por WhatsApp, y hace seguimiento de pagos manualmente. La app JenyFit busca **reemplazar el Excel y centralizar la relación coach–cliente** en una sola plataforma: planificación de entrenamiento, plan nutricional, seguimiento de progreso físico, feedback y pagos.
 
 Hay dos tipos de usuarios en el sistema:
+
 - **Jeny (entrenadora / coach / admin):** crea y gestiona todo el contenido de cada cliente.
 - **Cliente (usuario final):** consume su plan, registra su ejecución (RIR) y ve su progreso.
 
@@ -38,6 +39,7 @@ Hay dos tipos de usuarios en el sistema:
 ## 3. Rol: Jeny (entrenadora / coach)
 
 Jeny es la única con permisos administrativos. Puede:
+
 - Agregar clientes nuevos (por correo).
 - Decidir, por cada cliente nuevo, si necesita o no el **bloque de adaptación** (esta decisión es manual, no automática).
 - Crear y editar el **plan nutricional** de cada cliente, en cualquier momento (no está atado a un ciclo fijo de entrenamiento).
@@ -52,6 +54,7 @@ Jeny es la única con permisos administrativos. Puede:
 - Ajustar manualmente la fecha de cobro de un cliente si lo necesita.
 
 ### Vistas del panel de Jeny
+
 1. **Dashboard de clientes** — lista de todos los clientes con su bloque/semana/día actual y su estado de pago (al día / por vencer / vencido).
 2. **Perfil del cliente** — con secciones: Nutrición, Entrenamiento (editor), Plan Completo, Comparación/Progreso, Pagos, Valoración.
 3. **Editor de Plan Nutricional** — hasta 6 comidas configurables con cantidades sugeridas por macronutriente.
@@ -67,6 +70,7 @@ Jeny es la única con permisos administrativos. Puede:
 ## 4. Rol: Cliente (usuario final)
 
 El cliente:
+
 - Inicia sesión vía magic link, una vez que Jeny lo agregó.
 - Ve su **plan nutricional** (solo lectura): hasta 6 comidas con cantidades sugeridas de macros, no atadas a un horario fijo (el cliente decide cuándo comer cada una).
 - Ve su **plan de entrenamiento**, mostrado siempre como el **siguiente día pendiente**, sin importar el día calendario en el que abra la app. Es decir, la navegación por días es **secuencial según lo completado**, no por fecha real.
@@ -83,6 +87,7 @@ El cliente:
 - Completa la **encuesta diagnóstica inicial** una sola vez, y participa en los **seguimientos mensuales** de valoración (ver sección 6).
 
 ### Vistas del cliente (mobile, navegación por bottom nav / tabs inferiores)
+
 1. **Inicio** — el día de entreno pendiente actual + avisos (feedback nuevo, pago atrasado, "esperando próximo bloque").
 2. **Entreno** — el día activo: ejercicios, series, campo de RIR + observación, timer de descanso, placeholder de video, botón de cerrar el día.
 3. **Nutrición** — plan de comidas vigente, solo lectura.
@@ -102,7 +107,9 @@ El cliente:
 - **Snapshot / inmutabilidad:** si Jeny edita o elimina un ejercicio de la biblioteca, los días pasados que ya usaron ese ejercicio **no se ven afectados**. El registro en el día guarda al menos: **nombre, carga, series, repeticiones objetivo** y, si aplica, **id de la biblioteca** (copia histórica, no solo referencia viva).
 
 ### Ciclo de evaluación (sobrecarga progresiva)
+
 Al cierre de cada bloque (4 semanas, última de descarga), Jeny revisa:
+
 - El RIR real anotado por el cliente en cada serie.
 - Los videos que el cliente le envía por WhatsApp (fuera de la app, para el MVP).
 - Las observaciones dejadas por el cliente.
@@ -114,6 +121,7 @@ Con esa información, Jeny diseña el siguiente bloque aplicando el principio de
 ## 6. Panel de Valoración
 
 **Encuesta diagnóstica inicial** (se realiza una sola vez, al iniciar la relación con Jeny):
+
 - Preguntas de respuesta cerrada (ej. opción múltiple / selección).
 - Preguntas de desarrollo (texto libre).
 - Fotos.
@@ -121,6 +129,7 @@ Con esa información, Jeny diseña el siguiente bloque aplicando el principio de
 - Peso corporal.
 
 **Seguimientos mensuales** (recurrentes, sin la encuesta de preguntas):
+
 - Fotos.
 - Medidas corporales.
 - Peso corporal.
