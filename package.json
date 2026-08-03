@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "test": "node -e \"console.log('M1-05: Vitest harness pending'); process.exit(0)\"",
     "roadmap:extract": "node scripts/roadmap-extract-issues.mjs",
     "roadmap:sync": "node scripts/roadmap-sync-github.mjs",
     "roadmap:project-ready": "node scripts/roadmap-project-ready.mjs"
