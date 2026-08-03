@@ -1,6 +1,6 @@
 # 12 · Roadmap & milestones
 
-> **Estado:** v0.2 — **M1 activo** (issues detalladas; docs producto ya llenos). M2–M9 = nombres tentativos (doc 02 §7); issues binding solo tras M1.10 + `roadmap-detail`.
+> **Estado:** v0.3 — **M1** issues de foundation hechas (docs/tooling/CI/Vitest/sync). Pendiente **M1.10** retrospectiva; luego `roadmap-detail` M2.
 
 ## 1. Objetivo y audiencia
 
@@ -29,19 +29,19 @@ Fuente de nombres: [`02-scope-mvp.md`](02-scope-mvp.md) §7. Detalle de issues M
 
 ### 2.1 Estado de implementación (repo)
 
-| Milestone | Docs producto                    | Código / CI                                                            |
-| --------- | -------------------------------- | ---------------------------------------------------------------------- |
-| **M1**    | ✅ `00`–`11` v1.x; este doc v0.2 | ⏳ Next 16 base; **faltan** Prettier/typecheck/CI/Vitest (M1-02/03/05) |
-| **M2+**   | Esqueleto nombres                | —                                                                      |
+| Milestone | Docs producto                   | Código / CI                                       |
+| --------- | ------------------------------- | ------------------------------------------------- |
+| **M1**    | ✅ `00`–`11` + pins doc 10 §2.2 | ✅ Next 16 + Prettier + CI Actions + Vitest smoke |
+| **M2+**   | Esqueleto nombres               | —                                                 |
 
-| Issue M1  | Contenido en repo                    | Siguiente                                                        |
-| --------- | ------------------------------------ | ---------------------------------------------------------------- |
-| **M1-01** | ✅ Docs + AGENTS + rules + skills    | Sync a GitHub Project si aún no; marcar done al cerrar PR formal |
-| **M1-02** | ❌                                   | **Primera a codear** (tooling)                                   |
-| **M1-03** | ❌                                   | Tras M1-02                                                       |
-| **M1-04** | ✅ Doc 10 `TS-011`…`026` cerrados    | Marcar done / PR docs si hace falta formalidad GH                |
-| **M1-05** | ❌                                   | Tras M1-02                                                       |
-| **M1-06** | Parcial (08–11 ya alineados a stack) | Tras 02/04/05 instalados: verificar pins + `00`                  |
+| Issue M1  | Contenido en repo              | Estado         |
+| --------- | ------------------------------ | -------------- |
+| **M1-01** | Docs + AGENTS + rules + skills | ✅ Closed (#1) |
+| **M1-02** | Prettier, typecheck, engines   | ✅ Closed (#2) |
+| **M1-03** | `.github/workflows/ci.yml`     | ✅ Closed (#3) |
+| **M1-04** | Doc 10 stack TS-*              | ✅ Closed (#4) |
+| **M1-05** | Vitest harness + smoke         | ✅ Closed (#5) |
+| **M1-06** | Docs sync + TS-OPEN-03         | ⏳ este issue  |
 
 ## 3. Plantilla canónica de milestone
 
@@ -112,9 +112,9 @@ Base técnica y de proceso: docs canónicos **llenos**, CI, stack **decidido**, 
 ### M1.2 Definition of Done
 
 - [x] `docs/product/00`–`11` + `AGENTS.md` usable por agents (producto/stack/tests cerrados)
-- [ ] CI PR: lint → typecheck → format:check → test en verde
-- [x] Decisiones `TS-*` cerradas en doc 10 (incl. `TS-026` free tier)
-- [ ] Scripts tooling + Vitest harness (M1-02, M1-05)
+- [x] CI PR: lint → typecheck → format:check → test en verde (Actions + Vitest)
+- [x] Decisiones `TS-*` cerradas en doc 10 (incl. `TS-026` free tier; pins §2.2)
+- [x] Scripts tooling + Vitest harness (M1-02, M1-05)
 - [ ] Retrospectiva M1.10 completada
 - [x] `roadmap-sync` de issues M1 a GitHub (Project #13)
 
@@ -131,11 +131,11 @@ Features de negocio, design system sin caller, Neon/Vercel como runners de test,
 | ID        | Título                                         | Tipo  | Est. | Depends on          | Decisiones binding                     | Repo         |
 | --------- | ---------------------------------------------- | ----- | ---- | ------------------- | -------------------------------------- | ------------ |
 | **M1-01** | Product docs bootstrap & AGENTS                | docs  | S    | —                   | RM-005, RM-006                         | ✅ contenido |
-| **M1-02** | Tooling: Prettier, typecheck, engines, scripts | chore | S    | M1-01               | TS-003, TS-010, TS-023, TS-024, RM-008 | ⏳ next      |
-| **M1-03** | CI workflow (lint/typecheck/format/test)       | ci    | S    | M1-02               | RM-008, TS-015, TS-026, TEST-016       | ⏳           |
-| **M1-04** | Stack decisions close (DB/auth/hosting)        | docs  | S    | M1-01               | TS-011…TS-017, TS-026                  | ✅ doc 10    |
-| **M1-05** | Vitest harness                                 | chore | S    | M1-02               | TS-020, TEST-001, TEST-014             | ⏳           |
-| **M1-06** | Docs sync 08/09/10/11 post-tooling             | docs  | S    | M1-02, M1-04, M1-05 | RM-005, TS-OPEN-03                     | ⏳ pins      |
+| **M1-02** | Tooling: Prettier, typecheck, engines, scripts | chore | S    | M1-01               | TS-003, TS-010, TS-023, TS-024, RM-008 | ✅           |
+| **M1-03** | CI workflow (lint/typecheck/format/test)       | ci    | S    | M1-02               | RM-008, TS-015, TS-026, TEST-016       | ✅           |
+| **M1-04** | Stack decisions close (DB/auth/hosting)        | docs  | S    | M1-01               | TS-011…TS-017, TS-026                  | ✅           |
+| **M1-05** | Vitest harness                                 | chore | S    | M1-02               | TS-020, TEST-001, TEST-014             | ✅           |
+| **M1-06** | Docs sync 08/09/10/11 post-tooling             | docs  | S    | M1-02, M1-04, M1-05 | RM-005, TS-OPEN-03                     | ⏳           |
 
 #### M1-01 · Product docs bootstrap & AGENTS
 
@@ -266,9 +266,9 @@ Features de negocio, design system sin caller, Neon/Vercel como runners de test,
 
 ### Acceptance criteria
 
-- [ ] Doc 10 refleja versiones instaladas (pin majors)
-- [ ] `00-coherence-index` sin contradicciones
-- [ ] Este doc §2.1 actualizado
+- [x] Doc 10 refleja versiones instaladas (pin majors) — §2.2
+- [x] `00-coherence-index` sin contradicciones
+- [x] Este doc §2.1 actualizado
 
 ### Out of scope
 
@@ -330,7 +330,7 @@ Tras **M1.10**, skill `roadmap-detail` expande el siguiente milestone. Nombres t
 | ID         | Tema                  | Estado                                                                                |
 | ---------- | --------------------- | ------------------------------------------------------------------------------------- |
 | RM-OPEN-01 | Nombres/objetivos M2+ | **Cerrada (tentativo)** → mapa §2 / §6 = doc 02 §7; issues atómicas siguen post M1.10 |
-| TS-OPEN-03 | Pins npm              | **Abierta** → cerrar en M1-06 al instalar                                             |
+| TS-OPEN-03 | Pins npm              | **Cerrada** → doc 10 §2.2 (M1-06)                                                     |
 
 ## 9. Referencias
 

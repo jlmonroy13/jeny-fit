@@ -5,18 +5,16 @@ alwaysApply: true
 
 # Active milestone (Jeny Fit)
 
-**Current:** **M1 · Foundation** — detalle en [`docs/product/12-roadmap-milestones.md`](../../docs/product/12-roadmap-milestones.md) §5. Do not improvise issue scope.
+**Current:** **M1 · Foundation** — issues M1-01…M1-05 cerradas; **M1-06** docs sync. Tras merge de M1-06: completar **M1.10** retrospectiva en [`docs/product/12-roadmap-milestones.md`](../../docs/product/12-roadmap-milestones.md), luego `roadmap-detail` para **M2**. Do not build M2+ features yet (**RM-003**).
 
 ## Binding now
 
 | Issue | Status | Next action |
 |-------|--------|-------------|
-| **M1-01** (#1) | ✅ Closed | — |
-| **M1-04** (#4) | ✅ Closed | — |
-| **M1-02** (#2) | Ready (tras project-ready) | **Primera a codear** — Prettier, typecheck, engines |
-| **M1-03** (#3) | Bloqueado por #2 | CI GH Actions |
-| **M1-05** (#5) | Bloqueado por #2 | Vitest harness |
-| **M1-06** (#6) | Bloqueado por #2/#5 | Pins + sync docs |
+| **M1-01…M1-05** | ✅ Closed | — |
+| **M1-06** (#6) | In progress / Ready | Pins + sync docs (`TS-OPEN-03`) |
+| **M1.10** | Pendiente | Retrospectiva al cerrar M1-06 |
+| **M2+** | Esqueleto | Solo tras M1.10 + `roadmap-detail` |
 
 ## Rules
 
@@ -26,4 +24,4 @@ alwaysApply: true
 4. Respect **TS-026** (free tier Vercel/Neon).
 5. Before coding: read **Acceptance criteria** and **Out of scope** in the detailed issue.
 
-When M1 closes, update this rule’s “Current” line to M2 (after M1.10 + `roadmap-detail`).
+When M1 closes (after M1.10), update this rule’s “Current” line to M2.
