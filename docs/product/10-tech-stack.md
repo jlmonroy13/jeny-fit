@@ -48,32 +48,35 @@ Versiones y librerías **binding** (`TS-*`) para agents e issues. No añadir dep
 
 Fuente: `package.json` + resolución en `pnpm-lock.yaml` (M1). Carets en `package.json` OK; majors binding abajo.
 
-| Paquete                                | `package.json`       | Resuelto (lock) | Notas  |
-| -------------------------------------- | -------------------- | --------------- | ------ |
-| `next`                                 | `16.2.12`            | 16.2.12         | TS-001 |
-| `react` / `react-dom`                  | `19.2.4`             | 19.2.4          | TS-004 |
-| `typescript`                           | `^5`                 | 5.9.x           | TS-002 |
-| `eslint` / `eslint-config-next`        | `^9` / `16.2.12`     | 9.x / 16.2.12   | TS-022 |
-| `prettier`                             | `^3.9.6`             | 3.9.6           | TS-010 |
-| `tailwindcss` / `@tailwindcss/postcss` | `^4`                 | 4.x             | TS-005 |
-| `vitest`                               | `^4.1.10`            | 4.1.10          | TS-020 |
-| Node                                   | `engines.node: >=22` | —               | TS-024 |
-| pnpm (CI)                              | action `version: 10` | —               | TS-003 |
+| Paquete                                | `package.json`         | Resuelto (lock) | Notas  |
+| -------------------------------------- | ---------------------- | --------------- | ------ |
+| `next`                                 | `16.2.12`              | 16.2.12         | TS-001 |
+| `react` / `react-dom`                  | `19.2.4`               | 19.2.4          | TS-004 |
+| `typescript`                           | `^5`                   | 5.9.x           | TS-002 |
+| `eslint` / `eslint-config-next`        | `^9` / `16.2.12`       | 9.x / 16.2.12   | TS-022 |
+| `prettier`                             | `^3.9.6`               | 3.9.6           | TS-010 |
+| `tailwindcss` / `@tailwindcss/postcss` | `^4`                   | 4.x             | TS-005 |
+| `vitest`                               | `^4.1.10`              | 4.1.10          | TS-020 |
+| `drizzle-orm` / `drizzle-kit`          | `^0.45.2` / `^0.31.10` | 0.45.x / 0.31.x | TS-012 |
+| `postgres` (postgres.js)               | `^3.4.9`               | 3.4.x           | TS-011 |
+| `server-only`                          | `^0.0.1`               | 0.0.1           | FE/BE  |
+| Node                                   | `engines.node: >=22`   | —               | TS-024 |
+| pnpm (CI)                              | action `version: 10`   | —               | TS-003 |
 
-**Aún no instalados** (binding de producto; wiring M2+): Lucide, Zod, Better Auth, Drizzle, Resend, SDKs R2/Neon.
+**Aún no instalados** (binding de producto; wiring M2+): Lucide, Zod, Better Auth, Resend, SDKs R2. Client DB: `lib/db/` + `drizzle.config.ts` (M2-01); tablas de dominio en M2-02.
 
 ## 3. Scripts `pnpm` (objetivo)
 
-| Script                                     | Propósito              | Milestone       |
-| ------------------------------------------ | ---------------------- | --------------- |
-| `dev`                                      | Dev server             | ya              |
-| `build` / `start`                          | Prod                   | ya              |
-| `lint`                                     | ESLint                 | ya              |
-| `typecheck`                                | `tsc --noEmit`         | ya              |
-| `format` / `format:check`                  | Prettier               | ya              |
-| `test` / `test:watch`                      | Vitest                 | ya              |
-| `db:generate` / `db:migrate` / `db:studio` | Drizzle Kit            | post M1-04 / M2 |
-| `auth:seed` (o `db:seed`)                  | Seed coach (`MVP-017`) | M2              |
+| Script                                     | Propósito              | Milestone |
+| ------------------------------------------ | ---------------------- | --------- |
+| `dev`                                      | Dev server             | ya        |
+| `build` / `start`                          | Prod                   | ya        |
+| `lint`                                     | ESLint                 | ya        |
+| `typecheck`                                | `tsc --noEmit`         | ya        |
+| `format` / `format:check`                  | Prettier               | ya        |
+| `test` / `test:watch`                      | Vitest                 | ya        |
+| `db:generate` / `db:migrate` / `db:studio` | Drizzle Kit            | ya        |
+| `auth:seed` (o `db:seed`)                  | Seed coach (`MVP-017`) | M2        |
 
 ## 4. Variables de entorno
 
